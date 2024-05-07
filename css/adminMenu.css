@@ -27,20 +27,3 @@
     background-color:#FFDAB9;
     color: white;
 }
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.btn-primary.active, .btn-primary:active {
-    background-color: orange !important ;
-    border-color: orange !important;
-    font-weight: bold;
-    color:black !important;
-}
-
-.btn-primary{
-    background-color: #D3D3D3;
-    border-color: #D3D3D3;
-}
-
