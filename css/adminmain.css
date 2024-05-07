@@ -16,6 +16,7 @@
 
 }
 
+
 .fs-4{
     color: black;
     font-weight: bolder;
@@ -23,7 +24,7 @@
 .nav-link{
     color: black;
 }
-.nav-link:hover {
+.nav-link:hover, .btn-primary:hover {
     background-color:#FFDAB9;
     color: white;
 }
@@ -37,6 +38,7 @@ body {
     border-color: orange !important;
     font-weight: bold;
     color:black !important;
+    font-weight: bold;;
 }
 
 .btn-primary{
@@ -44,3 +46,7 @@ body {
     border-color: #D3D3D3;
 }
 
+
+.btn-link {
+    text-decoration: none !important; 
+}
