@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="d-flex flex-column flex-shrink-0 p-3 sidebar custom-bg">
-                                    <a href="/"
+                                    <a href="admin_main.html"
                                         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                                         <svg class="bi pe-none me-2" width="40" height="32">
                                             <use xlink:href="#bootstrap" />
@@ -78,6 +78,82 @@
             </div>
         </div>    
       </div>
-      <div class="col-md-8" style="border: 2px solid black;">
+      <div class="col-md-8" >
+        <div class="mt-4"> 
+            <h2>Hi Mag</h2>
+    
+          </div>
+        <div class="mt-4"> <!-- Add top margin -->
+            <div class="row">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex flex-grow-1" role="search">
+                    <input type="search" class="form-control w-100" placeholder="Search..." aria-label="Search">
+                    <button type="button" class="btn btn-light ms-2 searchButton">Search</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="row mt-3 align-items-center">
+            <div class="col-auto">
+              <p class="mb-0">Start Date :</p>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <input type="text" class="form-control" id="startDate" placeholder="Start Date">
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <p class="mb-0">End Date :</p>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <input type="text" class="form-control" id="endDate" placeholder="End Date">
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <hr>
+        </div>
+        <div>
+            <div class="d-flex justify-content-between align-items-center py-3" > 
+                <h3>Recent Orders</h3>
+            </div>
+        </div>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Order no.</th>
+                    <th>Order date</th>
+                    <th>Bill-to name</th>
+                    <th>Total</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>000731</td>
+                      <td>5/9/2022</td>
+                      <td>Frank Williams</td>
+                      <td>€ 4.094,99</td>
+                      <td><a href="#">View details</a></td>
+                    </tr>
+                    <tr>
+                        <td>000730</td>
+                        <td>5/9/2022</td>
+                        <td>Frank Williams</td>
+                        <td>€ 1.660,00</td>
+                        <td><a href="#">View details</a></td>
+                      </tr>
+                    <!-- Add more rows as needed -->
+                  </tbody>
+              </table>
+        </div>
+    </div>
 </div>
     </body>
