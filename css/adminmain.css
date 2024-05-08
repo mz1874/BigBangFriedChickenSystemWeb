@@ -33,7 +33,7 @@ body {
     padding: 0;
 }
 
-.btn-primary.active, .btn-primary:active {
+.btn-primary.active, .btn-primary:active{
     background-color: orange !important ;
     border-color: orange !important;
     font-weight: bold;
@@ -50,3 +50,4 @@ body {
 .btn-link {
     text-decoration: none !important; 
 }
+
