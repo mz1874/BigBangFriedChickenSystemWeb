@@ -1,0 +1,30 @@
+.nav-tabs .nav-link {
+    border: transparent;
+    color: grey !important;
+    font-weight: bold; 
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 3px solid #8E3A2B; 
+    color: black !important; 
+    background-color: transparent;
+}
+
+.nav-tabs .nav-link:hover {
+    color: black !important; 
+}
+
+.d-grid {
+    margin-top: 25px;
+    background-color: #8E3A2B;
+    display: flex;
+    justify-content: center;
+}
+
+button:focus {
+    outline: none;  
+}
+
+button:focus-visible {
+    outline: 2px solid blue; 
+}

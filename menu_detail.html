@@ -5,28 +5,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.css" rel="stylesheet">
-    <title>Sides Menu</title>
+    <link href="css/menu.css" rel="stylesheet">
+    <title>Menu Detail</title>
 
 </head>
 
-<!-- START THE FEATURETTES -->
-<div class="container marketing">
+    <div class="container" style="margin-top: 70px; margin-right: 100px">
+        <div class="row featurette">
+        
+            <div class="col-md-7 order-md-2">
+                <div class="col-sm-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">8PCS Wingette & Drumette</h5>
+                            <p class="card-text" style="color: #818181">A combination of 8 drumettes and wingettes, coated with a sweet and buttery honey glaze.</p>
+                            <p class="card-text">RM 25.90</p>
 
-    <hr class="featurette-divider">
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See
-                    for yourself.</span></h2>
-            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-                layout would work with some actual real-world content in place.</p>
-        </div>
-        <div class="col-md-4 order-md-1">
-            <img src="images/Honey_8PCS_Wingette_Drumette.jpg" class="card-img-top" alt="8PCS Wingette & Drumette">
+                            <div class="d-flex"> 
+                                <button class="btn btn-primary" type="button" aria-label="Subtract" style="background-color:#8E3A2B">-</button>
+                                <div class="col-md-4"> 
+                                    <input type="text" class="form-control" id="quantity" value="1" readonly style="text-align: center; background-color: white;">
+                                </div>
+                                <button class="btn btn-primary" type="button" style="background-color:#8E3A2B">+</button>
+                            </div>  
+  
+                            <div class="d-grid gap-4 col-12 mx-auto">
+                                <button class="btn text-white" type="button">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 order-md-1">
+                <div style="display: flex; justify-content: center; align-items: center; height: auto;">
+                    <img src="images/Honey_8PCS_Wingette_Drumette.jpg" alt="8PCS Wingette & Drumette">
+                </div>
+                
+                <hr class="featurette-divider" style="margin-top: 40px;">
+
+                <h4 class="featurette-heading fw-normal lh-1">Special Instructions</h4>
+                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we need to avoid anything</p>
+
+                <div>
+                    <textarea class="form-control" placeholder="Eg. no mayo" id="specialInstructions" style="height: 100px"></textarea>
+                </div>
+            </div>
         </div>
     </div>
 
-
-    <!-- /END THE FEATURETTES -->
 
 </div><!-- /.container -->
 <script src="js/jquery-3.7.1.js"></script>
