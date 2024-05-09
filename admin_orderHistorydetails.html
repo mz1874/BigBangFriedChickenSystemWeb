@@ -81,73 +81,71 @@
       <div class="col-md-8" >
         <div class="mt-4"> 
             <h2>Hi Mag</h2>
-    
-          </div>
-        <div class="mt-4"> <!-- Add top margin -->
+        </div>
+        <hr>
+        <div class="container">
+            <h4>Order Details</h4>
             <div class="row">
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex flex-grow-1" role="search">
-                    <input type="search" class="form-control w-100" placeholder="Search..." aria-label="Search">
-                    <button type="button" class="btn btn-light ms-2 searchButton">Search</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="row mt-3 align-items-center">
-            <div class="col-auto">
-              <p class="mb-0">Start Date :</p>
-            </div>
-            <div class="col-md-4">
-              <div class="input-group">
-                <input type="text" class="form-control" id="startDate" placeholder="Start Date">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    Order Information
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Order Number: <span class="order-number">G23089</span></li>
+                    <li class="list-group-item">Order Date: <span class="order-date">May 9, 2024</span></li>
+                    <li class="list-group-item">Total: <span class="order-total">Rm59</span></li>
+                    <li class="list-group-item">Type:  <span class ="order-type"> Delivery </span></li>
+
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    Customer Information
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Name: <span class="shipping-name">Ms PY</span></li>
+                    <li class="list-group-item">Address: <span class="shipping-address">123 Main St, Anytown USA</span></li>
+                    <li class="list-group-item">Phone: <span class="shipping-phone">555-1234</span></li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="col-auto">
-              <p class="mb-0">End Date :</p>
-            </div>
-            <div class="col-md-4">
-              <div class="input-group">
-                <input type="text" class="form-control" id="endDate" placeholder="End Date">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    Order Items
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col-md-8">Product Name</div>
+                        <div class="col-md-2">Quantity</div>
+                        <div class="col-md-2">Price</div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col-md-8">Fried Chicken</div>
+                        <div class="col-md-2">2</div>
+                        <div class="col-md-2">$19.99</div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col-md-8">Ramen</div>
+                        <div class="col-md-2">1</div>
+                        <div class="col-md-2">$29.99</div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-        </div>
-        <div class="mt-4">
-            <hr>
-        </div>
-        <div>
-            <div class="d-flex justify-content-between align-items-center py-3" > 
-                <h3>Recent Orders</h3>
-            </div>
-        </div>
-        <div>
-            <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Order no.</th>
-                    <th>Order date</th>
-                    <th>Bill-to name</th>
-                    <th>Total</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      <td>G23087</td>
-                      <td>5/9/2022</td>
-                      <td>Ms PY</td>
-                      <td>RM 59</td>
-                      <td><a href="admin_orderHistorydetails.html">View details</a></td>
-                    </tr>
-                
-                    <!-- Add more rows as needed -->
-                  </tbody>
-              </table>
-        </div>
+          </div>
     </div>
 </div>
     </body>
