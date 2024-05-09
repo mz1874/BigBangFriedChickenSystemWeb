@@ -7,12 +7,16 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+  text-align: center;
 }
 
 /* Header */
 header {
-  background-color: #333;
+  background-color: #2B2925; 
   color: #fff;
   padding: 10px;
 }
@@ -25,12 +29,17 @@ nav {
 
 .logo {
   font-size: 24px;
+  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
+  font-style: italic;
+  color: #EDB34C;
+  margin-left: 20px;
 }
 
 nav ul {
   display: flex;
   list-style-type: none;
+  margin-right: 20px;
 }
 
 nav ul li {
@@ -38,44 +47,19 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff;
+  color: #EDB34C;
   text-decoration: none;
 }
 
-/* Login section */
-.login {
-  background-color: #fff;
-  padding: 20px;
-  margin: 20px;
-  text-align: center;
-}
-
-.login h2 {
-  margin-bottom: 20px;
-}
-
-.login form input {
-  display: block;
-  width: 300px;
-  margin: 10px auto;
-  padding: 10px;
-}
-
-.login form button {
-  background-color: #c00;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
 
 /* Footer */
 footer {
-  background-color: #333;
+  background-color: #2B2925;
   color: #fff;
   padding: 20px;
-  display: flex;
-  justify-content: space-around;
+  margin-top: auto; /* Push the footer to the bottom */
+  width: 100%;
+  text-align: center;
 }
 
 footer h3 {
@@ -92,15 +76,36 @@ footer ul li {
 
 .subscribe input {
   display: block;
+  margin: 0 auto; /* Center the input horizontally */
   width: 200px;
   margin-bottom: 10px;
   padding: 5px;
 }
 
 .subscribe button {
-  background-color: #c00;
+  background-color: #8E3A2B;
   color: #fff;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.smlogo {
+  background-color: #8E3A2B;
+  padding: 10px;
+}
+
+.smlogo img {
+  width: 24px;
+  height: 24px;
+  margin: 0 24px;
+}
+
+/* Color Palette
+
+#FFFFFF White
+#8E3A2B Red
+#2B2925 Black
+#EDB34C Yellow
+
+*/

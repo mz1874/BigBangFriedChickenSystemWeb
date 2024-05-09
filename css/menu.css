@@ -5,7 +5,7 @@
 }
 
 .nav-tabs .nav-link.active {
-    border-bottom: 3px solid #8E3A2B; 
+    border-bottom: 3px solid #7F3720; 
     color: black !important; 
     background-color: transparent;
 }
@@ -14,17 +14,12 @@
     color: black !important; 
 }
 
+/* menu_detail */
 .d-grid {
     margin-top: 25px;
-    background-color: #8E3A2B;
+    background-color: #7F3720;
     display: flex;
     justify-content: center;
 }
 
-button:focus {
-    outline: none;  
-}
 
-button:focus-visible {
-    outline: 2px solid blue; 
-}
