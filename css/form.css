@@ -1,0 +1,116 @@
+/* Login section */
+.login {
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.login h2 {
+  margin-bottom: 20px;
+}
+
+.login form input {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.login form button {
+  background-color: #8E3A2B;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+}
+
+/* Registration */
+
+
+.registration h1 {
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.registration p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.registration form div {
+  display: flex;
+  align-items: center;
+}
+
+.registration form div input[type="checkbox"] {
+  margin-right: 10px; /* Adjust the margin as per your preference */
+}
+
+form {
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+form div {
+    margin-top: 10px;
+}
+
+form div label {
+    font-weight: normal;
+}
+
+form button[type="submit"] {
+    background-color: #8E3A2B;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Back Up
+
+.registration {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+
+.registration h2 {
+  margin-bottom: 20px;
+}
+
+.registration form input {
+  display: block;
+  width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.registration form button {
+  background-color: #8E3A2B;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+*/
