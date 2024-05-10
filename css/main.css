@@ -63,6 +63,18 @@
 	padding: 6px;
 }
 
+.top-nav a {
+	color: #EDB34C;
+}
+
+.top-nav{
+	background-color: #2B2925;
+}
+
 #product:hover, #product:active {
 	background-color: #2B2925;
+}
+
+.footer{
+	margin-top: 20px;
 }
