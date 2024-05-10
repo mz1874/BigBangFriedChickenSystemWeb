@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>menu update for sides</title>
+  <title>menu update for beverages</title>
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href ="css/adminMenu.css" rel = "stylesheet">
   <link href="css/menu.css" rel="stylesheet">
@@ -80,94 +80,89 @@
                 </div>    
             </div>
 
-            <div class="col-md-8">
-                <div class ="content-wrapper">
-
+            <div class="col-md-8" style="border: 2px black solid;">
+                <div>
+                    <h2>Hi <span class ="user-name">Mag</span> </h2>
                 </div>
-                <div class="album py-4 bg-body-tertiary">
-                    <div class="container">
 
-                        <!-- menu bar -->
-                        <ul class="nav-tabs">
-                            <li class="nav">
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Promotion.html">Promotion</a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Combo.html">Combo</a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_friedChicken.html">Fried
-                                    Chicken</a>
-                                <a class="nav-item nav-link link-body-emphasis active" href="admin_MenuUpdate_Sides.html">Sides</a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Beverages.html">Beverages</a>
-                            </li>
-                        </ul>
-
-                        <!-- Sides -->
-                        <h1 class="mt-4" style="color: #7F3720;">Sides</h1>
-
-                        <div class="row row-cols-md-3">
-
-                            <div class="col">
-                                <div class="card shadow-sm mt-4">
-                                    <img src="images/Sides_Potato_Wedges.jpg" class="card-img-top" alt="Potato Wedges">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Potato Wedges</h5>
-                                        <p class="card-text" style="color: #818181">Golden-crisp potato wedges, perfectly seasoned
-                                            and fried to a delicious crunch.</p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <text>RM13.90</text>
-                                            </div>
-                                            <a href="admin_menuUpdateDetails.html" class="btn btn-primary" style="background-color: #7F3720; border-color: transparent;">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card shadow-sm mt-4">
-                                    <img src="images/Sides_Nuggets.jpg" class="card-img-top" alt="Nuggets">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Nuggets</h5>
-                                        <p class="card-text" style="color: #818181">Tender chicken nuggets with a crispy coating,
-                                            ideal for dipping in your favorite sauce.</p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <text>RM 9.90</text>
-                                            </div>
-                                            <a href="admin_menuUpdateDetails.html" class="btn btn-primary" style="background-color: #7F3720; border-color: transparent;">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card shadow-sm mt-4">
-                                    <img src="images/Sides_Steamed_Rice.jpg" class="card-img-top" alt="Steamed Rice">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Steamed Rice</h5>
-                                        <p class="card-text" style="color: #818181">A steamed rice, the perfect accompaniment to our
-                                            fried chicken dishes.</p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <text>RM 4.90</text>
-                                            </div>
-                                            <a href="admin_menuUpdateDetails.html" class="btn btn-primary" style="background-color: #7F3720; border-color: transparent;">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                <div class="container-fluid">
+                    <div class="row" >
+                        <!-- One-third width column -->
+                        <div class="col-md-4">
+                            <img src="images/Beverages_Mineral_Water.jpg" alt="Cart Image" class="img-fluid img-food">
                         </div>
-                        <!-- End of sides -->
-
-                        <div class="d-flex justify-content-end mt-4 fixed-bottom add-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#7F3720" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                            </svg>
-                        </div>
-
-                    </div>
+                        <!-- Two-thirds width column -->
+                        <div class="col-md-8">
+                            <div class="item-details">
+                                <form class ="needs-validation" novalidate>
+                                    <div class ="row">
+                                        <label for="foodTitle" class="form-label">Food Title: </label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Mineral Water" value="" required>
+                                        <div class="invalid-feedback">
+                                          Valid food title is required.
+                                        </div>
+                                    </div>
+                                    <div class ="row">
+                                        <label for="price" class="form-label">Price (RM): </label>
+                                        <input type="number" class="form-control" id="price" placeholder="3.8" value="" required>
+                                        <div class="invalid-feedback">
+                                          Valid price is required.
+                                        </div>
+                                    </div>
+                                    <div class ="row">
+                                        <label for="foodDes" class="form-label">Description: </label>
+                                        <input type="text" class="form-control" id="foodDes" placeholder="Spritzer Mineral Water" value="" required>
+                                        <div class="invalid-feedback">
+                                          Valid description is required.
+                                        </div>
+                                    </div>
+                                    <div class ="row">
+                                        <label for="categories">Categories</label>
+                                        <select class="custom-select d-block w-100" id="categories" required>
+                                        <option value="">-Choose type of category-</option>
+                                        <option>Beverages</option>
+                                        <option>Fried Chicken</option>
+                                        <option>Combo</option>
+                                        <option>Sides</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                        Please select a type of feedback.
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class ="row">
+                                        <div class="list-group">
+                                            <label class="list-group-item d-flex gap-2">
+                                              <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="">
+                                              <span>
+                                                Promotion
+                                                <small class="d-block text-body-secondary">Add this as promotional item? </small>
+                                              </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class ="row">
+                                        <div id="extraForm" >
+                                            <form>
+                                                <!-- Additional form fields go here -->
+                                                <div class="form-group">
+                                                    <label for="Promotion Price">Promotion Price:</label>
+                                                    <input type="text" class="form-control" id="Promotion Price" placeholder="New Price">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div 
+                                </form>
+                            </div>                        
+                      </div>
                 </div>
+
+                
             </div>
             
         </div>
-    </div>
+    </div>   
+</div>
+
 </body>

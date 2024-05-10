@@ -33,3 +33,9 @@
     margin-bottom: 20px !important;
     
 }
+
+.img-food{
+    width: 300px !important;
+    height: 200px !important;
+    overflow: hidden !important;
+}
