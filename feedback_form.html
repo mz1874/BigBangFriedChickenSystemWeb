@@ -1,20 +1,10 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="feedback form">
-  <meta name="author" content="Cheah Ruo Ying">
-  <title>BigBang Fried Chicken Feedback Form</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/checkout/">
-
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/form-validation.css" rel="stylesheet">
+  <title>Contact Our Teams</title>
+  <link rel="stylesheet" href="css/form-validation.css">
+  <link rel="stylesheet" href="css/default.css">
 </head>
 
 <body>
@@ -33,158 +23,98 @@
       </ul>
     </nav>
   </header>
-
-  <div class="container">
-    <div>
-      <h2>Contact Our Teams!<br></h2>
-    </div>
-
-    <div class="row bg-light shadow">
-      <div class="col-md-8 order-md-1 move-left">
-        <h3>Feedback Form</h3>
-        <p class="color-yellow">Please provide as much information that is relevant to the issues as possible</p>
-        <h5 class="mb-3">General Information</h5>
-        <form class="needs-validation" novalidate>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName">Name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid your name is required.
-              </div>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="phoneNumber">Phone Number</label>
+  <div class="feedback-container">
+    <h1>Contact Our Teams!</h1>
+    <div class="feedback-form">
+      <h2>Feedback Form</h2>
+      <p class="yellow">Please provide as much information that is relevant to the issues as possible.</p>
+      <form>
+        <div class="form-group">
+          <h3>General Information</h3>
+          <div class="input-width-short">
             <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">+60</span>
-              </div>
-              <input type="text" class="form-control" id="phoneNumber" placeholder="12345678" value="" required>
-              <div class="invalid-feedback" style="width: 100%;">
-                Valid your phone number is required.
-              </div>
+              <label for="name" class="font-small">Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe">
+            </div>
+            <div class="input-group">
+              <label for="phone" class="font-small">Phone Number(+60)</label>
+              <input type="tel" id="phone" name="phone" placeholder="601234567">
+            </div>
+            <div class="input-group">
+              <label for="email" class="font-small">Email</label>
+              <input type="email" id="email" name="email" placeholder="error@gmail.com">
             </div>
           </div>
-
-          <div class="mb-3">
-            <label for="newEmail">Email</label>
-            <input type="text" class="form-control" id="newEmail" placeholder="error@gmail.com" required>
-            <div class="invalid-feedback">
-              Please enter a valid email address.
-            </div>
-          </div>
-          <h5 class="mb-3"><br>Info</h5>
-          <div class="mb-3">
-            <label for="categories">Categories</label>
-            <select class="custom-select d-block w-100" id="categories" required>
-              <option value="">-Choose type of feedback-</option>
-              <option>Accuracy of Order</option>
-              <option>Speed of Service</option>
-              <option>Cleanliness</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a type of feedback.
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="typeOfVisit">Type of visit</label>
-              <select class="custom-select d-block w-100" id="typeOfVisit" required>
-                <option value="">-Choose type of visit-</option>
-                <option>Dine In</option>
-                <option>Pick Up</option>
-                <option>Drive Thru</option>
+        </div>
+        <div class="form-group">
+          <h3>Info</h3>
+          <div class="input-width-short">
+            <div class="input-group">
+              <label for="category" class="font-small">Categories</label>
+              <select id="category" name="category">
+                <option value="" disabled selected>-Choose type of feedback-</option>
+                <option value="accuracy">Accuracy of Order</option>
+                <option value="speed">Speed of Service</option>
+                <option value="cleanliness">Cleanliness</option>
               </select>
-              <div class="invalid-feedback">
-                Please provide a type of visit.
-              </div>
             </div>
-            <div class="col-md-6 mb-3">
-              <label for="timeOfVisit">Time of visit</label>
-              <select class="custom-select d-block w-100" id="timeOfVisit" required>
-                <option value="">-Choose time of visit-</option>
-                <option>Breakfast</option>
-                <option>Lunch</option>
-                <option>Dinner</option>
+            <div class="input-group">
+              <label for="visit-type" class="font-small">Type of visit</label>
+              <select id="visit-type" name="visit-type">
+                <option value="" disabled selected>-Choose type of visit-</option>
+                <option value="dine-in">Dine In</option>
+                <option value="pick-up">Pick Up</option>
+                <option value="drive-thru">Drive Thru</option>
               </select>
-              <div class="invalid-feedback">
-                Please provide a time of visit.
-              </div>
+              <label for="visit-time" class="font-small">Time of visit</label>
+              <select id="visit-time" name="visit-time">
+                <option value="" disabled selected>-Choose time of visit-</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="visit-date" class="font-small">Date of visit</label>
+              <input type="text" id="visit-date" name="visit-date" placeholder="dd/mm/yy">
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="dateOfVisit">Date of visit</label>
-              <input type="text" class="form-control" id="dateOfVisit" placeholder="dd/mm/yy" value="" required>
-              <div class="invalid-feedback">
-                Please provide a date of visit.
-              </div>
-            </div>
+        </div>
+        <div class="form-group input-width-long">
+          <label>Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Message subject">
+          <label class="font-small">Message</label>
+          <textarea id="message" name="message" placeholder="Leave your message here..."></textarea>
+        </div>
+        <div class="button-right">
+          <div class="form-group">
+            <button type="reset" class="btn btn-reset"><b>RESET</b></button>
+            <a href="form_submitted.html" class="btn btn-submit"><b>SUBMIT</b></a>
           </div>
-          <div class="mb-3">
-            <label for="subject">Subject</label>
-            <input type="text" class="form-control" id="subject" placeholder="Message subject" value="" required>
-            <div class="invalid-feedback">
-              Please provide message subject.
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="subject">Subject</label>
-            <input type="text" class="form-control" id="subject" placeholder="Message subject" value="" required>
-            <div class="invalid-feedback">
-              Please provide message subject.
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="message">Message</label>
-            <input type="text" class="form-control" id="message" placeholder="Leave your message here..." value=""
-              required>
-            <div class="invalid-feedback">
-              Please leave your message here.
-            </div>
-          </div>
-          <div class="button-container button-margin">
-            <button class="button" type="reset"><b>RESET</b></button>
-            <button class="button" type="submit" id="mySubmitButton"><b>SUBMIT</b></button>
-          </div>
-          <p><br></p>
-        </form>
-      </div>
+        </div>
+
+      </form>
     </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
-  <script src="js/form-validation.js"></script>
-  <p><br></p>
-  <div>
-    <footer>
-      <div class="subscribe">
-        <h3>Subscribe to BBFC Email</h3>
-        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
-
-        <br>
-
-        <input type="email" placeholder="Email Address">
-        <button>Subscribe</button>
-      </div>
+  <footer>
+    <div class="subscribe">
+      <h3>Subscribe to BBFC Email</h3>
+      <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
 
       <br>
 
-      <div class="smlogo">
-        <img src="images/fb.png" alt="logo" />
-        <img src="images/twitter.png" alt="logo" />
-        <img src="images/insta.png" alt="logo" />
-      </div>
-    </footer>
+      <input type="email" placeholder="Email Address">
+      <button>Subscribe</button>
+    </div>
+
+    <br>
+
+    <div class="smlogo">
+      <img src="images/fb.png" alt="logo" />
+      <img src="images/twitter.png" alt="logo" />
+      <img src="images/insta.png" alt="logo" />
+    </div>
+  </footer>
 </body>
 
 </html>
