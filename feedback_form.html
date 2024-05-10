@@ -1,117 +1,81 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="feedback form">
-    <meta name="author" content="Cheah Ruo Ying">
-    <title>BigBang Fried Chicken Feedback Form</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/checkout/">    
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="feedback form">
+  <meta name="author" content="Cheah Ruo Ying">
+  <title>BigBang Fried Chicken Feedback Form</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/checkout/">
 
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    
-    <!-- Custom styles for this template -->
-    <link href="css/form-validation.css" rel="stylesheet">
-  </head>
-  <body><!--"bg-light"-->
-    
-<div class="container">
-  <div>
-    <h2>Contact Our Teams!<br></h2>
-  </div>
+  <!-- Custom styles for this template -->
+  <link href="css/form-validation.css" rel="stylesheet">
+</head>
 
-  <div class="row bg-light">
-    
-    <div class="col-md-4 order-md-2 mb-4">
-      <!--
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill">3</span>
-      </h4>
-      <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Product name</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$12</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Second product</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$8</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Third item</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$5</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between bg-light">
-          <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
-          </div>
-          <span class="text-success">-$5</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>$20</strong>
-        </li>
+<body>
+  <header>
+    <nav>
+      <div class="logo">BBFC</div>
+      <ul>
+        <ul>
+          <li><a href="main.html">Home</a></li>
+          <li><a href="menu_combo.html">Menu</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="feedback_form.html">Contact Us</a></li>
+          <li><a href="logIn.html">Log In</a></li>
+          <li><a href="#">Order Now</a></li>
+        </ul>
       </ul>
+    </nav>
+  </header>
 
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Promo code">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </div>
-      </form>-->
+  <div class="container">
+    <div>
+      <h2>Contact Our Teams!<br></h2>
     </div>
-    <div class="col-md-8 order-md-1 move-left">
-      <h3>Feedback Form</h3>
-      <p class="color-yellow">Please provide as much information that is relevant to the issues as possible</p>
-      <h5 class="mb-3">General Information</h5>
-      <form class="needs-validation" novalidate>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+
+    <div class="row bg-light shadow">
+      <div class="col-md-8 order-md-1 move-left">
+        <h3>Feedback Form</h3>
+        <p class="color-yellow">Please provide as much information that is relevant to the issues as possible</p>
+        <h5 class="mb-3">General Information</h5>
+        <form class="needs-validation" novalidate>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid your name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="phoneNumber">Phone Number</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">+60</span>
+              </div>
+              <input type="text" class="form-control" id="phoneNumber" placeholder="12345678" value="" required>
+              <div class="invalid-feedback" style="width: 100%;">
+                Valid your phone number is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="newEmail">Email</label>
+            <input type="text" class="form-control" id="newEmail" placeholder="error@gmail.com" required>
             <div class="invalid-feedback">
-              Valid your name is required.
+              Please enter a valid email address.
             </div>
           </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="phoneNumber">Phone Number</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">+60</span>
-            </div>
-            <input type="text" class="form-control" id="phoneNumber" placeholder="12345678" value="" required>
-            <div class="invalid-feedback" style="width: 100%;">
-              Valid your phone number is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="newEmail">Email</label>
-          <input type="text" class="form-control" id="newEmail" placeholder="error@gmail.com" required>
-          <div class="invalid-feedback">
-            Please enter a valid email address.
-          </div>
-        </div>
-        <h5 class="mb-3"><br>Info</h5>
+          <h5 class="mb-3"><br>Info</h5>
           <div class="mb-3">
             <label for="categories">Categories</label>
             <select class="custom-select d-block w-100" id="categories" required>
@@ -124,166 +88,103 @@
               Please select a type of feedback.
             </div>
           </div>
-        
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="typeOfVisit">Type of visit</label>
-            <select class="custom-select d-block w-100" id="typeOfVisit" required>
-              <option value="">-Choose type of visit-</option>
-              <option>Dine In</option>
-              <option>Pick Up</option>
-              <option>Drive Thru</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a type of visit.
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="typeOfVisit">Type of visit</label>
+              <select class="custom-select d-block w-100" id="typeOfVisit" required>
+                <option value="">-Choose type of visit-</option>
+                <option>Dine In</option>
+                <option>Pick Up</option>
+                <option>Drive Thru</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a type of visit.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="timeOfVisit">Time of visit</label>
+              <select class="custom-select d-block w-100" id="timeOfVisit" required>
+                <option value="">-Choose time of visit-</option>
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a time of visit.
+              </div>
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="timeOfVisit">Time of visit</label>
-            <select class="custom-select d-block w-100" id="timeOfVisit" required>
-              <option value="">-Choose time of visit-</option>
-              <option>Breakfast</option>
-              <option>Lunch</option>
-              <option>Dinner</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a time of visit.
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="dateOfVisit">Date of visit</label>
+              <input type="text" class="form-control" id="dateOfVisit" placeholder="dd/mm/yy" value="" required>
+              <div class="invalid-feedback">
+                Please provide a date of visit.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="dateOfVisit">Date of visit</label>
-            <input type="text" class="form-control" id="dateOfVisit" placeholder="dd/mm/yy" value="" required>
+          <div class="mb-3">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control" id="subject" placeholder="Message subject" value="" required>
             <div class="invalid-feedback">
-              Please provide a date of visit.
+              Please provide message subject.
             </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <label for="subject">Subject</label>
-          <input type="text" class="form-control" id="subject" placeholder="Message subject" value="" required>
-          <div class="invalid-feedback">
-            Please provide message subject.
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="subject">Subject</label>
-          <input type="text" class="form-control" id="subject" placeholder="Message subject" value="" required>
-          <div class="invalid-feedback">
-            Please provide message subject.
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="message">Message</label>
-          <input type="text" class="form-control" id="message" placeholder="Leave your message here..." value="" required>
-          <div class="invalid-feedback">
-            Please leave your message here.
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--
-        <hr class="mb-4">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="same-address">
-          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-        </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="save-info">
-          <label class="custom-control-label" for="save-info">Save this information for next time</label>
-        </div>
-        <hr class="mb-4">
-
-        <h4 class="mb-3">Payment</h4>
-
-        <div class="d-block my-3">
-          <div class="custom-control custom-radio">
-            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-            <label class="custom-control-label" for="credit">Credit card</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="debit">Debit card</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="paypal">PayPal</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="cc-name">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required>
-            <small class="text-muted">Full name as displayed on card</small>
+          <div class="mb-3">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control" id="subject" placeholder="Message subject" value="" required>
             <div class="invalid-feedback">
-              Name on card is required
+              Please provide message subject.
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="cc-number">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+          <div class="mb-3">
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message" placeholder="Leave your message here..." value=""
+              required>
             <div class="invalid-feedback">
-              Credit card number is required
+              Please leave your message here.
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3 mb-3">
-            <label for="cc-expiration">Expiration</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-            <div class="invalid-feedback">
-              Expiration date required
-            </div>
+          <div class="button-container button-margin">
+            <button class="button" type="reset"><b>RESET</b></button>
+            <button class="button" type="submit" id="mySubmitButton"><b>SUBMIT</b></button>
           </div>
-          <div class="col-md-3 mb-3">
-            <label for="cc-cvv">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-            <div class="invalid-feedback">
-              Security code required
-            </div>
-          </div>
-        </div>
-        <hr class="mb-4">
-      -->
-      <div class="button-container button-margin">
-        <button class="button" type="reset"><b>RESET</b></button>
-        <button class="button" type="submit"><b>SUBMIT</b></button>
+          <p><br></p>
+        </form>
       </div>
-      </form>
-      </form>
-      
     </div>
   </div>
 
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017-2022 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/form-validation.js"></script>
+  <p><br></p>
+  <div>
+    <footer>
+      <div class="subscribe">
+        <h3>Subscribe to BBFC Email</h3>
+        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
 
-      
-        <script src="form-validation.js"></script>
-  </body>
+        <br>
+
+        <input type="email" placeholder="Email Address">
+        <button>Subscribe</button>
+      </div>
+
+      <br>
+
+      <div class="smlogo">
+        <img src="images/fb.png" alt="logo" />
+        <img src="images/twitter.png" alt="logo" />
+        <img src="images/insta.png" alt="logo" />
+      </div>
+    </footer>
+</body>
+
 </html>

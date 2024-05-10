@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBFC Cart</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">BBFC</div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="menu_combo.html">Menu</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="feedback_form.html">Contact Us</a></li>
+                <li><a href="logIn.html">Log In</a></li>
+                <li><a href="#">Order Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <div class="cart">
+                <h2>My Cart</h2>
+                <br>
+                <p>Self Collect At: <span class="location">BigBang SS15</span></p>
+                <p>Date and Time: <span class="date-time">Today 25 Apr 2024, 8:45 pm</span></p>
+                <hr>
+
+                <div class="add-item">
+                    <h3>You're Ordered</h3>
+                    <div class="add-item">
+                        <button><a href="menu_combo.html">+ Add Item</a></button>
+                    </div>
+                </div>
+                <br>
+                <div class="cart-items">
+                    <div class="cart-item">
+                        <div class="item-details">
+                            <p>2pcs Chicken Wings Set</p>
+                            <p>Regular Fries</p>
+                            <p>Regular Zero Sugar Coke (ICE)</p>
+                        </div>
+                        <div class="item-price">RM23.99</div>
+                        <div class="item-quantity">
+                            <button class="qty-btn minus-btn">-</button>
+                            <span class="qty">1</span>
+                            <button class="qty-btn plus-btn">+</button>
+                        </div>
+                    </div>
+                    <div class="cart-item">
+                        <div class="item-details">
+                            <p>Fantastic Drumstick Set</p>
+                            <p>Regular Fries</p>
+                            <p>Regular Lemon Tea (ICT)</p>
+                        </div>
+                        <div class="item-price">RM19.99</div>
+                        <div class="item-quantity">
+                            <button class="qty-btn minus-btn">-</button>
+                            <span class="qty">2</span>
+                            <button class="qty-btn plus-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="promo">
+                    <h3>Promo Codes</h3>
+                    <div class="promo-code">
+                        <input type="text" placeholder="Enter your promo codes">
+                    </div>
+                </div>
+
+                <div class="cart-total">
+                    <div class="total-row">
+                        <span>Subtotal (incl.SST)</span>
+                        <span class="subtotal">RM 63.97</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Service Tax (6%)</span>
+                        <span class="service-tax">RM 3.84</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Rounding Adjustment</span>
+                        <span class="rounding-adj">RM 0.03</span>
+                    </div>
+                    <div class="total-row total">
+                        <span>TOTAL</span>
+                        <span class="total-amount">RM 64.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment">
+                <h2>Payment</h2>
+                <p>Name:</p>
+                <input type="text" placeholder="John Doe">
+                <p>Phone Number:</p>
+                <input type="text" placeholder="012345678">
+                <p>Email:</p>
+                <input type="text" placeholder="error@gmail.com">
+                <p class="paid">Paid by:</p>
+                <div class="payment-buttons">
+                    <button class="e-wallet"><a href="main.html">Cancel order</a></button>
+                    <button class="cash"><a href="order-completed.html">Pay by Cash</a></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="subscribe">
+            <h3>Subscribe to BBFC Email</h3>
+            <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+            <br>
+            <input type="email" placeholder="Email Address">
+            <button>Subscribe</button>
+        </div>
+        <br>
+        <div class="smlogo">
+            <img src="images/fb.png" alt="logo">
+            <img src="images/twitter.png" alt="logo">
+            <img src="images/insta.png" alt="logo">
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
