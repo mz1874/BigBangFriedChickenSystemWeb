@@ -81,47 +81,103 @@
             </div>
 
             <div class="col-md-8">
-                <div class ="content-wrapper">
-                    <div class="album py-4 bg-body-tertiary">
-                        <div class="container">
-                
-                            <!-- menu bar -->
-                            <ul class="nav-tabs">
-                                <li class="nav">
-                                    <a class="nav-item nav-link link-body-emphasis active" href="admin_MenuUpdate_Promotion.html">Promotion</a>
-                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Combo.html">Combo</a>
-                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_friedChicken.html">Fried
-                                        Chicken</a>
-                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Sides.html">Sides</a>
-                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Beverages.html">Beverages</a>
-                                </li>
-                            </ul>
-                
-                            <!-- Promotion -->
-                            <h1 class="mt-4" style="color: #7F3720;">Promotion</h1>
-                
-                            <div class="row row-cols-md-3">
-                
-                                <!-- Your promotion items here -->
-                
-                            </div>
-                            <!-- End of Promotion -->      
-                            <div class="d-flex justify-content-end mt-4 fixed-bottom add-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#7F3720" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                                </svg>
-                            </div>        
-                        </div>
-                
-                       
-                
-                    </div>
+                <div>
+                    <h2>Hi <span class ="user-name">Mag</span> </h2>
                 </div>
+                <hr>
+                <div class="container-fluid">
+                    <div class="row" >
+                        <!-- One-third width column -->
+                        <div class="col-md-4">
+                            <img src="images/Beverages_Mineral_Water.jpg" alt="Cart Image" class="img-fluid img-food">
+                        </div>
+                        <!-- Two-thirds width column -->
+                        <div class="col-md-8">
+                            <div class="item-details">
+                                <form class ="needs-validation" novalidate>
+                                    <div class ="row">
+                                        <label for="foodTitle" class="form-label">Food Title: </label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Mineral Water" value="" required>
+                                        <div class="invalid-feedback">
+                                          Valid food title is required.
+                                        </div>
+                                    </div>
+                                    <div class ="row">
+                                        <label for="price" class="form-label">Price (RM): </label>
+                                        <input type="number" class="form-control" id="price" placeholder="3.8" value="" required>
+                                        <div class="invalid-feedback">
+                                          Valid price is required.
+                                        </div>
+                                    </div>
+                                    <div class ="row">
+                                        <label for="foodDes" class="form-label">Description: </label>
+                                        <input type="text" class="form-control" id="foodDes" placeholder="Spritzer Mineral Water" value="" required>
+                                        <div class="invalid-feedback">
+                                          Valid description is required.
+                                        </div>
+                                    </div>
+                                    <div class ="row">
+                                        <label for="categories">Categories</label>
+                                        <select class="custom-select d-block w-100" id="categories" required>
+                                        <option value="">-Choose type of category-</option>
+                                        <option>Beverages</option>
+                                        <option>Fried Chicken</option>
+                                        <option>Combo</option>
+                                        <option>Sides</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                        Please select a type of feedback.
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class ="row">
+                                        Promotion
+
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="row mb-3">
+                                          <div class="col-6 promotionRadio">
+                                            <label class="list-group-item d-flex gap-2 mb-2">
+                                              <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="Promotion" value="yes">
+                                              <span>Yes</span>
+                                            </label>
+                                          </div>
+                                          <div class="col-6 promotionRadio">
+                                            <label class="list-group-item d-flex gap-2 mb-0">
+                                              <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="noPromotion" value="no" checked>
+                                              <span>No</span>
+                                            </label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div id="extraForm" style="display: none;">
+                                          <form>
+                                            <!-- Additional form fields go here -->
+                                            <div class="form-group">
+                                              <label for="Promotion Price">Promotion Price:</label>
+                                              <input type="text" class="form-control" id="Promotion Price" placeholder="New Price">
+                                            </div>
+                                          </form>
+                                        </div>
+                                    </div>
+                                      <div class="row">
+                                        <div class="col-12 d-flex flex-row-reverse justify-content-between align-items-center py-3">
+                                          <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>                        
+                      </div>
+                </div>
+
                 
             </div>
             
         </div>
     </div>   
 </div>
+<script src="js/admin_menu.js"></script>
 
 </body>
