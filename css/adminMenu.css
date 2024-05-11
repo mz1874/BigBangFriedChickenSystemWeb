@@ -39,3 +39,13 @@
     height: 200px !important;
     overflow: hidden !important;
 }
+
+.btn-primary{
+    background-color: orange !important;
+    border: 0px;
+}
+
+.promotionRadio{
+    border-radius: 3px;
+    width : 200px;
+}

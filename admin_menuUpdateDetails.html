@@ -80,11 +80,11 @@
                 </div>    
             </div>
 
-            <div class="col-md-8" style="border: 2px black solid;">
+            <div class="col-md-8">
                 <div>
                     <h2>Hi <span class ="user-name">Mag</span> </h2>
                 </div>
-
+                <hr>
                 <div class="container-fluid">
                     <div class="row" >
                         <!-- One-third width column -->
@@ -131,28 +131,42 @@
                                     </div>
                                     <br>
                                     <div class ="row">
-                                        <div class="list-group">
-                                            <label class="list-group-item d-flex gap-2">
-                                              <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="">
-                                              <span>
-                                                Promotion
-                                                <small class="d-block text-body-secondary">Add this as promotional item? </small>
-                                              </span>
+                                        Promotion
+
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="row mb-3">
+                                          <div class="col-6 promotionRadio">
+                                            <label class="list-group-item d-flex gap-2 mb-2">
+                                              <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="Promotion" value="yes">
+                                              <span>Yes</span>
                                             </label>
+                                          </div>
+                                          <div class="col-6 promotionRadio">
+                                            <label class="list-group-item d-flex gap-2 mb-0">
+                                              <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="noPromotion" value="no" checked>
+                                              <span>No</span>
+                                            </label>
+                                          </div>
                                         </div>
                                     </div>
-                                    <div class ="row">
-                                        <div id="extraForm" >
-                                            <form>
-                                                <!-- Additional form fields go here -->
-                                                <div class="form-group">
-                                                    <label for="Promotion Price">Promotion Price:</label>
-                                                    <input type="text" class="form-control" id="Promotion Price" placeholder="New Price">
-                                                </div>
-                                            </form>
+                                    <div class="row">
+                                        <div id="extraForm" style="display: none;">
+                                          <form>
+                                            <!-- Additional form fields go here -->
+                                            <div class="form-group">
+                                              <label for="Promotion Price">Promotion Price:</label>
+                                              <input type="text" class="form-control" id="Promotion Price" placeholder="New Price">
+                                            </div>
+                                          </form>
                                         </div>
                                     </div>
-                                    <div 
+                                      <div class="row">
+                                        <div class="col-12 d-flex flex-row-reverse justify-content-between align-items-center py-3">
+                                          <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>                        
                       </div>
@@ -164,5 +178,6 @@
         </div>
     </div>   
 </div>
+<script src="js/admin_menu.js"></script>
 
 </body>
