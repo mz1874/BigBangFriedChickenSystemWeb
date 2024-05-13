@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order Status</title>
   <link href="css/bootstrap.css" rel="stylesheet">
-  <link href ="css/adminMenu.css" rel = "stylesheet">
-</head>
+  <link href="css/adminmain.css" rel ="stylesheet">
 
+</head>
 <body>
   <div class="container">
     <div class="row">
@@ -19,7 +19,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="d-flex flex-column flex-shrink-0 p-3 sidebar custom-bg">
-                                    <a href="admin_main.html"
+                                    <a href="/"
                                         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                                         <svg class="bi pe-none me-2" width="40" height="32">
                                             <use xlink:href="#bootstrap" />
@@ -37,11 +37,11 @@
                                                 </svg>
                                                 <svg class="bi pe-none me-2" width="16" height="16">
                                                     <use xlink:href="#home" />
-                                                </svg>
+                                                </svg> <!-- Original icon -->
                                                 Order Status </a>
                                         </li>
                                         <li>
-                                            <a href="admin_MenuUpdate_Promotion.html" class="nav-link">
+                                            <a href="admin_MenuUpdate_Promotion.html" class="nav-link  active">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                                     class="bi bi-pencil" viewBox="0 0 16 16">
                                                     <path
@@ -54,7 +54,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="admin_orderHistory.html" class="nav-link active link-body-emphasis">
+                                            <a href="admin_orderHistory.html" class="nav-link link-body-emphasis">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                                     class="bi bi-clock-history" viewBox="0 0 16 16">
                                                     <path
@@ -79,74 +79,99 @@
         </div>    
       </div>
       <div class="col-md-8" >
-        <div class="mt-4"> 
-            <h2>Hi Mag</h2>
-    
-          </div>
-        <div class="mt-4"> <!-- Add top margin -->
-            <div class="row">
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex flex-grow-1" role="search">
-                    <input type="search" class="form-control w-100" placeholder="Search..." aria-label="Search">
-                    <button type="button" class="btn btn-light ms-2 searchButton">Search</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="row mt-3 align-items-center">
-            <div class="col-auto">
-              <p class="mb-0">Start Date :</p>
-            </div>
-            <div class="col-md-4">
-              <div class="input-group">
-                <input type="text" class="form-control" id="startDate" placeholder="Start Date">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <p class="mb-0">End Date :</p>
-            </div>
-            <div class="col-md-4">
-              <div class="input-group">
-                <input type="text" class="form-control" id="endDate" placeholder="End Date">
-                <div class="input-group-addon">
-                  <span class="glyphicon glyphicon-th"></span>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="mt-4">
-            <hr>
-        </div>
         <div>
-            <div class="d-flex justify-content-between align-items-center py-3" > 
-                <h3>Recent Orders</h3>
+            <h4>Add New Menu Item</h4>
+        </div>
+        <hr>
+        <div class="row" >
+            <!-- One-third width column -->
+            <div class="col-md-4">
+                <img src="images/Beverages_Mineral_Water.jpg" alt="Cart Image" class="img-fluid img-food">
             </div>
-        </div>
-        <div>
-            <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Order no.</th>
-                    <th>Order date</th>
-                    <th>Bill-to name</th>
-                    <th>Total</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                      <td>G23087</td>
-                      <td>5/9/2022</td>
-                      <td>Ms PY</td>
-                      <td>RM 59</td>
-                      <td><a href="admin_orderHistorydetails.html">View details</a></td>
-                    </tr>
-                
-                  </tbody>
-              </table>
-        </div>
+            <!-- Two-thirds width column -->
+            <div class="col-md-8">
+                <div class="item-details">
+                    <form class ="needs-validation" novalidate>
+                        <div class ="row">
+                            <label for="foodTitle" class="form-label">Food Title: </label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter the food title" value="" required>
+                            <div class="invalid-feedback">
+                              Valid food title is required.
+                            </div>
+                        </div>
+                        <div class ="row">
+                            <label for="price" class="form-label">Price (RM): </label>
+                            <input type="number" class="form-control" id="price" placeholder="Enter the price" value="" required>
+                            <div class="invalid-feedback">
+                              Valid price is required.
+                            </div>
+                        </div>
+                        <div class ="row">
+                            <label for="foodDes" class="form-label">Description: </label>
+                            <input type="text" class="form-control" id="foodDes" placeholder="Add the description for this menu" value="" required>
+                            <div class="invalid-feedback">
+                              Valid description is required.
+                            </div>
+                        </div>
+                        <div class ="row">
+                            <label for="categories">Categories</label>
+                            <select class="custom-select d-block w-100" id="categories" required>
+                            <option value="">-Choose type of category-</option>
+                            <option>Beverages</option>
+                            <option>Fried Chicken</option>
+                            <option>Combo</option>
+                            <option>Sides</option>
+                            </select>
+                            <div class="invalid-feedback">
+                            Please select a type of feedback.
+                            </div>
+                        </div>
+                        <br>
+                        <div class ="row">
+                            Promotion
+
+                        </div>
+                        
+                        <div class="row">
+                            <div class="row mb-3">
+                              <div class="col-6 promotionRadio">
+                                <label class="list-group-item d-flex gap-2 mb-2">
+                                  <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="Promotion" value="yes">
+                                  <span>Yes</span>
+                                </label>
+                              </div>
+                              <div class="col-6 promotionRadio">
+                                <label class="list-group-item d-flex gap-2 mb-0">
+                                  <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="noPromotion" value="no" checked>
+                                  <span>No</span>
+                                </label>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="extraForm" style="display: none;">
+                              <form>
+                                <!-- Additional form fields go here -->
+                                <div class="form-group">
+                                  <label for="Promotion Price">Promotion Price:</label>
+                                  <input type="text" class="form-control" id="Promotion Price" placeholder="New Price">
+                                </div>
+                              </form>
+                            </div>
+                        </div>
+                          <div class="row">
+                            <div class="col-12 d-flex flex-row-reverse justify-content-between align-items-center py-3">
+                              <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>                        
     </div>
 </div>
-    </body>
+
+      </div>
+    </div>
+</div>
+        
+</body>
+</html>
