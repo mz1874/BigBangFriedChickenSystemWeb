@@ -6,65 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Combo Menu</title>
 </head>
-
+<header>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  top-nav">
+        <h5 class="my-0 mr-md-auto font-weight-normal logo">BBFC</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2" href="main.html">Home</a>
+            <a class="p-2" href="menu_combo.html">Menu</a>
+            <a class="p-2" href="story.html">Story</a>
+            <a class="p-2" href="feedback_form.html">Contact Us</a>
+            <a class="p-2" href="#">Order Now</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="logIn.html">Sign up</a>
+    </div>
+</header>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
-  <header>
-    <nav>
-      <div class="logo">BBFC</div>
-      <ul>
-        <li><a href="main.html">Home</a></li>
-        <li><a href="menu_combo.html">Menu</a></li>
-        <li><a href="story.html">Story</a></li>
-        <li><a href="index.html">Contact Us</a></li>
-        <li><a href="logIn.html">Log In</a></li>
-        <li><a href="#">Order Now</a></li>
-      </ul>
-    </nav>
-  </header>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
 
-    <div class="album py-5 bg-body-tertiary">
-        <div class="container">
+        <!-- menu bar -->
+        <ul class="nav-tabs">
+            <li class="nav">
+                <a class="nav-item nav-link link-body-emphasis" href="menu_promotion.html">Promotion</a>
+                <a class="nav-item nav-link link-body-emphasis active" href="menu_combo.html">Combo</a>
+                <a class="nav-item nav-link link-body-emphasis" href="menu_fried_chicken.html">Fried Chicken</a>
+                <a class="nav-item nav-link link-body-emphasis" href="menu_sides.html">Sides</a>
+                <a class="nav-item nav-link link-body-emphasis" href="menu_beverages.html">Beverages</a>
+            </li>
+        </ul>
 
-            <!-- menu bar -->
-            <ul class="nav-tabs">
-                <li class="nav">
-                    <a class="nav-item nav-link link-body-emphasis" href="menu_promotion.html">Promotion</a>
-                    <a class="nav-item nav-link link-body-emphasis active" href="menu_combo.html">Combo</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="menu_fried_chicken.html">Fried Chicken</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="menu_sides.html">Sides</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="menu_beverages.html">Beverages</a>
-                </li>
-            </ul>
+        <!-- Combo -->
+        <h1 class="mt-4" style="color: #7F3720;">Combo</h1>
 
-            <!-- Combo -->
-            <h1 class="mt-4" style="color: #7F3720;">Combo</h1>
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4">
-                <div class="col">
-                    <div class="card shadow-sm mt-4">
-                        <img src="images/Combo_4pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
-                            alt="4PCS Chicken Honey Combo">
-                        <div class="card-body">
-                            <h5 class="card-title">4PCS Chicken Honey Combo</h5>
-                            <p class="card-text" style="color: #818181">4 pieces of honey chicken, a drink, a seaweed
-                                soup, a bowl of steamed rice, a pickled radish.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <text>RM 22.90</text>
-                                </div>
-                                <a href="menu_detail.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
-                                    </svg>   
-                                </a>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card shadow-sm mt-4">
+                    <img src="images/Combo_4pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
+                         alt="4PCS Chicken Honey Combo">
+                    <div class="card-body">
+                        <h5 class="card-title">4PCS Chicken Honey Combo</h5>
+                        <p class="card-text" style="color: #818181">4 pieces of honey chicken, a drink, a seaweed
+                            soup, a bowl of steamed rice, a pickled radish.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <text>RM 22.90</text>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720"
+                                 class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="col">
+                <div class="card shadow-sm mt-4">
+                    <img src="images/Combo_12pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
+                         alt="12PCS Chicken Honey Combo">
+                    <div class="card-body">
+                        <h5 class="card-title">12PCS Chicken Honey Combo</h5>
+                        <p class="card-text" style="color: #818181">12 pieces of honey chicken, 2 drink, 2 seaweed
+                            soups, 2 bowl of steamed rice, 2 pickled radish.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <text>RM 53.90</text>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720"
+                                 class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Combo -->
                 <div class="col">
                     <div class="card shadow-sm mt-4">
                         <img src="images/Combo_12pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
@@ -78,9 +98,11 @@
                                     <text>RM 53.90</text>
                                 </div>
                                 <a href="menu_detail.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
-                                    </svg>   
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720"
+                                        class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
+                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -88,28 +110,31 @@
                 </div>
                 <!-- End of Combo -->
 
+        </div>
+    </div>
+</div>
             </div>
         </div>
 
         <footer>
-    <div class="subscribe">
-      <h3>Subscribe to BBFC Email</h3>
-      <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+            <div class="subscribe">
+                <h3>Subscribe to BBFC Email</h3>
+                <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
 
-      <br>
+                <br>
 
-      <input type="email" placeholder="Email Address">
-      <button>Subscribe</button>
-    </div>
+                <input type="email" placeholder="Email Address">
+                <button>Subscribe</button>
+            </div>
 
-    <br>
+            <br>
 
-    <div class="smlogo">
-      <img src="images/fb.png" alt="logo" />
-      <img src="images/twitter.png" alt="logo" />
-      <img src="images/insta.png" alt="logo" />
-    </div>
-  </footer>
+            <div class="smlogo">
+                <img src="images/fb.png" alt="logo" />
+                <img src="images/twitter.png" alt="logo" />
+                <img src="images/insta.png" alt="logo" />
+            </div>
+        </footer>
 
 </body>
 <script src="js/jquery-3.7.1.js"></script>

@@ -29,7 +29,7 @@
                                     <hr>
                                     <ul class="nav nav-pills flex-column mb-auto">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link active" aria-current="page">
+                                            <a href="admin_main.html" class="nav-link link-body-emphasis " aria-current="page">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                                     class="bi bi-check" viewBox="0 0 16 16">
                                                     <path
@@ -41,7 +41,7 @@
                                                 Order Status </a>
                                         </li>
                                         <li>
-                                            <a href="admin_MenuUpdate_Promotion.html" class="nav-link link-body-emphasis">
+                                            <a href="admin_MenuUpdate_Promotion.html" class="nav-link  active">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                                     class="bi bi-pencil" viewBox="0 0 16 16">
                                                     <path
@@ -78,58 +78,100 @@
             </div>
         </div>    
       </div>
-      <div class="col-md-8">
-        <header class="d-flex flex-row-reverse justify-content-between align-items-center py-3">
-          <div>
-            <button class="btn btn-primary active order-type-btn">Pick Up</button>
-            <a href="admin_delivery.html"><button class="btn btn-primary order-type-btn">Delivery</button></a>
-          </div>
-          <div>
-            <h2>Hi <span class ="user-name">Mag</span> </h2>
-          </div>
-        </header>
-        <div class="row">
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex flex-grow-1" role="search">
-            <input type="search" class="form-control w-100 search-input" placeholder="Search..." aria-label="Search">
-            <button type="button" class="btn btn-light ms-2 searchButton search-btn">Search</button>
-          </form>
+      <div class="col-md-8" >
+        <div>
+            <h4>Add New Menu Item</h4>
         </div>
         <hr>
-        <div class="card order-card">
-          <div class="card-body">
-            <h6 class="card-title order-number">G10001 - Ms Wong PY</h6>
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <div class="d-flex align-items-center">
-                <img src="https://via.placeholder.com/50" alt="Chicken Image" class="mr-2 order-item-image">
-                <div>
-                  <p class="mb-0 order-item-name">1x Half Chicken</p>
-                  <small class="text-muted order-item-details">Honey Butter, Soy Garlic</small>
-                </div>
-              </div>
-              <span class="text-muted order-item-price">RM 24</span>
+        <div class="row" >
+            <!-- One-third width column -->
+            <div class="col-md-4">
+                <img src="images/Beverages_Mineral_Water.jpg" alt="Cart Image" class="img-fluid img-food">
             </div>
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <div class="d-flex align-items-center">
-                <img src="https://via.placeholder.com/50" alt="Chicken Tenders Image" class="mr-2 order-item-image">
-                <p class="mb-0 order-item-name">1x Chicken Tenders</p>
-              </div>
-              <span class="text-muted order-item-price">RM 25</span>
-            </div>
-            <p class="mb-0 text-lg-right order-subtotal">Item Subtotal (2 items): RM 49</p>
-            <!-- Buttons for the order -->
-            <div class="mt-3 d-flex justify-content-center">
-              <button class="btn btn-success mr-2 order-status-btn">Preparing</button>
-              <button class="btn btn-warning mr-2 order-status-btn">Ready</button>
-              <button class="btn btn-danger order-status-btn">Pick Up</button>
-            </div>
-          </div>
-        </div>
+            <!-- Two-thirds width column -->
+            <div class="col-md-8">
+                <div class="item-details">
+                    <form class ="needs-validation" novalidate>
+                        <div class ="row">
+                            <label for="foodTitle" class="form-label">Food Title: </label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter the food title" value="" required>
+                            <div class="invalid-feedback">
+                              Valid food title is required.
+                            </div>
+                        </div>
+                        <div class ="row">
+                            <label for="price" class="form-label">Price (RM): </label>
+                            <input type="number" class="form-control" id="price" placeholder="Enter the price" value="" required>
+                            <div class="invalid-feedback">
+                              Valid price is required.
+                            </div>
+                        </div>
+                        <div class ="row">
+                            <label for="foodDes" class="form-label">Description: </label>
+                            <input type="text" class="form-control" id="foodDes" placeholder="Add the description for this menu" value="" required>
+                            <div class="invalid-feedback">
+                              Valid description is required.
+                            </div>
+                        </div>
+                        <div class ="row">
+                            <label for="categories">Categories</label>
+                            <select class="custom-select d-block w-100" id="categories" required>
+                            <option value="">-Choose type of category-</option>
+                            <option>Beverages</option>
+                            <option>Fried Chicken</option>
+                            <option>Combo</option>
+                            <option>Sides</option>
+                            </select>
+                            <div class="invalid-feedback">
+                            Please select a type of feedback.
+                            </div>
+                        </div>
+                        <br>
+                        <div class ="row">
+                            Promotion
+
+                        </div>
+                        
+                        <div class="row">
+                            <div class="row mb-3">
+                              <div class="col-6 promotionRadio">
+                                <label class="list-group-item d-flex gap-2 mb-2">
+                                  <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="Promotion" value="yes">
+                                  <span>Yes</span>
+                                </label>
+                              </div>
+                              <div class="col-6 promotionRadio">
+                                <label class="list-group-item d-flex gap-2 mb-0">
+                                  <input class="form-check-input flex-shrink-0" type="radio" name="Promotion" id="noPromotion" value="no" checked>
+                                  <span>No</span>
+                                </label>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id="extraForm" style="display: none;">
+                              <form>
+                                <!-- Additional form fields go here -->
+                                <div class="form-group">
+                                  <label for="Promotion Price">Promotion Price:</label>
+                                  <input type="text" class="form-control" id="Promotion Price" placeholder="New Price">
+                                </div>
+                              </form>
+                            </div>
+                        </div>
+                          <div class="row">
+                            <div class="col-12 d-flex flex-row-reverse justify-content-between align-items-center py-3">
+                              <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>                        
+    </div>
+</div>
+
       </div>
-      </div>
-  </div>
-<!--test-->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</div>
+        
 </body>
-</html> 
+</html>
