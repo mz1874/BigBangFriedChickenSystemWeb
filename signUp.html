@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BBFC</title>
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/form.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link href="css/bootstrap.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBFC</title>
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <header>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  top-nav">
-        <h5 class="my-0 mr-md-auto font-weight-normal logo">BBFC</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2" href="main.html">Home</a>
-            <a class="p-2" href="menu_combo.html">Menu</a>
-            <a class="p-2" href="story.html">Story</a>
-            <a class="p-2" href="feedback_form.html">Contact Us</a>
-            <a class="p-2" href="#">Order Now</a>
-        </nav>
-        <a class="btn btn-outline-primary" href="logIn.html">Sign up</a>
-    </div>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  top-nav">
+    <h5 class="my-0 mr-md-auto font-weight-normal logo">BBFC</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2" href="main.html">Home</a>
+      <a class="p-2" href="menu_combo.html">Menu</a>
+      <a class="p-2" href="story.html">Story</a>
+      <a class="p-2" href="feedback_form.html">Contact Us</a>
+      <a class="p-2 cart-link" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" class="bi bi-cart-check-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+        </svg></a>
+      <a class="p-2" href="track_order.html">Track Order</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="logIn.html">Sign up</a>
+  </div>
 </header>
+
 <body>
 
 
-<section class="registration">
+  <section class="registration">
     <h1>Let's Get Started!</h1>
     <p>Sign up now to enjoy finger lickin' good deals and rewards, it's absolutely free!</p>
     <form>
-        <label for="name">Name*</label>
-        <input type="text" id="name" required>
+      <label for="name">Name*</label>
+      <input type="text" id="name" required>
 
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName">
 
-        <label for="mobileNumber">Mobile Number*</label>
-        <input type="tel" id="mobileNumber" required>
+      <label for="mobileNumber">Mobile Number*</label>
+      <input type="tel" id="mobileNumber" required>
 
-        <label for="email">Email*</label>
-        <input type="email" id="email" required>
+      <label for="email">Email*</label>
+      <input type="email" id="email" required>
 
       <label for="password">Password*</label>
       <input type="password" id="password" required>
@@ -64,26 +71,27 @@
     </form>
   </section>
 
-<footer>
+  <footer>
     <div class="subscribe">
-        <h3>Subscribe to BBFC Email</h3>
-        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+      <h3>Subscribe to BBFC Email</h3>
+      <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
 
-        <br>
+      <br>
 
-        <input type="email" placeholder="Email Address">
-        <button>Subscribe</button>
+      <input type="email" placeholder="Email Address">
+      <button>Subscribe</button>
     </div>
 
     <br>
 
     <div class="smlogo">
-        <img src="images/fb.png" alt="logo"/>
-        <img src="images/twitter.png" alt="logo"/>
-        <img src="images/insta.png" alt="logo"/>
+      <img src="images/fb.png" alt="logo" />
+      <img src="images/twitter.png" alt="logo" />
+      <img src="images/insta.png" alt="logo" />
     </div>
-</footer>
+  </footer>
 </body>
 <script src="js/jquery-3.7.1.js"></script>
 <script src="js/bootstrap.js"></script>
+
 </html>
