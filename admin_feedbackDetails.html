@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Status</title>
+  <title>Feedback</title>
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/adminmain.css" rel ="stylesheet">
-
 </head>
 <body>
   <div class="container">
@@ -29,7 +28,7 @@
                                     <hr>
                                     <ul class="nav nav-pills flex-column mb-auto">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link active" aria-current="page">
+                                            <a href="#" class="nav-link link-body-emphasis" aria-current="page">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                                     class="bi bi-check" viewBox="0 0 16 16">
                                                     <path
@@ -70,21 +69,21 @@
                                             </a>
                                         </li>
                                         <li>
-                                          <a href="admin_feedback.html" class="nav-link link-body-emphasis">
-                                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                                  class="bi bi-clock-history" viewBox="0 0 16 16">
-                                                  <path
-                                                      d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z" />
-                                                  <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z" />
-                                                  <path
-                                                      d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
-                                              </svg>
-                                              <svg class="bi pe-none me-2" width="16" height="16">
-                                                  <use xlink:href="#table" />
-                                              </svg>
-                                              Feedback
-                                          </a>
-                                      </li>
+                                            <a href="admin_feedback.html" class="nav-link active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                    class="bi bi-clock-history" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z" />
+                                                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z" />
+                                                    <path
+                                                        d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
+                                                </svg>
+                                                <svg class="bi pe-none me-2" width="16" height="16">
+                                                    <use xlink:href="#table" />
+                                                </svg>
+                                                Feedback
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -95,61 +94,70 @@
         </div>    
       </div>
       <div class="col-md-8">
-        <header class="d-flex flex-row-reverse justify-content-between align-items-center py-3">
-            <div>
-                <a href="admin_main.html"><button class="btn btn-primary"> Pick Up</button></a>
-                <button class="btn btn-primary active"> Delivery</button>
+        <div class="mt-4">
+            <h2>Hi <span class ="user-name">Mag</span> </h2>
+        </div>
+        <hr>
+        <div>
+            <div class="d-flex justify-content-between align-items-center py-3" > 
+                <h3>Feedback</h3>
             </div>
-            <div> <h2>Hi Mag</h2></div>
-        </header>
-        <div class="row">
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex flex-grow-1" role="search">
-            <input type="search" class="form-control w-100" placeholder="Search..." aria-label="Search">
-            <button type="button" class="btn btn-light ms-2">Search</button>
-          </form>
+            <div class="container">
+                <h4>Order Details</h4>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        Customer Information
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Name: <span class="customerName">JohnDoe</span></li>
+                        <li class="list-group-item">Phone Number: <span class="phone-no">01287789</span></li>     
+                      </ul>
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
+                <div class =" row mt-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                          <div class="card-header">
+                            Information
+                          </div>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Categories: <span class="categories">Category Value</span></li>
+                            <li class="list-group-item">Type of visit: <span class="visit-type">Visit Type Value</span></li>
+                            <li class="list-group-item">Time of visit: <span class="visit-time">Visit Time Value</span></li>
+                            <li class="list-group-item">Date of visit: <span class="visit-date">Visit Date Value</span></li>
+
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+                <div class =" row mt-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                          <div class="card-header">
+                            Message
+                          </div>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Subject: <span class="feedback-subject">Subject Value</span></li>
+                            <li class="list-group-item">Message: <span class="feedback-message">Message Value</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            
+                
+
+
         </div>
         
+        </div>
         
-        <hr>
-          <div class="card order-card">
-            <div class="card-body" >
-              <a href =""><h6 class="card-title">G10001 - <a href ="admin_customerDetails.html">Ms Wong PY </a></h6>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" alt="Chicken Image" class="mr-2">
-                  <div>
-                    <p class="mb-0">1x Half Chicken</p>
-                    <small class="text-muted">Honey Butter, Soy Garlic</small>
-                  </div>
-                </div>
-                <span class="text-muted">RM 24</span>
-              </div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="d-flex align-items-center">
-                  <img src="https://via.placeholder.com/50" alt="Chicken Tenders Image" class="mr-2">
-                  <p class="mb-0">1x Chicken Tenders</p>
-                </div>
-                <span class="text-muted">RM 25</span>
-              </div>
-              <p class="mb-0 text-lg-right">Item Subtotal (2 items): RM 49</p>
-              <!-- Buttons for the order -->
-              <div class="mt-3 d-flex flex-column align-items-center justify-content-center">
-                <p class="text-center mb-2">Driver Assign: Lee</p>
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-success mr-2">Preparing</button>
-                    <button class="btn btn-warning mr-2">Ready</button>
-                    <button class="btn btn-danger">Pick Up</button>
-                </div>
-            </div>
-            
-          </div>
-              
       </div>
-      </div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</div>
 </body>
-</html> 
+</html>
