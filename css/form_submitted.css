@@ -39,6 +39,12 @@ nav {
     align-items: center;
 }
 
+.cart-link svg {
+    width: 20px;
+    height: 16px;
+    fill: currentColor;
+}
+
 .logo {
     font-size: 24px;
     font-family: "Times New Roman", Times, serif;

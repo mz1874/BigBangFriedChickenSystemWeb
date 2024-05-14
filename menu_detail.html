@@ -11,23 +11,47 @@
 </head>
 
 <body>
-<header>
-    <nav>
-        <div class="logo">BBFC</div>
-        <ul>
-            <li><a href="main.html">Home</a></li>
-            <li><a href="menu_combo.html">Menu</a></li>
-            <li><a href="story.html">Story</a></li>
-            <li><a href="feedback_form.html">Contact Us</a></li>
-            <li><a href="logIn.html">Log In</a></li>
-            <li><a href="#">Order Now</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <div class="logo">BBFC</div>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="menu_combo.html">Menu</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="feedback_form.html">Contact Us</a></li>
+                <li><a href="logIn.html">Log In</a></li>
+                <li><a class="p-2 cart-link" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+                        </svg></a></li><!--.cart-link svg {
+                            width: 20px;
+                            height: 16px;
+                            fill: currentColor;
+                        }-->
+                <li><a class="p-2" href="track_order.html">Track Order</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="container mt-5 mr-5">
-    <div class="row featurette">
+    <div class="container mt-5 mr-5">
+        <div class="row featurette">
 
+            <<<<<<< HEAD <div class="d-flex">
+                <button class="btn btn-primary" type="button" aria-label="Subtract"
+                    style="background-color:#7F3720">-</button>
+                <div class="col-md-4">
+                    <input type="text" class="form-control text-center" id="quantity" value="1" readonly
+                        style="background-color: white;">
+                </div>
+                <button class="btn btn-primary" type="button" style="background-color:#8E3A2B">+</button>
+        </div>
+        <a href="cart.html">
+            <div class="d-grid gap-4 col-12 mx-auto">
+                <button class="btn text-white" type="button">Add to Cart</button>
+            </div>
+        </a>
+        =======
         <div class="col-md-7 order-md-2">
             <div class="col-sm-7">
                 <div class="card">
@@ -40,17 +64,18 @@
 
                         <div class="d-flex">
                             <button class="btn btn-primary" type="button" aria-label="Subtract"
-                                    style="background-color:#7F3720">-
+                                style="background-color:#7F3720">-
                             </button>
                             <div class="col-md-4">
                                 <input type="text" class="form-control text-center" id="quantity" value="1" readonly
-                                       style="background-color: white;">
+                                    style="background-color: white;">
                             </div>
                             <button class="btn btn-primary" type="button" style="background-color:#8E3A2B">+</button>
                         </div>
 
                         <div class="d-grid gap-4 col-12 mx-auto">
                             <button class="btn text-white" type="button">Add to Cart</button>
+                            >>>>>>> ff3885966142e89167dffaec2a8fd012e1751440
                         </div>
                     </div>
                 </div>
@@ -74,27 +99,27 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 
-<footer>
-    <div class="subscribe">
-        <h3>Subscribe to BBFC Email</h3>
-        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+    <footer>
+        <div class="subscribe">
+            <h3>Subscribe to BBFC Email</h3>
+            <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+
+            <br>
+
+            <input type="email" placeholder="Email Address">
+            <button>Subscribe</button>
+        </div>
 
         <br>
 
-        <input type="email" placeholder="Email Address">
-        <button>Subscribe</button>
-    </div>
-
-    <br>
-
-    <div class="smlogo">
-        <img src="images/fb.png" alt="logo"/>
-        <img src="images/twitter.png" alt="logo"/>
-        <img src="images/insta.png" alt="logo"/>
-    </div>
-</footer>
+        <div class="smlogo">
+            <img src="images/fb.png" alt="logo" />
+            <img src="images/twitter.png" alt="logo" />
+            <img src="images/insta.png" alt="logo" />
+        </div>
+    </footer>
 </body>
 
 <script src="js/jquery-3.7.1.js"></script>
