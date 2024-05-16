@@ -8,7 +8,7 @@
 <body>
     <script>
         function get_data() {
-            AjaxHelper.sendGet('http://bugcreator.org.cn:5000/foodCategory/list?page=1&count=20', null)
+            AjaxHelper.sendGet('bugcreator.org.cn:5000/foodCategory/list?page=1&count=20', null)
                 .then(data => {
                     console.log('Post Response:', data);
                 })
