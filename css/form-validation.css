@@ -22,6 +22,12 @@ header {
   padding: 10px;
 }
 
+.cart-link svg {
+  width: 20px;
+  height: 16px;
+  fill: currentColor;
+}
+
 nav {
   display: flex;
   justify-content: space-between;

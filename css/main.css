@@ -22,7 +22,7 @@
 	min-height: 1080px;
 	background-image: url("images/banner1.jpg");
 	background-size: cover;
-	animation-name: banner; 
+	animation-name: banner;
 	animation-duration: 24s;
 	animation-iteration-count: infinite;
 	animation-timing-function: ease;
@@ -33,18 +33,23 @@
 	0% {
 		background-image: url("images/banner1.jpg");
 	}
+
 	20% {
 		background-image: url("images/banner2.jpg");
 	}
+
 	40% {
 		background-image: url("images/banner3.jpg");
 	}
+
 	60% {
 		background-image: url("images/banner4.jpg");
 	}
+
 	80% {
 		background-image: url("images/banner5.jpg");
 	}
+
 	100% {
 		background-image: url("images/banner1.jpg");
 	}
@@ -53,6 +58,12 @@
 .info {
 	margin: 20px;
 	line-height: 2;
+}
+
+.cart-link svg {
+	width: 20px;
+	height: 16px;
+	fill: currentColor;
 }
 
 #product {
@@ -67,14 +78,15 @@
 	color: #EDB34C;
 }
 
-.top-nav{
+.top-nav {
 	background-color: #2B2925;
 }
 
-#product:hover, #product:active {
+#product:hover,
+#product:active {
 	background-color: #2B2925;
 }
 
-.footer{
+.footer {
 	margin-top: 20px;
 }
