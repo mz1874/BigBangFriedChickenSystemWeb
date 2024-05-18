@@ -1,4 +1,16 @@
 $(document).ready(function () {
+
+    function clean(){
+        $("#name").val("");
+        $("#tel").val("");
+        $("#email").val("");
+        $("#category").val("");
+        $("#visitType").val("");
+        $("#timeVisit").val("");
+        $("#dateVisit").val("");
+        $("#subject").val("");
+        $("#message").val("");
+    }
     $('#submit').on('click', function (e) {
         e.preventDefault(); // 阻止表单默认提交行为
         // 获取表单字段的值
@@ -35,8 +47,8 @@ $(document).ready(function () {
 
         AjaxHelper.sendPost("http://bugcreator.org.cn:5000/feedback/add", dataToSend)
             .then(success => {
-                // 成功回调
                 $('#successToast').toast('show'); // 显示成功提示框
+                clean();
             })
             .catch(error => {
                 // 错误回调
@@ -48,15 +60,7 @@ $(document).ready(function () {
     $('#reset').on('click', function (e) {
         e.preventDefault(); // 阻止表单默认提交行为
         // 清空表单字段的值
-        $("#name").val("");
-        $("#tel").val("");
-        $("#email").val("");
-        $("#category").val("");
-        $("#visitType").val("");
-        $("#timeVisit").val("");
-        $("#dateVisit").val("");
-        $("#subject").val("");
-        $("#message").val("");
+        clean();
     });
 
 
