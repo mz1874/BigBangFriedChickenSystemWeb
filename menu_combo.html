@@ -36,20 +36,20 @@
         <div class="container">
 
             <!-- menu bar -->
-            <ul class="nav-tabs" id = "categoriesTabs">
-                <li class="nav">
-                    <!-- <a class="nav-item nav-link link-body-emphasis" href="menu_promotion.html">Promotion</a>
-                    <a class="nav-item nav-link link-body-emphasis active" href="menu_combo.html">Combo</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="menu_fried_chicken.html">Fried Chicken</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="menu_sides.html">Sides</a>
-                    <a class="nav-item nav-link link-body-emphasis" href="menu_beverages.html">Beverages</a> -->
-                </li>
+            <ul class="nav-tabs" id = "categoriesTabs" >
+                <!-- <li class="nav">
+                    <a class="nav-item nav-link link-body-emphasis" href="menu_promotion.html" id="categoryName">Promotion</a>
+                    <a class="nav-item nav-link link-body-emphasis active" href="menu_combo.html" id="categoryName">Combo</a>
+                    <a class="nav-item nav-link link-body-emphasis" href="menu_friedchicken.html" id="categoryName">Fried Chicken</a>
+                    <a class="nav-item nav-link link-body-emphasis" href="menu_sides.html" id="categoryName">Sides</a>
+                    <a class="nav-item nav-link link-body-emphasis" href="menu_beverages.html" id="categoryName">Beverages</a>
+                </li> -->
             </ul>
 
             <!-- Combo -->
-            <h1 class="mt-4" style="color: #7F3720;">Combo</h1>
+            <h1 class="mt-4" style="color: #7F3720;" id="categoryName">Combo</h1>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4" id="foodItem">
                 <div class="col">
                     <div class="card shadow-sm mt-4">
                         <img src="images/Combo_4pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
@@ -74,30 +74,6 @@
                     </div>
                 </div>
 
-                <div class="col">
-                    <div class="card shadow-sm mt-4">
-                        <img src="images/Combo_12pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
-                            alt="12PCS Chicken Honey Combo">
-                        <div class="card-body">
-                            <h5 class="card-title">12PCS Chicken Honey Combo</h5>
-                            <p class="card-text" style="color: #818181">12 pieces of honey chicken, 2 drink, 2 seaweed
-                                soups, 2 bowl of steamed rice, 2 pickled radish.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <text>RM 53.90</text>
-                                </div>
-                                <a href="menu_detail.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720"
-                                        class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of Combo -->
                 <div class="col">
                     <div class="card shadow-sm mt-4">
                         <img src="images/Combo_12pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
@@ -159,5 +135,7 @@
 <script src="./js/axios.js"></script>
 <script src="./js/AjaxHelper.js"></script>
 <script src="./js/menuCategories.js"></script>
+<script src="./js/menu.js"></script>
+
 
 </html>

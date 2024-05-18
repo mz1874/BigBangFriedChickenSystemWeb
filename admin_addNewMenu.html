@@ -105,33 +105,33 @@
                 <img src="images/Beverages_Mineral_Water.jpg" alt="Cart Image" class="img-fluid img-food">
             </div>
             <!-- Two-thirds width column -->
-            <div class="col-md-8">
+            <div class="col-md-8" >
                 <div class="item-details">
-                    <form class ="needs-validation" novalidate>
+                    <form id="add-food-form" class ="needs-validation" novalidate >
                         <div class ="row">
                             <label for="foodTitle" class="form-label">Food Title: </label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Enter the food title" value="" required>
+                            <input type="text" class="form-control" id="food-name" name="foodName" placeholder="Enter the food title" value="" required>
                             <div class="invalid-feedback">
                               Valid food title is required.
                             </div>
                         </div>
                         <div class ="row">
                             <label for="price" class="form-label">Price (RM): </label>
-                            <input type="number" class="form-control" id="price" placeholder="Enter the price" value="" required>
+                            <input type="number" class="form-control" id="food-price" name="price" placeholder="Enter the price" value="" required>
                             <div class="invalid-feedback">
                               Valid price is required.
                             </div>
                         </div>
                         <div class ="row">
                             <label for="foodDes" class="form-label">Description: </label>
-                            <input type="text" class="form-control" id="foodDes" placeholder="Add the description for this menu" value="" required>
+                            <input type="text" class="form-control" id="food-info" name="info" placeholder="Add the description for this menu" value="" required>
                             <div class="invalid-feedback">
                               Valid description is required.
                             </div>
                         </div>
                         <div class ="row">
-                            <label for="categories">Categories</label>
-                            <select class="custom-select d-block w-100" id="categories" required>
+                            <label for="current-categories">Categories</label>
+                            <select class="custom-select d-block w-100" id="current-categories" name="category-id" required>
                             <option value="">-Choose type of category-</option>
                             <option>Beverages</option>
                             <option>Fried Chicken</option>
@@ -182,12 +182,77 @@
                         </div>
                     </form>
                 </div>                        
-    </div>
-</div>
+            </div>
+        </div>
 
       </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./js/axios.js"></script>
+  <script src="./js/AjaxHelper.js"></script>
+<script>
+    $(document).ready(function() {
+    // Function to fetch categories and populate dropdowns
+    function fetchCategories() {
+        $.ajax({
+            url: 'http://bugcreator.org.cn:5000/foodCategory/list',
+            type: 'GET',
+            success: function(response) {
+            var categories = response.message.items; // Access the items array within the message object
+            $('#current-categories').empty();
+            $('#delete-category-id').empty();
+            categories.forEach(function(category) {
+                $('#current-categories').append('<option value="' + category.id + '">' + category.categoryName + '</option>');
+                $('#delete-category-id').append('<option value="' + category.id + '">' + category.categoryName + '</option>');
+            });
+            },
+            error: function(xhr, status, error) {
+            alert('Error fetching categories: ' + xhr.responseText);
+            }
+        });
+        }
+
+      // Fetch categories when the page loads
+      fetchCategories();
+    
+    // Event listener for form submission
+    $('#add-food-form').on('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
         
+        // Collect form data
+        var foodData = {
+            foodName: $('#food-name').val(),
+            src: $('#food-src').val(),
+            foodCategoryId: parseInt($('#current-categories').val()), // Assuming category ID is a number
+            price: parseFloat($('#food-price').val()), // Assuming price is a float
+            info: $('#food-info').val()
+        };
+        
+        // Send POST request using AJAX
+        $.ajax({
+            url: 'http://bugcreator.org.cn:5000/food/add', // Replace with your actual endpoint
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(foodData), // Convert data to JSON string
+            success: function(response) {
+                console.log('Food item added successfully:', response);
+
+                alert(response.message);
+                // Clear form fields or reset form as needed
+                $('#add-food-form')[0].reset();
+            },
+            error: function(error) {
+                console.error('Error adding food item:', error);
+                // Handle error case, show error message, etc.
+                alert('Error adding food item. Please try again.');
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>

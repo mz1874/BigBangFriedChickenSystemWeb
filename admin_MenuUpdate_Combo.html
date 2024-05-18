@@ -108,8 +108,6 @@
                                 <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_FriedChicken.html"><span id = "categoriesType"><span id = "categoriesType">Fried Chicken</span></a>
                                 <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Sides.html"><span id = "categoriesType">Sides</span></a>
                                 <a class="nav-item nav-link link-body-emphasis active" href="admin_MenuUpdate_Beverages.html"><span id = "categoriesType">Beverages</span></a>
-
-
                             </li> -->
                         </ul>
 
@@ -120,7 +118,7 @@
 
                         <h1 class="mt-4" style="color: #7F3720;">Combo</h1>
 
-                        <div class="row row-cols-md-3">
+                        <div class="row row-cols-md-3" id="menuItems">
 
                             <div class="col">
                                 <div class="card shadow-sm mt-4">
@@ -188,6 +186,60 @@
     <script src="./js/axios.js"></script>
     <script src="./js/AjaxHelper.js"></script>
     <script src="./js/admin_menuCategories.js"></script>
+    <!-- <script src="./js/menu.js"></script> -->
 
-</body>
+    <script>
+        $(document).ready(function() {
+          // Function to fetch menu items based on category
+          function fetchMenuItems(category) {
+            $.ajax({
+              url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=25',
+              type: 'GET',
+              success: function(response) {
+                var menuItems = response.data;
+                // Clear previous menu items
+                $('#menuItems').empty();
+    
+                // Append new menu items
+                response.data.forEach(function(item) {
+                  $('#menuItems').append(`
+                    <div class="col">
+                      <div class="card shadow-sm mt-4">
+                        <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                        <div class="card-body">
+                          <h5 class="card-title">${item.name}</h5>
+                          <p class="card-text" style="color: #818181">${item.info}</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <text>RM ${item.price.toFixed(2)}</text>
+                            </div>
+                          </div>
+                          <p></p>
+                          <div>
+                            <a href="admin_menuUpdateDetails.html" class="btn btn-primary">Edit</a>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  `);
+                });
+              },
+              error: function(xhr, status, error) {
+                console.error('Error fetching menu items:', error);
+              }
+            });
+          }
+    
+          fetchMenuItems();
+    
+          // Event listener for category links
+          $('#categoriesTabs a').on('click', function(e) {
+            e.preventDefault();
+            var category = $(this).data('category');
+            fetchMenuItems(category);
+          });
+        });
+      </script>
+    </body>
 </html>
