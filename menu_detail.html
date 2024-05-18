@@ -42,28 +42,30 @@
                 <div class="col-sm-7">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">8PCS Wingette & Drumette</h5>
-                            <p class="card-text" style="color: #818181">A combination of 8 drumettes and wingettes, coated
-                                with a
-                                sweet and buttery honey glaze.</p>
-                            <p class="card-text">RM 25.90</p>
+                            <form id="to-cart">
+                                <h5 class="card-title" id="cart-item">8PCS Wingette & Drumette</h5>
+                                <p class="card-text" style="color: #818181">A combination of 8 drumettes and wingettes,
+                                    coated
+                                    with a
+                                    sweet and buttery honey glaze.</p>
+                                <p class="card-text">RM 25.90</p>
 
-                            <div class="d-flex">
-                                <button class="btn btn-primary" type="button" aria-label="Subtract"
-                                    style="background-color:#7F3720">-
-                                </button>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control text-center" id="quantity" value="1" readonly
-                                        style="background-color: white;">
+                                <div class="d-flex">
+                                    <button class="btn btn-primary" type="button" aria-label="Subtract"
+                                        style="background-color:#7F3720">-
+                                    </button>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control text-center" id="quantity" value="1"
+                                            readonly style="background-color: white;">
+                                    </div>
+                                    <button class="btn btn-primary" type="button"
+                                        style="background-color:#8E3A2B">+</button>
                                 </div>
-                                <button class="btn btn-primary" type="button" style="background-color:#8E3A2B">+</button>
-                            </div>
 
-                            <a href = "cart.html">
                                 <div class="d-grid gap-4 col-12 mx-auto">
-                                    <button class="btn text-white" type="button">Add to Cart</button>
+                                    <button class="btn text-white" type="submit">Add to Cart</button>
                                 </div>
-                            </a>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -77,7 +79,8 @@
                 <hr class="featurette-divider mt-4">
 
                 <h4 class="featurette-heading fw-normal lh-1">Special Instructions</h4>
-                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we need to avoid anything</p>
+                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we
+                    need to avoid anything</p>
 
                 <div>
                     <textarea class="form-control" placeholder="Eg. no mayo" id="specialInstructions"></textarea>
@@ -111,5 +114,9 @@
 
 <script src="js/jquery-3.7.1.js"></script>
 <script src="js/bootstrap.js"></script>
+
+<script>
+
+</script>
 
 </html>
