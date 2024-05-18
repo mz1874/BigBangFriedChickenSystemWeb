@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/form-validation.css">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/feedback_form.css">
 </head>
 
 <body>
@@ -31,104 +32,127 @@
         </ul>
     </nav>
 </header>
-<div class="feedback-container">
+<div class="feedback-container container-fluid">
     <h1>Contact Our Teams!</h1>
-    <div class="feedback-form">
-        <h2>Feedback Form</h2>
-        <p class="yellow">Please provide as much information that is relevant to the issues as possible.</p>
-        <form id="feedbackFrom">
-            <div class="form-group">
-                <h3>General Information</h3>
-                <div class="input-width-short">
-                    <div class="input-group">
-                        <label for="name" class="font-small">Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe">
-                    </div>
-                    <div class="input-group">
-                        <label for="tel" class="font-small">Phone Number(+60)</label>
-                        <input type="tel" id="tel" name="tel" placeholder="601234567">
-                    </div>
-                    <div class="input-group">
-                        <label for="email" class="font-small">Email</label>
-                        <input type="email" id="email" name="email" placeholder="error@gmail.com">
+    <div class="row">
+        <div class="feedback-form col-md-12">
+            <div class="row">
+                <div class="col-4">
+                    <h2>Feedback Form</h2>
+                    <p class="yellow">Please provide as much information that is relevant to the issues as possible.</p>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <div class="toast toast-success" id="successToast" role="alert" aria-live="assertive"
+                         aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <strong class="mr-auto">Success</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            Operation completed successfully!
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <h3>Info</h3>
-                <div class="input-width-short">
-                    <div class="input-group">
-                        <label for="category" class="font-small">Categories</label>
-                        <select id="category" name="category">
-                            <option value="" disabled selected>-Choose type of feedback-</option>
-                            <option value="accuracy">Accuracy of Order</option>
-                            <option value="speed">Speed of Service</option>
-                            <option value="cleanliness">Cleanliness</option>
-                        </select>
+                <form id="feedbackFrom" style="margin-left: 10px">
+                    <div class="form-group">
+                        <h3>General Information</h3>
+                        <div class="input-width-short">
+                            <div class="input-group">
+                                <label for="name" class="font-small">Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe">
+                            </div>
+                            <div class="input-group">
+                                <label for="tel" class="font-small">Phone Number(+60)</label>
+                                <input type="tel" id="tel" name="tel" placeholder="601234567">
+                            </div>
+                            <div class="input-group">
+                                <label for="email" class="font-small">Email</label>
+                                <input type="email" id="email" name="email" placeholder="error@gmail.com">
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="visitType" class="font-small">Type of visit</label>
-                        <select id="visitType" name="visitType">
-                            <option value="" disabled selected>-Choose type of visit-</option>
-                            <option value="dineIn">Dine In</option>
-                            <option value="pickUp">Pick Up</option>
-                            <option value="driveThru">Drive Thru</option>
-                        </select>
-                        <label for="timeVisit" class="font-small">Time of visit</label>
-                        <select id="timeVisit" name="timeVisit">
-                            <option value="" disabled selected>-Choose time of visit-</option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option>
-                        </select>
+                    <div class="form-group">
+                        <h3>Info</h3>
+                        <div class="input-width-short">
+                            <div class="input-group">
+                                <label for="category" class="font-small">Categories</label>
+                                <select id="category" name="category">
+                                    <option value="" disabled selected>-Choose type of feedback-</option>
+                                    <option value="accuracy">Accuracy of Order</option>
+                                    <option value="speed">Speed of Service</option>
+                                    <option value="cleanliness">Cleanliness</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="visitType" class="font-small">Type of visit</label>
+                                <select id="visitType" name="visitType">
+                                    <option value="" disabled selected>-Choose type of visit-</option>
+                                    <option value="dineIn">Dine In</option>
+                                    <option value="pickUp">Pick Up</option>
+                                    <option value="driveThru">Drive Thru</option>
+                                </select>
+                                <label for="timeVisit" class="font-small">Time of visit</label>
+                                <select id="timeVisit" name="timeVisit">
+                                    <option value="" disabled selected>-Choose time of visit-</option>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="dataVisit" class="font-small">Date of visit</label>
+                                <input type="text" id="dataVisit" name="dataVisit" placeholder="dd/mm/yy">
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="dataVisit" class="font-small">Date of visit</label>
-                        <input type="text" id="dataVisit" name="dataVisit" placeholder="dd/mm/yy">
+                    <div class="form-group input-width-long">
+                        <label>Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Message subject">
+                        <label class="font-small">Message</label>
+                        <textarea id="message" name="message" placeholder="Leave your message here..."></textarea>
                     </div>
-                </div>
-            </div>
-            <div class="form-group input-width-long">
-                <label>Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Message subject">
-                <label class="font-small">Message</label>
-                <textarea id="message" name="message" placeholder="Leave your message here..."></textarea>
-            </div>
-            <div class="button-right">
-                <div class="form-group">
-                    <button type="reset" class="btn btn-danger"><b>RESET</b></button>
-                    <button type="button" id="submit" class="btn btn-primary"><b>Submit</b></button>
-                </div>
+                    <div class="button-right">
+                        <div class="form-group">
+                            <button type="reset" id="reset" class="btn btn-danger"><b>RESET</b></button>
+                            <button type="button" id="submit" class="btn btn-primary"><b>Submit</b></button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
 
-        </form>
+        </div>
     </div>
-</div>
-<!-- 模态框结构 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Error!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Please fill out all fields.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+    <!-- 模态框结构 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Error!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Please fill out all fields.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<footer>
+<footer class="container-fluid">
     <div class="subscribe">
         <h3>Subscribe to BBFC Email</h3>
         <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
-
         <br>
 
         <input type="email" placeholder="Email Address">

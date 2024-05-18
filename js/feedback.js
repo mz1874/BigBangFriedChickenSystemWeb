@@ -1,7 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('#submit').on('click', function (e) {
         e.preventDefault(); // 阻止表单默认提交行为
-
         // 获取表单字段的值
         var name = $("#name").val();
         var tel = $("#tel").val();
@@ -34,7 +33,31 @@ $(document).ready(function() {
             message: message
         };
 
-        // 现在你可以将 dataToSend 用于提交数据或进行其他操作
-        console.log('Data to send:', dataToSend);
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/feedback/add", dataToSend)
+            .then(success => {
+                // 成功回调
+                $('#successToast').toast('show'); // 显示成功提示框
+            })
+            .catch(error => {
+                // 错误回调
+                console.error('Error:', error);
+                $('#errorModal').modal('show'); // 显示错误模态框
+            });
+
     });
+    $('#reset').on('click', function (e) {
+        e.preventDefault(); // 阻止表单默认提交行为
+        // 清空表单字段的值
+        $("#name").val("");
+        $("#tel").val("");
+        $("#email").val("");
+        $("#category").val("");
+        $("#visitType").val("");
+        $("#timeVisit").val("");
+        $("#dateVisit").val("");
+        $("#subject").val("");
+        $("#message").val("");
+    });
+
+
 });
