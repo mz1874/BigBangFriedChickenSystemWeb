@@ -197,8 +197,42 @@
 
 </script>
 
-
 <script src="./js/axios.js"></script>
 <script src="./js/AjaxHelper.js"></script>
+<script>
+    $(document).ready(function() {
+        // Function to handle form submission for adding a new food item
+        $('#add-food-form').on('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Collect form data
+            var foodData = {
+                foodName: $('#food-name').val(),
+                src: $('#food-src').val(),
+                foodCategoryId: parseInt($('#food-category-id').val()), // Assuming category ID is a number
+                price: parseFloat($('#food-price').val()), // Assuming price is a float
+                info: $('#food-info').val()
+            };
+
+            // Send POST request using AJAX
+            $.ajax({
+                url: 'http://bugcreator.org.cn:5000/food/add', // Replace with your actual endpoint
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(foodData), // Convert data to JSON string
+                success: function(response) {
+                    console.log('Food item added successfully:', response);
+                    // Optionally, you can update UI or show a success message
+                    alert('Food item added successfully!');
+                },
+                error: function(error) {
+                    console.error('Error adding food item:', error);
+                    // Handle error case, show error message, etc.
+                    alert('Error adding food item. Please try again.');
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
