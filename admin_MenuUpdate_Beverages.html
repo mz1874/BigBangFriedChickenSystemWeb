@@ -104,9 +104,9 @@
                         <ul class="nav-tabs" id = "categoriesTabs">
                             <li class="nav">
                                 <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Promotion.html"><span id = "categoriesType">Promotion</span></a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Combo.html"><span id = "categoriesType">combo</span></a>
+                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Combo.html"><span id = "categoriesType">Combo</span></a>
                                 <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_friedChicken.html"><span id = "categoriesType"><span id = "categoriesType">Fried Chicken</span></a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Sides.html"><span id = "categoriesType">Sides</span>Sides</a>
+                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Sides.html"><span id = "categoriesType">Sides</span></a>
                                 <a class="nav-item nav-link link-body-emphasis active" href="admin_MenuUpdate_Beverages.html"><span id = "categoriesType">Beverages</span></a>
 
 
@@ -218,37 +218,58 @@
             
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/axios.js"></script>
+    <script src="./js/AjaxHelper.js"></script>
     <script>
-        $(document).ready(function() {
-            // Fetch categories from backend
-            $.ajax({
-                url: 'base_url/foodCategory/list',
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    if (response.status_code === 200) {
-                        const categories = response.message.items;
-                        const $categoriesTabs = $('#categoriesTabs');
-                        
-                        categories.forEach(function(category) {
-                            const categoryName = category.categoryName;
-                            const categoryId = category.id;
-                            
-                            const $navItem = $('<li class="nav-item">');
-                            const $navLink = $(`<a class="nav-link link-body-emphasis" href="admin_MenuUpdate_${categoryName}.html">${categoryName}</a>`);
-                            
-                            $navItem.append($navLink);
-                            $categoriesTabs.append($navItem);
-                        });
-                    } else {
-                        console.error('Error fetching categories:', response.message);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error fetching categories:', error);
-                }
-            });
-        });
+    function fetchCategories() {
+  $.ajax({
+    url: 'http://bugcreator.org.cn:5000/foodCategory/list',
+    type: 'GET',
+    success: function(response) {
+      var categories = response.message.items;
+      $('#categoriesTabs').empty(); // Clear the existing tabs
+
+      // Get the current page URL
+      var currentPageUrl = window.location.href;
+
+      // Loop through the categories and create a new tab for each category
+      categories.forEach(function(category) {
+        var categoryName = category.categoryName;
+        var categoryId = category.id;
+        var categoryLink = 'admin_MenuUpdate_' + categoryName + '.html'; // Assuming the naming convention for the HTML files
+
+        // Check if the current page matches the category link
+        var isCurrentCategory = currentPageUrl.endsWith(categoryLink);
+
+        var tabLink = $('<a></a>')
+          .addClass('nav-item nav-link link-body-emphasis')
+          .attr('href', categoryLink)
+          .text(categoryName);
+
+        // Add 'nav-link-active' class if it's the current category
+        if (isCurrentCategory) {
+          tabLink.addClass('nav-link-active');
+        }
+
+        var tabLi = $('<li></li>')
+          .addClass('nav')
+          .append(tabLink);
+
+        $('#categoriesTabs').append(tabLi);
+      });
+    },
+    error: function(xhr, status, error) {
+      alert('Error fetching categories: ' + xhr.responseText);
+    }
+  });
+}
+
+$(document).ready(function() {
+  fetchCategories();
+});
     </script>
     
 </body>
