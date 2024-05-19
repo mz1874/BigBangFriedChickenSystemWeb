@@ -23,6 +23,8 @@ function getCategoryFromUrl() {
 
             if (categoryName === currentCategory) {
             tabLink.addClass('active');
+            $('#categoryName').text(category.categoryName);
+
             }
 
             listItem.append(tabLink);
