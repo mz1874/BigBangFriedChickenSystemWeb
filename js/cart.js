@@ -67,4 +67,8 @@ $(document).ready(function() {
 
     getCurrentCart();
 
+
+    $("#payment").on("click",function (){
+        AjaxHelper.sendPost("")
+    })
 });
