@@ -29,11 +29,6 @@ $(document).ready(function() {
                                                 <text>RM ${item.price.toFixed(2)}</text>
                                             </div>
                                         </div>
-                                        <p></p>
-                                        <div>
-                                            <a href="admin_menuUpdateDetails.html" class="btn btn-primary">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
