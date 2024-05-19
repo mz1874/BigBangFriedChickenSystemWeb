@@ -14,6 +14,42 @@ $(document).ready(function() {
         loadPageData(nextPage); // 加载下一页数据
     });
 
+    $('#feedbackTable').on('click', '.btn-success', function() {
+        var feedbackId = $(this).data('feedback-id');
+        loadFeedbackDetails(feedbackId); // 调用函数加载 Feedback 数据
+    });
+
+    // 加载 Feedback 详情数据
+    function loadFeedbackDetails(feedbackId) {
+        $.ajax({
+            url: "http://bugcreator.org.cn:5000/feedback/" + feedbackId,
+            type: "GET",
+            success: function(response) {
+                console.log(response)
+                if (response.status_code === 200) {
+                    var feedback = response.message;
+                    // 更新页面显示
+                    $('#modalFeedbackCategory').text(feedback.category);
+                    $('#modalFeedbackDateVisit').text(feedback.dateVisit);
+                    $('#modalFeedbackEmail').text(feedback.email);
+                    $('#modalFeedbackId').text(feedback.id);
+                    $('#modalFeedbackMessage').text(feedback.message);
+                    $('#modalFeedbackName').text(feedback.name);
+                    $('#modalFeedbackSubject').text(feedback.subject);
+                    $('#modalFeedbackTel').text(feedback.tel);
+                    $('#modalFeedbackTimeVisit').text(feedback.timeVisit);
+                    $('#modalFeedbackVisitType').text(feedback.visitType);
+                    $('#feedbackModal').modal('show');
+                } else {
+                    console.log("Failed to load feedback details.");
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log("Error loading feedback details:", error);
+            }
+        });
+    }
+
     // 定义加载指定页码数据的函数
     function loadPageData(page) {
         var requestData = { "page": page, "count": 20 };
@@ -21,7 +57,6 @@ $(document).ready(function() {
             .then(success => {
                 // 清空现有数据
                 $('#feedbackTable tbody').empty();
-
                 // 填充新数据
                 success.message.items.forEach(item => {
                     var newRow = $('<tr>');
@@ -29,11 +64,10 @@ $(document).ready(function() {
                     newRow.append('<td><span>' + item.category + '</span></td>');
                     newRow.append('<td><span>' + item.name + '</span></td>');
                     newRow.append('<td><span>' + item.message + '</span></td>');
-                    newRow.append('<td><button type="button" class="btn btn-success">Detail</button></td>');
+                    newRow.append('<td><button type="button" class="btn btn-success" data-feedback-id="' + item.id + '">Detail</button></td>'); // 添加 data-feedback-id 属性
                     $('#feedbackTable tbody').append(newRow);
                 });
 
-                // 更新分页导航
                 updatePagination(success.message);
             })
             .catch(error => {
