@@ -32,7 +32,7 @@ $(document).ready(function () {
                     &nbsp
                     <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
-                    <button type="button" class="btn btn-success">Update</button>
+                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
                 </td>
             `;
                 tableBody.appendChild(row);
@@ -67,7 +67,7 @@ $(document).ready(function () {
                     &nbsp
                      <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
-                    <button type="button" class="btn btn-success">Update</button>
+                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
                 </td>
             `;
                     tableBody.appendChild(row);
@@ -93,7 +93,7 @@ $(document).ready(function () {
                     &nbsp
                     <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
-                    <button type="button" class="btn btn-success">Update</button>
+                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
                 </td>
             `;
                     tableBody.appendChild(row);
@@ -119,7 +119,7 @@ $(document).ready(function () {
                     &nbsp
                    <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
-                    <button type="button" class="btn btn-success">Update</button>
+                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
                 </td>
             `;
                     tableBody.appendChild(row);
@@ -206,7 +206,22 @@ $(document).ready(function () {
         formData.append('foodImage', file); // 将文件添加到FormData对象中
         AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/upload", formData).then(success => {
             currentFoodImageSrc = success.file_path;
-            console.log(success)
+
+            $('#successToast').toast('show');
+
+        }).catch(error => {
+            console.log(error)
+        })
+    });
+
+
+    $('#imageFile_update').on('change', function () {
+        const file = $(this)[0].files[0]; // 获取选择的文件
+        const formData = new FormData(); // 创建一个FormData对象
+        formData.append('foodImage', file); // 将文件添加到FormData对象中
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/upload", formData).then(success => {
+            currentFoodImageSrc = success.file_path;
+            $("#CurrentImageUpdate").attr('src', "http://bugcreator.org.cn"+currentFoodImageSrc);
             $('#successToast').toast('show');
         }).catch(error => {
             console.log(error)
@@ -223,6 +238,44 @@ $(document).ready(function () {
             deleteFoodById(foodId);
         }
     });
+
+    $('#tableBody').on('click', '.btn-update', function () {
+
+        var categoryId = 0;
+        const foodId = $(this).data('food-id');
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success=>{
+            var obj = success.message;
+            console.log(obj)
+            $("#food_Name_update").val(obj.foodName);
+            $("#price_update").val(obj.price);
+            $("#info_update").val(obj.info);
+            categoryId= obj.foodCategoryId
+            $('#CurrentImageUpdate').attr('src', obj.src);
+            $('#foodUpdate').modal('show');
+        }).catch(error=>{
+
+        })
+        //查询显示食物种类
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/foodCategory/list", null).then(success => {
+            const foodCategories = success.message.items;
+            const foodCategorySelect = $('#foodCategoryId_update');
+            foodCategorySelect.empty();
+            // 遍历每个食物类别并创建 <option> 元素
+            foodCategories.forEach(category => {
+                const option = $('<option></option>')
+                    .attr('value', category.id)
+                    .text(category.categoryName);
+                // 如果 category id 等于 1，则选中该选项
+                if (category.id === categoryId) {
+                    option.attr('selected', 'selected');
+                }
+                foodCategorySelect.append(option);
+            });
+        }).catch(error => {
+
+        })
+    });
+
 
     $('#tableBody').on('click', '.btn-detail', function () {
         const foodId = $(this).data('food-id');
@@ -250,7 +303,7 @@ $(document).ready(function () {
     $("#buttonToAddFood").on("click", function () {
         const formData = {
             foodName: $('#food_Name').val(),
-            src: "http://bugcreator.org.cn" + currentFoodImageSrc,  // Assume this is set after file upload
+            src: "http://bugcreator.org.cn" + currentFoodImageSrc,
             foodCategoryId: $('#foodCategoryId').val(),
             price: $('#price').val(),
             info: $('#info').val()
@@ -264,5 +317,9 @@ $(document).ready(function () {
         }).catch(error => {
 
         })
+    })
+
+    $("#buttonToAddFood_update").on("click", function (){
+
     })
 });
