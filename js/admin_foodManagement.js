@@ -189,8 +189,6 @@ $(document).ready(function () {
     });
 
 
-
-
     /*删除食物*/
     function deleteFoodById(foodId) {
         AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/delete", {"foodId": foodId}).then(success => {
@@ -225,4 +223,23 @@ $(document).ready(function () {
             deleteFoodById(foodId);
         }
     });
+
+    $("#buttonToAddFood").on("click", function () {
+        const formData = {
+            foodName: $('#food_Name').val(),
+            src: currentFoodImageSrc,  // Assume this is set after file upload
+            foodCategoryId: $('#foodCategoryId').val(),
+            price: $('#price').val(),
+            info: $('#info').val()
+        };
+        if (formData.src === "") {
+            alert("You have to update picture first !")
+            return
+        }
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/add", formData).then(success => {
+            selectAllfood();
+        }).catch(error => {
+
+        })
+    })
 });
