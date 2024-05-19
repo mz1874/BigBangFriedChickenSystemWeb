@@ -1,15 +1,6 @@
-$(document).ready(function () {
-   $("#add-btn").on("click", function (){
-       $("#quantity").val(parseInt($("#quantity").val())+parseInt(1));
-   })
-
-    $("#subtract-btn").on("click", function (){
-        $("#quantity").val(parseInt($("#quantity").val())-parseInt(1));
-    })
-});
 function fetchFoodDetails(foodId) {
     $.ajax({
-        url: 'http://bugcreator.org.cn:5000/food/query',
+        url: 'http://bugcreator.org.cn:5000//food/query',
         type: 'GET',
         data: { foodId: foodId },
         success: function (response) {
