@@ -36,7 +36,7 @@ $(document).ready(function() {
         if (isValid) {
 
             var requestData = {
-                username: emailInput,
+                username: nameInput,
                 password: passwordInput,
                 role: role, // Assuming '3' is for client, you can modify as needed
                 address: address, // Example address, you can modify as needed
