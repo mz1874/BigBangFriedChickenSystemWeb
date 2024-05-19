@@ -21,8 +21,10 @@
                 <li><a href="story.html">Story</a></li>
                 <li><a href="feedback_form.html">Contact Us</a></li>
                 <li><a href="logIn.html">Log In</a></li>
-                <li><a class="p-2 cart-link" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+                <li><a class="p-2 cart-link" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
                         </svg></a></li>
                 <li><a class="p-2" href="track_order.html">Track Order</a></li>
             </ul>
@@ -41,14 +43,18 @@
                                 <p class="card-text" id="price">RM 0.00</p>
 
                                 <div class="d-flex">
-                                    <button class="btn btn-primary" type="button" aria-label="Subtract" id="subtract-btn" style="background-color:#7F3720">-</button>
+                                    <button class="btn btn-primary" type="button" aria-label="Subtract"
+                                        id="subtract-btn" style="background-color:#7F3720">-</button>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control text-center" id="quantity" value="1" readonly style="background-color: white;">
+                                        <input type="text" class="form-control text-center" id="quantity" value="1"
+                                            readonly style="background-color: white;">
                                     </div>
-                                    <button class="btn btn-primary" type="button" id="add-btn" style="background-color:#8E3A2B">+</button>
+                                    <button class="btn btn-primary" type="button" id="add-btn"
+                                        style="background-color:#8E3A2B">+</button>
                                 </div>
 
-                                <a href="cart.html" class="btn text-white d-grid gap-4 col-12 mx-auto" type="submit" id="add-to-cart-button">Add to Cart</a>
+                                <a href="cart.html" class="btn text-white d-grid gap-4 col-12 mx-auto" type="submit"
+                                    id="add-to-cart-button">Add to Cart</a>
                             </form>
                         </div>
                     </div>
@@ -63,7 +69,8 @@
                 <hr class="featurette-divider mt-4">
 
                 <h4 class="featurette-heading fw-normal lh-1">Special Instructions</h4>
-                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we need to avoid anything</p>
+                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we
+                    need to avoid anything</p>
 
                 <div>
                     <textarea class="form-control" placeholder="Eg. no mayo" id="specialInstructions"></textarea>
@@ -100,6 +107,7 @@
     <script src="./js/menuCategories.js"></script>
     <!-- <script src="./js/menu.js"></script> -->
     <!-- <script src="js/cart.js"></script> -->
+    <!-- <script scrc="js/getFoodId.js"></script> -->
     <script>
         $(document).ready(function () {
             var quantityInput = $('#quantity');
@@ -151,11 +159,11 @@
                 data: { foodId: foodId },
                 success: function (response) {
                     if (response.code === 200) {
-                        var foodData = response.data;
-                        $('#foodName').text(foodData.foodName);
-                        $('#foodImage').attr('src', foodData.src);
-                        $('#foodInfo').text(foodData.info);
-                        $('#foodPrice').text('Price: $' + foodData.price);
+                        var item = response.data;
+                        $('#cart-item').text(item.foodName);
+                        $('#item-img').attr('src', item.src);
+                        $('#info').text(item.info);
+                        $('#price').text('Price: $' + item.price);
                     } else {
                         alert('Error fetching food details: ' + response.message);
                     }
@@ -163,10 +171,17 @@
                 error: function (xhr, status, error) {
                     alert('Error fetching food details: ' + xhr.responseText);
                 }
-            })
+            });
 
             }
-        });
+
+            var foodId = getUrlParameter('foodId'); 
+                if (foodId) {
+                    loadItemDetails(foodId);
+                } else {
+                    console.error('No foodId parameter found in URL');
+                }
+            });
     </script>
 </body>
 
@@ -205,3 +220,5 @@ if (itemId) {
 } else {
     console.error('No item ID found in URL');
 } -->
+
+

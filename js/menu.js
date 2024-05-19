@@ -48,7 +48,6 @@ $(document).ready(function() {
             });
         }
     
-    
         // Function to fetch category ID using the category name
         function fetchCategoryId(categoryName) {
             $.ajax({
