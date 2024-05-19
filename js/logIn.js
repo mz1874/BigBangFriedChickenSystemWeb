@@ -14,6 +14,10 @@ $(document).ready(function() {
           if (response.status_code === 200) {
             // Login successful
             alert(response.message);
+            var userId = response.data.id;
+            localStorage.setItem('userId', userId);
+            alert (userId);
+
             // Redirect or perform other actions as needed
           } else {
             // Login failed
