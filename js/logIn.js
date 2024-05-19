@@ -23,7 +23,6 @@ $(document).ready(function() {
           localStorage.setItem('roles', JSON.stringify(roles)); // Store roles in localStorage
           localStorage.setItem('username', userName)
           
-          alert('User ID: ' + userId + '\nRoles: ' + roles.join(', ')+ userName);
 
           // Redirect or perform other actions as needed based on roles
           // For example, you could redirect admin users to an admin dashboard
