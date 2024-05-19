@@ -49,20 +49,19 @@
                                 <p class="card-text" id="price">RM 25.90</p>
 
                                 <div class="d-flex">
-                                    <button class="btn btn-primary" type="button" aria-label="Subtract"
+                                    <button class="btn btn-primary" type="button" aria-label="Subtract" id="subtract-btn"
                                         style="background-color:#7F3720">-
                                     </button>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control text-center" id="quantity" value="1"
+                                        <input type="text" class="form-control text-center" id="quantity" value="1" 
                                             readonly style="background-color: white;">
                                     </div>
-                                    <button class="btn btn-primary" type="button"
+                                    <button class="btn btn-primary" type="button" id="add-btn"
                                         style="background-color:#8E3A2B">+</button>
                                 </div>
 
-                                <div class="d-grid gap-4 col-12 mx-auto">
-                                    <button class="btn text-white" type="submit">Add to Cart</button>
-                                </div>
+                                <a href="cart.html"class="btn text-white d-grid gap-4 col-12 mx-auto" type="submit" id="add-to-cart-button">Add to Cart</a>
+
                             </form>
                         </div>
                     </div>
@@ -70,7 +69,7 @@
             </div>
 
             <div class="col-md-5 order-md-1">
-                <div style="display: flex; justify-content: center; align-items: center; height: auto;" id="img">
+                <div style="display: flex; justify-content: center; align-items: center; height: auto;" id="item-img">
                     <img src="images/Honey_8PCS_Wingette_Drumette.jpg" alt="8PCS Wingette & Drumette">
                 </div>
 
@@ -108,6 +107,7 @@
             <img src="images/insta.png" alt="logo" />
         </div>
     </footer>
+
     <script src="js/jquery-3.7.1.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -117,22 +117,61 @@
     <script src="./js/AjaxHelper.js"></script>
     <script src="./js/menuCategories.js"></script>
     <script src="./js/menu.js"></script>
-    <!-- <script src="js/cart.js"></script> -->
+    <script src="js/cart.js"></script>
 
     <script>
     $(document).ready(function() {
+        var quantityInput = $('#quantity');
+        var subtractButton = $('#subtract-btn');
+        var addButton = $('#add-btn');
+
+        // Initialize quantity
+        var currentQuantity = 1;
+        quantityInput.val(currentQuantity);
+
+        // Function to update quantity display
+        function updateQuantityDisplay() {
+            quantityInput.val(currentQuantity);
+        }
+
+        // Event listener for subtract button
+        subtractButton.on('click', function() {
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                updateQuantityDisplay();
+            }
+        });
+
+        // Event listener for add button
+        addButton.on('click', function() {
+            currentQuantity++;
+            updateQuantityDisplay();
+        });
+
+        // Function to handle form submission (Add to Cart)
+        $('#add-to-cart-button').on('submit', function(event) {
+            event.preventDefault();
+            // Here you can proceed with adding the item to the cart, using the currentQuantity variable
+            console.log('Item added to cart with quantity:', currentQuantity);
+        });
+
+        // Example AJAX function to fetch item details
         function loadItemDetails(itemId) {
             $.ajax({
                 url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=' + itemId,
                 type: 'GET',
                 success: function(response) {
                     var item = response.message; // Assuming response structure gives you item details
-                    
+
                     // Update HTML elements with fetched data
                     $('#cart-item').text(item.name);
                     $('#info').text(item.info);
                     $('#price').text('RM ' + item.price);
-                    $('#img').src(item.img);
+                    $('#item-img').src(item.img);
+
+                    // Optionally update the quantity input if default quantity is fetched
+                    currentQuantity = 1; // Reset quantity to default (1 in this case)
+                    updateQuantityDisplay();
                 },
                 error: function(xhr, status, error) {
                     console.error('Error fetching item details:', error);
@@ -141,8 +180,10 @@
         }
 
         // Example of calling loadItemDetails with a specific item or category ID
-        loadItemDetails(1);
+        var itemId = 1; // Replace with the actual item or category ID you want to fetch
+        loadItemDetails(itemId);
     });
+
 
     </script>
 </body>
