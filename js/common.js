@@ -31,7 +31,7 @@ $(document).ready(function () {
 
     $("#add-to-cart-button").on("click", function (e){
         e.preventDefault()
-        AjaxHelper.sendPost("http://localhost:5000/shoppingCart/add", {"foodId":foodId, "quality":quantity, "currentUserId":localStorage.getItem("userId")}).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/shoppingCart/add", {"foodId":foodId, "quality":quantity, "currentUserId":localStorage.getItem("userId")}).then(success=>{
             alert("添加成功")
         }).catch(error=>{
 

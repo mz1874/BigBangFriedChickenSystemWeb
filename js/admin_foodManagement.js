@@ -16,7 +16,7 @@ $(document).ready(function () {
     }
 
     function selectAllfood(page = 1) { // 默认页码为1
-        AjaxHelper.sendGet(`http://localhost:5000/food/page?page=${page}`).then(success => {
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=${page}`).then(success => {
             console.log(success);
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = ''; // 清空现有的表格内容
@@ -52,7 +52,7 @@ $(document).ready(function () {
         const selectedValue = $('#foodType').val();
         let foodName = $('#foodName').val();
         if (foodName === '' && !isNaN(selectedValue)) {
-            AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodCategoryId=${selectedValue}`).then(success => {
+            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=1&foodCategoryId=${selectedValue}`).then(success => {
                 console.log(success);
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // 清空现有的表格内容
@@ -78,7 +78,7 @@ $(document).ready(function () {
                 console.error(error);
             });
         } else if (isNaN(selectedValue) && foodName !== '') {
-            AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodName=${foodName}`).then(success => {
+            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=1&foodName=${foodName}`).then(success => {
                 console.log(success);
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // 清空现有的表格内容
@@ -104,7 +104,7 @@ $(document).ready(function () {
                 console.error(error);
             });
         } else {
-            AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodName=${foodName}&foodCategoryId=${selectedValue}`).then(success => {
+            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=1&foodName=${foodName}&foodCategoryId=${selectedValue}`).then(success => {
                 console.log(success);
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // 清空现有的表格内容
@@ -240,7 +240,6 @@ $(document).ready(function () {
     });
 
     $('#tableBody').on('click', '.btn-update', function () {
-
         var categoryId = 0;
         const foodId = $(this).data('food-id');
         localStorage.setItem("currentUpdateId", foodId);
@@ -286,7 +285,7 @@ $(document).ready(function () {
             $("#food_NameShow").val(obj.foodName);
             $("#price_Show").val(obj.price);
             $("#info_Show").val(obj.info);
-            AjaxHelper.sendGet(`http://localhost:5000/foodCategory?category_id=${obj.foodCategoryId}`).then(success=>{
+            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/foodCategory?category_id=${obj.foodCategoryId}`).then(success=>{
                 const option = $('<option></option>')
                     .attr('value', success.message.id)
                     .text(success.message.categoryName);
@@ -334,7 +333,7 @@ $(document).ready(function () {
             alert("You must upload a picture")
             return
         }
-        AjaxHelper.sendPost("http://localhost:5000/food/update", formData).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/update", formData).then(success=>{
             selectAllfood();
         }).catch(error=>{
 
