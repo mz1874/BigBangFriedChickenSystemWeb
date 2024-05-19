@@ -46,21 +46,6 @@ $(document).ready(function() {
             });
         }
     
-        // // Example event listener for category tabs or links
-        // $('.categoriesTabs').on('click', function(e) {
-        //     e.preventDefault();
-        //     var categoryId = $(this).text();
-        //      $('#Category').text(categoryId); // Update the category name heading
-        //     fetchMenuItems(categoryId);
-        // });
-
-            // // Event handler for category links
-        // $('#categoriesTabs').on('click', 'a', function(e) {
-        //     e.preventDefault(); // Prevent default link behavior
-        //     var categoryName = $(this).text(); // Get the category name from the clicked link
-        //     $('#Category').text(categoryName); // Update the category name heading
-        //     fetchMenuItems(categoryName); // Fetch menu items for the selected category
-        // });
     
         // Function to fetch category ID using the category name
         function fetchCategoryId(categoryName) {
@@ -88,3 +73,22 @@ $(document).ready(function() {
     });
 });
 
+
+
+
+
+        // // Example event listener for category tabs or links
+        // $('.categoriesTabs').on('click', function(e) {
+        //     e.preventDefault();
+        //     var categoryId = $(this).text();
+        //      $('#Category').text(categoryId); // Update the category name heading
+        //     fetchMenuItems(categoryId);
+        // });
+
+            // // Event handler for category links
+        // $('#categoriesTabs').on('click', 'a', function(e) {
+        //     e.preventDefault(); // Prevent default link behavior
+        //     var categoryName = $(this).text(); // Get the category name from the clicked link
+        //     $('#Category').text(categoryName); // Update the category name heading
+        //     fetchMenuItems(categoryName); // Fetch menu items for the selected category
+        // });

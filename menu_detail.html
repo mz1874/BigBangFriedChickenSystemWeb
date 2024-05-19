@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Menu Detail</title>
-
 </head>
 
 <body>
@@ -22,15 +21,9 @@
                 <li><a href="story.html">Story</a></li>
                 <li><a href="feedback_form.html">Contact Us</a></li>
                 <li><a href="logIn.html">Log In</a></li>
-                <li><a class="p-2 cart-link" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg"
-                            class="bi bi-cart-check-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
-                        </svg></a></li><!--.cart-link svg {
-                            width: 20px;
-                            height: 16px;
-                            fill: currentColor;
-                        }-->
+                <li><a class="p-2 cart-link" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+                        </svg></a></li>
                 <li><a class="p-2" href="track_order.html">Track Order</a></li>
             </ul>
         </nav>
@@ -43,25 +36,19 @@
                     <div class="card">
                         <div class="card-body">
                             <form id="add-to-cart-form">
-                                <h5 class="card-title" id="cart-item">8PCS Wingette & Drumette</h5>
-                                <p class="card-text" style="color: #818181" id="info">A combination of 8 drumettes and wingettes,
-                                    coated with a sweet and buttery honey glaze.</p>
-                                <p class="card-text" id="price">RM 25.90</p>
+                                <h5 class="card-title" id="cart-item">Item Name</h5>
+                                <p class="card-text" style="color: #818181" id="info">Item description goes here.</p>
+                                <p class="card-text" id="price">RM 0.00</p>
 
                                 <div class="d-flex">
-                                    <button class="btn btn-primary" type="button" aria-label="Subtract" id="subtract-btn"
-                                        style="background-color:#7F3720">-
-                                    </button>
+                                    <button class="btn btn-primary" type="button" aria-label="Subtract" id="subtract-btn" style="background-color:#7F3720">-</button>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control text-center" id="quantity" value="1" 
-                                            readonly style="background-color: white;">
+                                        <input type="text" class="form-control text-center" id="quantity" value="1" readonly style="background-color: white;">
                                     </div>
-                                    <button class="btn btn-primary" type="button" id="add-btn"
-                                        style="background-color:#8E3A2B">+</button>
+                                    <button class="btn btn-primary" type="button" id="add-btn" style="background-color:#8E3A2B">+</button>
                                 </div>
 
-                                <a href="cart.html"class="btn text-white d-grid gap-4 col-12 mx-auto" type="submit" id="add-to-cart-button">Add to Cart</a>
-
+                                <a href="cart.html" class="btn text-white d-grid gap-4 col-12 mx-auto" type="submit" id="add-to-cart-button">Add to Cart</a>
                             </form>
                         </div>
                     </div>
@@ -70,14 +57,13 @@
 
             <div class="col-md-5 order-md-1">
                 <div style="display: flex; justify-content: center; align-items: center; height: auto;" id="item-img">
-                    <img src="images/Honey_8PCS_Wingette_Drumette.jpg" alt="8PCS Wingette & Drumette">
+                    <img src="images/placeholder.jpg" alt="Item Image" id="item-image">
                 </div>
 
                 <hr class="featurette-divider mt-4">
 
                 <h4 class="featurette-heading fw-normal lh-1">Special Instructions</h4>
-                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we
-                    need to avoid anything</p>
+                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we need to avoid anything</p>
 
                 <div>
                     <textarea class="form-control" placeholder="Eg. no mayo" id="specialInstructions"></textarea>
@@ -92,15 +78,11 @@
         <div class="subscribe">
             <h3>Subscribe to BBFC Email</h3>
             <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
-
             <br>
-
             <input type="email" placeholder="Email Address">
             <button>Subscribe</button>
         </div>
-
         <br>
-
         <div class="smlogo">
             <img src="images/fb.png" alt="logo" />
             <img src="images/twitter.png" alt="logo" />
@@ -118,74 +100,83 @@
     <script src="./js/menuCategories.js"></script>
     <script src="./js/menu.js"></script>
     <script src="js/cart.js"></script>
-
     <script>
-    $(document).ready(function() {
-        var quantityInput = $('#quantity');
-        var subtractButton = $('#subtract-btn');
-        var addButton = $('#add-btn');
+        $(document).ready(function () {
+            var quantityInput = $('#quantity');
+            var subtractButton = $('#subtract-btn');
+            var addButton = $('#add-btn');
 
-        // Initialize quantity
-        var currentQuantity = 1;
-        quantityInput.val(currentQuantity);
-
-        // Function to update quantity display
-        function updateQuantityDisplay() {
+            // Initialize quantity
+            var currentQuantity = 1;
             quantityInput.val(currentQuantity);
-        }
 
-        // Event listener for subtract button
-        subtractButton.on('click', function() {
-            if (currentQuantity > 1) {
-                currentQuantity--;
-                updateQuantityDisplay();
+            // Function to update quantity display
+            function updateQuantityDisplay() {
+                quantityInput.val(currentQuantity);
             }
-        });
 
-        // Event listener for add button
-        addButton.on('click', function() {
-            currentQuantity++;
-            updateQuantityDisplay();
-        });
-
-        // Function to handle form submission (Add to Cart)
-        $('#add-to-cart-button').on('submit', function(event) {
-            event.preventDefault();
-            // Here you can proceed with adding the item to the cart, using the currentQuantity variable
-            console.log('Item added to cart with quantity:', currentQuantity);
-        });
-
-        // Example AJAX function to fetch item details
-        function loadItemDetails(itemId) {
-            $.ajax({
-                url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=' + itemId,
-                type: 'GET',
-                success: function(response) {
-                    var item = response.message; // Assuming response structure gives you item details
-
-                    // Update HTML elements with fetched data
-                    $('#cart-item').text(item.name);
-                    $('#info').text(item.info);
-                    $('#price').text('RM ' + item.price);
-                    $('#item-img').src(item.img);
-
-                    // Optionally update the quantity input if default quantity is fetched
-                    currentQuantity = 1; // Reset quantity to default (1 in this case)
+            // Event listener for subtract button
+            subtractButton.on('click', function () {
+                if (currentQuantity > 1) {
+                    currentQuantity--;
                     updateQuantityDisplay();
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error fetching item details:', error);
                 }
             });
-        }
 
-        // Example of calling loadItemDetails with a specific item or category ID
-        var itemId = 1; // Replace with the actual item or category ID you want to fetch
-        loadItemDetails(itemId);
-    });
+            // Event listener for add button
+            addButton.on('click', function () {
+                currentQuantity++;
+                updateQuantityDisplay();
+            });
 
+            // Function to handle form submission (Add to Cart)
+            $('#add-to-cart-form').on('submit', function (event) {
+                event.preventDefault();
+                // Here you can proceed with adding the item to the cart, using the currentQuantity variable
+                console.log('Item added to cart with quantity:', currentQuantity);
+            });
 
+            // Function to get URL parameter
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+
+            // Example AJAX function to fetch item details
+            function loadItemDetails(itemId) {
+                $.ajax({
+                    url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=' + itemId,
+                    type: 'GET',
+                    success: function (response) {
+                        var item = response.data[0]; // Assuming response structure gives you item details
+
+                        // Update HTML elements with fetched data
+                        $('#cart-item').text(item.name);
+                        $('#info').text(item.info);
+                        $('#price').text('RM ' + item.price.toFixed(2));
+                        $('#item-image').attr('src', item.img);
+
+                        // Optionally update the quantity input if default quantity is fetched
+                        currentQuantity = 1; // Reset quantity to default (1 in this case)
+                        updateQuantityDisplay();
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error fetching item details:', error);
+                    }
+                });
+            }
+
+            // Get item ID from URL and load item details
+            var itemId = getUrlParameter('id'); // Get the item ID from URL
+            if (itemId) {
+                loadItemDetails(itemId);
+            } else {
+                console.error('No item ID found in URL');
+            }
+        });
     </script>
 </body>
+
 </html>
-    
