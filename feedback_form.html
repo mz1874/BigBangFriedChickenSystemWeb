@@ -19,7 +19,6 @@
                 <li><a href="menu_combo.html">Menu</a></li>
                 <li><a href="story.html">Story</a></li>
                 <li><a href="feedback_form.html">Contact Us</a></li>
-                <li><a href="logIn.html">Log In</a></li>
                 <li><a class="p-2 cart-link" href="cart.html">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          class="bi bi-cart-check-fill" viewBox="0 0 16 16">
@@ -28,6 +27,11 @@
                     </svg>
                 </a></li>
                 <li><a href="track_order.html">Track Order</a></li>
+                <li><a class="p-2" id="login-link" href="logIn.html">Log In</a></li>
+                <div id="user-dropdown" class="dropdown-content" style="display:none;">
+                    <a id="sign-out" href="#">Sign Out</a>
+                </div>
+
             </ul>
         </ul>
     </nav>
@@ -173,6 +177,7 @@
 <script src="./js/axios.js"></script>
 <script src="./js/AjaxHelper.js"></script>
 <script src="./js/feedback.js"></script>
+<script src="./js/customer.js"></script>
 
 
 </html>
