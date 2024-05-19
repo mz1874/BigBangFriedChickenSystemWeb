@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    var currentFoodImageSrc = "";
+
     function getFoodCategory() {
         AjaxHelper.sendGet("http://bugcreator.org.cn:5000/foodCategory/list", null)
             .then(success => {
@@ -41,14 +44,14 @@ $(document).ready(function () {
         });
     }
 
-    $('#Reset').click(function() {
+    $('#Reset').click(function () {
         $('#searchForm')[0].reset(); // 重置表单
     });
 
-    $("#Search").on("click",function (){
+    $("#Search").on("click", function () {
         const selectedValue = $('#foodType').val();
         let foodName = $('#foodName').val();
-        if (foodName==='' && !isNaN(selectedValue)){
+        if (foodName === '' && !isNaN(selectedValue)) {
             AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodCategoryId=${selectedValue}`).then(success => {
                 console.log(success);
                 const tableBody = document.getElementById('tableBody');
@@ -74,7 +77,7 @@ $(document).ready(function () {
             }).catch(error => {
                 console.error(error);
             });
-        }else if (isNaN(selectedValue) && foodName !==''){
+        } else if (isNaN(selectedValue) && foodName !== '') {
             AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodName=${foodName}`).then(success => {
                 console.log(success);
                 const tableBody = document.getElementById('tableBody');
@@ -100,7 +103,7 @@ $(document).ready(function () {
             }).catch(error => {
                 console.error(error);
             });
-        }else {
+        } else {
             AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodName=${foodName}&foodCategoryId=${selectedValue}`).then(success => {
                 console.log(success);
                 const tableBody = document.getElementById('tableBody');
@@ -157,7 +160,7 @@ $(document).ready(function () {
         }
 
         // 添加分页按钮点击事件
-        pagination.find('.page-link').click(function(e) {
+        pagination.find('.page-link').click(function (e) {
             e.preventDefault();
             var page = $(this).data('page');
             if (page) {
@@ -166,53 +169,57 @@ $(document).ready(function () {
         });
     }
 
-    $('#Add').click(function() {
+    /*新增食物*/
+    $('#Add').click(function () {
         $('#foodAdd').modal('show');
-        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/foodCategory/list",null).then(success=>{
-
-        }).catch(error=>{
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/foodCategory/list", null).then(success => {
+            const foodCategories = success.message.items;
+            const foodCategorySelect = $('#foodCategoryId');
+            foodCategorySelect.empty();
+            // 遍历每个食物类别并创建 <option> 元素
+            foodCategories.forEach(category => {
+                const option = $('<option></option>')
+                    .attr('value', category.id)
+                    .text(category.categoryName);
+                foodCategorySelect.append(option);
+            });
+        }).catch(error => {
 
         })
     });
 
-    function deleteFoodById(foodId){
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/delete", {"foodId":foodId}).then(success=>{
+
+
+
+    /*删除食物*/
+    function deleteFoodById(foodId) {
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/delete", {"foodId": foodId}).then(success => {
             selectAllfood();
-        }).catch(error=>{
+        }).catch(error => {
 
         })
     }
 
+    /*文件上传*/
     // 监听文件选择框的change事件
-    $('#imageFile').on('change', function() {
+    $('#imageFile').on('change', function () {
         const file = $(this)[0].files[0]; // 获取选择的文件
         const formData = new FormData(); // 创建一个FormData对象
-        formData.append('imageFile', file); // 将文件添加到FormData对象中
-
-        // 发送文件上传请求
-        $.ajax({
-            url: 'http://your-api-url/upload', // 替换为您的文件上传接口URL
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                // 处理上传成功的响应
-                console.log('File uploaded successfully:', response);
-            },
-            error: function(xhr, status, error) {
-                // 处理上传失败的情况
-                console.error('Error uploading file:', error);
-            }
-        });
+        formData.append('foodImage', file); // 将文件添加到FormData对象中
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/upload", formData).then(success => {
+            currentFoodImageSrc = success.file_path;
+            console.log(success)
+            $('#successToast').toast('show');
+        }).catch(error => {
+            console.log(error)
+        })
     });
-
 
 
     getFoodCategory();
     selectAllfood();
 
-    $('#tableBody').on('click', '.btn-delete', function() {
+    $('#tableBody').on('click', '.btn-delete', function () {
         const foodId = $(this).data('food-id');
         if (confirm(`Are you sure you want to delete food with ID ${foodId}?`)) {
             deleteFoodById(foodId);
