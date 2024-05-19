@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BBFC Cart</title>
     <link rel="stylesheet" href="css/cart.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
                 <h2>My Cart</h2>
                 <br>
                 <p>Self Collect At: <span class="location">BigBang SS15</span></p>
-                <p>Date and Time: <span class="date-time">Today 25 Apr 2024, 8:45 pm</span></p>
+                <p>Date and Time: <span class="date-time" id="current-date-time"></span></p>
                 <hr>
 
                 <div class="add-item">
@@ -43,33 +44,8 @@
                     </div>
                 </div>
                 <br>
-                <div class="cart-items">
-                    <div class="cart-item">
-                        <div class="item-details">
-                            <p>2pcs Chicken Wings Set</p>
-                            <p>Regular Fries</p>
-                            <p>Regular Zero Sugar Coke (ICE)</p>
-                        </div>
-                        <div class="item-price">RM23.99</div>
-                        <div class="item-quantity">
-                            <button class="qty-btn minus-btn">-</button>
-                            <span class="qty">1</span>
-                            <button class="qty-btn plus-btn">+</button>
-                        </div>
-                    </div>
-                    <div class="cart-item">
-                        <div class="item-details">
-                            <p>Fantastic Drumstick Set</p>
-                            <p>Regular Fries</p>
-                            <p>Regular Lemon Tea (ICT)</p>
-                        </div>
-                        <div class="item-price">RM19.99</div>
-                        <div class="item-quantity">
-                            <button class="qty-btn minus-btn">-</button>
-                            <span class="qty">2</span>
-                            <button class="qty-btn plus-btn">+</button>
-                        </div>
-                    </div>
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be dynamically added here -->
                 </div>
 
                 <div class="promo">
@@ -82,19 +58,19 @@
                 <div class="cart-total">
                     <div class="total-row">
                         <span>Subtotal (incl.SST)</span>
-                        <span class="subtotal">RM 63.97</span>
+                        <span class="subtotal" id="subtotal">RM 0.00</span>
                     </div>
                     <div class="total-row">
                         <span>Service Tax (6%)</span>
-                        <span class="service-tax">RM 3.84</span>
+                        <span class="service-tax" id="service-tax">RM 0.00</span>
                     </div>
                     <div class="total-row">
                         <span>Rounding Adjustment</span>
-                        <span class="rounding-adj">RM 0.03</span>
+                        <span class="rounding-adj" id="rounding-adj">RM 0.00</span>
                     </div>
                     <div class="total-row total">
                         <span>TOTAL</span>
-                        <span class="total-amount">RM 64.00</span>
+                        <span class="total-amount" id="total-price">RM 0.00</span>
                     </div>
                 </div>
             </div>
@@ -133,6 +109,118 @@
     </footer>
 
     <script src="js/cart.js"></script>
+    <script src="./js/axios.js"></script>
+    <script src="./js/AjaxHelper.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 用户登录函数
+            function userLogin(username, password) {
+                $.ajax({
+                    url: 'http://bugcreator.org.cn:5000/login',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ username: username, password: password }),
+                    success: function (response) {
+                        // 登录成功后执行获取购物车信息的函数
+                        fetchShoppingCart();
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error logging in: ' + xhr.responseText);
+                    }
+                });
+            }
+
+            // 调用用户登录函数
+            userLogin('1', '1'); // 传入用户名和密码
+            // Function to get and format current date and time
+            function getCurrentDateTime() {
+                var now = new Date();
+                var options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                return now.toLocaleDateString('en-US', options);
+            }
+
+            // Set current date and time
+            $('#current-date-time').text(getCurrentDateTime());
+
+            // Function to fetch and display shopping cart items
+            function fetchShoppingCart() {
+                $.ajax({
+                    url: 'http://bugcreator.org.cn:5000/shoppingCart/select',
+                    type: 'GET',
+                    success: function (response) {
+                        var cartItems = response.message;
+                        $('#cart-items').empty();
+                        var totalPrice = 0;
+                        cartItems.forEach(function (item) {
+                            var itemTotal = item.single_price * item.total;
+                            totalPrice += itemTotal;
+                            $('#cart-items').append(
+                                '<div class="cart-item">' +
+                                '<div class="item-details">' +
+                                '<p>' + item.food_name + '</p>' + // 食物名称
+                                '<p>' + 'Added Time: ' + new Date(item.added_time).toLocaleString() + '</p>' + // 添加时间
+                                '<p><img src="' + item.img + '" alt="' + item.food_name + '" width="50"></p>' + // 图片
+                                '</div>' +
+                                '<div class="item-price">RM' + item.single_price.toFixed(2) + '</div>' + // 单价
+                                '<div class="item-quantity">' +
+                                '<button class="qty-btn minus-btn" data-food-id="' + item.food_id + '">-</button>' +
+                                '<span class="qty">' + item.total + '</span>' +
+                                '<button class="qty-btn plus-btn" data-food-id="' + item.food_id + '">+</button>' +
+                                '</div>' +
+                                '<div class="item-total">RM' + itemTotal.toFixed(2) + '</div>' + // 商品总价
+                                '</div>'
+                            );
+                        });
+                        $('#total-price').text(totalPrice.toFixed(2));
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error fetching shopping cart: ' + xhr.responseText);
+                    }
+                });
+            }
+
+            // Fetch shopping cart when the page loads
+            fetchShoppingCart();
+
+            // Add item to cart
+            $('#add-to-cart-form').on('submit', function (e) {
+                e.preventDefault();
+                var foodId = $('#food-id').val();
+                var quantity = $('#quantity').val() || 1;
+                $.ajax({
+                    url: 'http://bugcreator.org.cn:5000/shoppingCart/add',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ foodId: foodId, quality: quantity }),
+                    success: function (response) {
+                        alert(response.message);
+                        fetchShoppingCart(); // 更新购物车列表
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error adding item to cart: ' + xhr.responseText);
+                    }
+                });
+            });
+
+            // Remove item from cart
+            $(document).on('click', '.remove-item', function () {
+                var foodId = $(this).data('food-id');
+                $.ajax({
+                    url: 'http://bugcreator.org.cn:5000/shoppingCart/delete',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ foodId: foodId }),
+                    success: function (response) {
+                        alert(response.message);
+                        fetchShoppingCart();
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error removing from cart: ' + xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
