@@ -39,4 +39,4 @@ function getCategoryFromUrl() {
 
     $(document).ready(function() {
     fetchCategories();
-    });
+});

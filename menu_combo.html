@@ -47,11 +47,15 @@
             </ul>
 
             <!-- Combo -->
+<<<<<<< HEAD
             <!-- <h1 class="mt-4" style="color: #7F3720;" id="categoryName">Combo</h1> -->
             <h1 class="mt-4" style="color: #7F3720;" id="categoryName"></h1>
 
+=======
+            <!-- <h1 class="mt-4" style="color: #7F3720;" id="category">Combo</h1> -->
+>>>>>>> e9313ddcf64ccba8b1fcf18ccd0852dbce64fd62
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4" id="foodItem">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-4" id="menuItem">
                 <div class="col">
                     <div class="card shadow-sm mt-4">
                         <img src="images/Combo_4pcs_Wingette_Drumette_Honey.jpg" class="card-img-top"
@@ -127,7 +131,6 @@
         </div>
     </footer>
 
-</body>
 
 <script src="js/jquery-3.7.1.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -138,6 +141,118 @@
 <script src="./js/AjaxHelper.js"></script>
 <script src="./js/menuCategories.js"></script>
 <script src="./js/menu.js"></script>
+    <!-- <script>
+        $(document).ready(function () {
+            // Function to fetch menu items based on category
+            function fetchMenuItems(category) {
+                $.ajax({
+                    url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=' + category,
+                    type: 'GET',
+                    success: function (response) {
+                        var foodItems = response.data; // Assuming response has an array named 'data'
 
+                        // Clear existing menu items
+                        $('#foodItem').empty();
+
+                        // Iterate through menu items and create HTML for each item
+                        foodItems.forEach(function (item) {
+                            var menuItemHTML = `
+                                <div class="col">
+                                    <div class="card shadow-sm mt-4">
+                                        <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${item.name}</h5>
+                                            <p class="card-text">${item.info}</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <span>RM ${item.price}</span>
+                                                </div>
+                                                <a href="menu_detail.html">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                        fill="#7F3720" class="bi bi-plus-square-fill"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            // Append each menu item HTML to the container
+                            $('#foodItem').append(menuItemHTML);
+                        });
+                    },
+                    error: function (error) {
+                        console.error('Error fetching menu items:', error);
+                    }
+                });
+            }
+
+            // Event listener for clicking on category tabs
+            $('#categoriesTabs a').on('click', function (e) {
+                e.preventDefault();
+                var categoryId = $(this).data('category-id');
+                fetchMenuItems(categoryId); // Fetch menu items for the clicked category
+            });
+
+            // Fetch initial menu items for the default category (Combo in this case)
+            fetchMenuItems(2); // Assuming Combo category has categoryId 2
+        });
+    </script> -->
+    <!-- <script>
+    $(document).ready(function() {
+    function fetchMenuItems(categoryId) {
+        $.ajax({
+            url: `http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=${categoryId}`,
+            type: 'GET',
+            success: function(response) {
+                var menuItems = response.data;
+                $('#menuItem').empty();
+                menuItems.forEach(function(item) {
+                    $('#menuItem').append(`
+                        <div class="col">
+                            <div class="card shadow-sm mt-4">
+                                <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.name}</h5>
+                                    <p class="card-text" style="color: #818181">${item.info}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <text>RM ${item.price.toFixed(2)}</text>
+                                        </div>
+                                        <a href="menu_detail.html?id=${item.id}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching menu items:', error);
+            }
+        });
+    }
+
+    // Example event listener for category tabs or links
+    $('.category-tab').on('click', function(e) {
+        e.preventDefault();
+        var categoryId = $(this).data('category-id');
+        fetchMenuItems(categoryId);
+    });
+
+    // Initial fetch example
+    fetchMenuItems(1); // Fetch menu items for category ID 1
+});
+
+    </script> -->
+</body>
 
 </html>

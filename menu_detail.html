@@ -44,11 +44,9 @@
                         <div class="card-body">
                             <form id="add-to-cart-form">
                                 <h5 class="card-title" id="cart-item">8PCS Wingette & Drumette</h5>
-                                <p class="card-text" style="color: #818181">A combination of 8 drumettes and wingettes,
-                                    coated
-                                    with a
-                                    sweet and buttery honey glaze.</p>
-                                <p class="card-text">RM 25.90</p>
+                                <p class="card-text" style="color: #818181" id="info">A combination of 8 drumettes and wingettes,
+                                    coated with a sweet and buttery honey glaze.</p>
+                                <p class="card-text" id="price">RM 25.90</p>
 
                                 <div class="d-flex">
                                     <button class="btn btn-primary" type="button" aria-label="Subtract"
@@ -72,7 +70,7 @@
             </div>
 
             <div class="col-md-5 order-md-1">
-                <div style="display: flex; justify-content: center; align-items: center; height: auto;">
+                <div style="display: flex; justify-content: center; align-items: center; height: auto;" id="img">
                     <img src="images/Honey_8PCS_Wingette_Drumette.jpg" alt="8PCS Wingette & Drumette">
                 </div>
 
@@ -110,9 +108,43 @@
             <img src="images/insta.png" alt="logo" />
         </div>
     </footer>
-    <script src="js/cart.js"></script>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/axios.js"></script>
     <script src="./js/AjaxHelper.js"></script>
-</body>
+    <script src="./js/menuCategories.js"></script>
+    <script src="./js/menu.js"></script>
+    <!-- <script src="js/cart.js"></script> -->
 
+    <script>
+    $(document).ready(function() {
+        function loadItemDetails(itemId) {
+            $.ajax({
+                url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=' + itemId,
+                type: 'GET',
+                success: function(response) {
+                    var item = response.message; // Assuming response structure gives you item details
+                    
+                    // Update HTML elements with fetched data
+                    $('#cart-item').text(item.name);
+                    $('#info').text(item.info);
+                    $('#price').text('RM ' + item.price);
+                    $('#img').src(item.img);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching item details:', error);
+                }
+            });
+        }
+
+        // Example of calling loadItemDetails with a specific item or category ID
+        loadItemDetails(1);
+    });
+
+    </script>
+</body>
 </html>
+    
