@@ -28,7 +28,7 @@ $(document).ready(function () {
                 <td>${food.foodName}</td>
                 <td>${food.price}</td>
                 <td>
-                    <button type="button" class="btn btn-link">Detail</button>
+                    <button type="button"  id="delete_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
                     &nbsp
                     <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 <td>${food.foodName}</td>
                 <td>${food.price}</td>
                 <td>
-                    <button type="button" class="btn btn-link">Detail</button>
+                    <button type="button" id="delete_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
                     &nbsp
                      <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
@@ -89,7 +89,7 @@ $(document).ready(function () {
                 <td>${food.foodName}</td>
                 <td>${food.price}</td>
                 <td>
-                    <button type="button" class="btn btn-link">Detail</button>
+                    <button type="button" id="delete_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
                     &nbsp
                     <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
@@ -115,7 +115,7 @@ $(document).ready(function () {
                 <td>${food.foodName}</td>
                 <td>${food.price}</td>
                 <td>
-                    <button type="button" class="btn btn-link">Detail</button>
+                    <button type="button" id="detailedInfo_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
                     &nbsp
                    <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
@@ -222,6 +222,29 @@ $(document).ready(function () {
         if (confirm(`Are you sure you want to delete food with ID ${foodId}?`)) {
             deleteFoodById(foodId);
         }
+    });
+
+    $('#tableBody').on('click', '.btn-detail', function () {
+        const foodId = $(this).data('food-id');
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success=>{
+            var obj = success.message;
+            console.log(obj)
+            $("#food_NameShow").val(obj.foodName);
+            $("#price_Show").val(obj.price);
+            $("#info_Show").val(obj.info);
+            AjaxHelper.sendGet(`http://localhost:5000/foodCategory?category_id=${obj.foodCategoryId}`).then(success=>{
+                const option = $('<option></option>')
+                    .attr('value', success.message.id)
+                    .text(success.message.categoryName);
+                $("#foodCategoryIdShow").append(option)
+            }).catch(error=>{
+
+            })
+            $('#CurrentImage').attr('src', obj.src);
+            $('#foodShow').modal('show');
+        }).catch(error=>{
+
+        })
     });
 
     $("#buttonToAddFood").on("click", function () {

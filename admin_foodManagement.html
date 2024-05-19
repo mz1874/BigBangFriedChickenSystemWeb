@@ -219,6 +219,108 @@
         </div>
     </div>
 
+
+
+    <!-- 模态框结构 -->
+    <div class="modal fade" id="foodShow" tabindex="-1" role="dialog"  aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabelShow">Food Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="foodFormShow">
+                        <div class="form-group">
+                            <label for="foodName">Food Name:</label>
+                            <input type="text" class="form-control" id="food_NameShow" disabled name="foodName" placeholder="Enter food name">
+                        </div>
+                        <div class="form-group">
+                            <img src="" id="CurrentImage" style="width: 254px;  height: 254px">
+                        </div>
+                        <div class="form-group">
+                            <label for="foodCategoryId">Food Category:</label>
+                            <select disabled class="form-control" id="foodCategoryIdShow" name="foodCategoryId">
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" disabled class="form-control" id="price_Show" name="price" placeholder="Enter price">
+                        </div>
+                        <div class="form-group">
+                            <label for="info">Info:</label>
+                            <textarea  disabled class="form-control" id="info_Show" name="info" rows="3" placeholder="Enter additional information"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="buttonToAddFood_Show" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 模态框结构 -->
+    <div class="modal fade" id="foodUpdate" tabindex="-1" role="dialog"  aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="toast toast-success" id="successToast_update" style="background-color: green" role="alert" aria-live="assertive"
+             aria-atomic="true" data-delay="2000">
+            <div class="toast-header">
+                <strong class="mr-auto">Success</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Operation completed successfully!
+            </div>
+        </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel_update">Food Add</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="foodForm_update">
+                        <div class="form-group">
+                            <label for="foodName">Food Name:</label>
+                            <input type="text" class="form-control" id="food_Name_update" name="foodName" placeholder="Enter food name">
+                        </div>
+                        <div class="form-group">
+                            <label for="imageFile">Image Source:</label>
+                            <input type="file" class="form-control-file" id="imageFile_update" name="imageFile">
+                        </div>
+                        <div class="form-group">
+                            <label for="foodCategoryId">Food Category:</label>
+                            <select class="form-control" id="foodCategoryId_update" name="foodCategoryId">
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" class="form-control" id="price_update" name="price" placeholder="Enter price">
+                        </div>
+                        <div class="form-group">
+                            <label for="info">Info:</label>
+                            <textarea class="form-control" id="info_update" name="info" rows="3" placeholder="Enter additional information"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="buttonToAddFood_update" class="btn btn-danger" data-dismiss="modal">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 
