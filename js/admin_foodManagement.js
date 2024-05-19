@@ -222,7 +222,7 @@ $(document).ready(function () {
         AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/upload", formData).then(success => {
             currentFoodImageSrc = success.file_path;
             $("#CurrentImageUpdate").attr('src', "http://bugcreator.org.cn"+currentFoodImageSrc);
-            $('#successToast').toast('show');
+            $('#successToast2').toast('show');
         }).catch(error => {
             console.log(error)
         })
@@ -335,7 +335,6 @@ $(document).ready(function () {
             return
         }
         AjaxHelper.sendPost("http://localhost:5000/food/update", formData).then(success=>{
-            $("#successToast_update").toast("show");
             selectAllfood();
         }).catch(error=>{
 
