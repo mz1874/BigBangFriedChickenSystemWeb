@@ -12,7 +12,7 @@ $(document).ready(function() {
         var latestNewsCheckbox = $('#latestNews').is(':checked');
         var termsConditionsCheckbox = $('#termsConditions').is(':checked');
         var sex = 1;
-        var role =3;
+        var role ="3";
         var address = "beijing";
 
         let isValid = true;
@@ -40,7 +40,8 @@ $(document).ready(function() {
                 password: passwordInput,
                 role: role, // Assuming '3' is for client, you can modify as needed
                 address: address, // Example address, you can modify as needed
-                sex: sex // Assuming '0' is for female, you can modify as needed
+                telephone:mobileNumberInput,
+                email:emailInput
             };
 
             $.ajax({
