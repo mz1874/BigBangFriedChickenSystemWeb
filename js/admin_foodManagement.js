@@ -183,7 +183,6 @@ $(document).ready(function () {
         })
     }
 
-
     // 监听文件选择框的change事件
     $('#imageFile').on('change', function() {
         const file = $(this)[0].files[0]; // 获取选择的文件
