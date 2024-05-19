@@ -227,7 +227,7 @@ $(document).ready(function () {
     $("#buttonToAddFood").on("click", function () {
         const formData = {
             foodName: $('#food_Name').val(),
-            src: currentFoodImageSrc,  // Assume this is set after file upload
+            src: "http://bugcreator.org.cn" + currentFoodImageSrc,  // Assume this is set after file upload
             foodCategoryId: $('#foodCategoryId').val(),
             price: $('#price').val(),
             info: $('#info').val()
