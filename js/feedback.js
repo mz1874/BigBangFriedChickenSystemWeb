@@ -40,7 +40,7 @@ $(document).ready(function () {
             category: category,
             visitType: visitType,
             timeVisit: timeVisit,
-            dateVisit: dateVisit,
+            dataVisit: dateVisit,
             subject: subject,
             message: message
         };
