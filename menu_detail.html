@@ -99,12 +99,126 @@
 
     <script src="js/jquery-3.7.1.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/axios.js"></script>
     <script src="./js/AjaxHelper.js"></script>
     <script src="./js/menuCategories.js"></script>
-    <script src="./js/menu.js"></script>
-<!--    <script src="js/cart.js"></script>-->
-    <script src="js/getFoodId.js"></script>
+    <!-- <script src="./js/menu.js"></script> -->
+    <!-- <script src="js/cart.js"></script> -->
+    <!-- <script scrc="js/getFoodId.js"></script> -->
+    <script>
+        $(document).ready(function () {
+            var quantityInput = $('#quantity');
+            var subtractButton = $('#subtract-btn');
+            var addButton = $('#add-btn');
+
+            // Initialize quantity
+            var currentQuantity = 1;
+            quantityInput.val(currentQuantity);
+
+            // Function to update quantity display
+            function updateQuantityDisplay() {
+                quantityInput.val(currentQuantity);
+            }
+
+            // Event listener for subtract button
+            subtractButton.on('click', function () {
+                if (currentQuantity > 1) {
+                    currentQuantity--;
+                    updateQuantityDisplay();
+                }
+            });
+
+            // Event listener for add button
+            addButton.on('click', function () {
+                currentQuantity++;
+                updateQuantityDisplay();
+            });
+
+            // Function to handle form submission (Add to Cart)
+            $('#add-to-cart-form').on('submit', function (event) {
+                event.preventDefault();
+                // Here you can proceed with adding the item to the cart, using the currentQuantity variable
+                console.log('Item added to cart with quantity:', currentQuantity);
+            });
+
+            // Function to get URL parameter
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+
+            function fetchFoodDetails(foodId) {
+            $.ajax({
+                url: 'http://bugcreator.org.cn:5000//food/query',
+                type: 'GET',
+                data: { foodId: foodId },
+                success: function (response) {
+                    if (response.code === 200) {
+                        var item = response.data;
+                        $('#cart-item').text(item.foodName);
+                        $('#item-img').attr('src', item.src);
+                        $('#info').text(item.info);
+                        $('#price').text('Price: $' + item.price);
+                    } else {
+                        alert('Error fetching food details: ' + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('Error fetching food details: ' + xhr.responseText);
+                }
+            });
+
+            }
+
+            var foodId = getUrlParameter('foodId'); 
+                if (foodId) {
+                    loadItemDetails(foodId);
+                } else {
+                    console.error('No foodId parameter found in URL');
+                }
+            });
+    </script>
 </body>
 
 </html>
+
+
+
+<!-- // Example AJAX function to fetch item details
+function loadItemDetails(itemId) {
+    $.ajax({
+        url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=' + itemId,
+        type: 'GET',
+        success: function (response) {
+            var item = response.data[0]; // Assuming response structure gives you item details
+
+            // Update HTML elements with fetched data
+            $('#cart-item').text(item.name);
+            $('#info').text(item.info);
+            $('#price').text('RM ' + item.price.toFixed(2));
+            $('#item-image').attr('src', item.img);
+
+            // Optionally update the quantity input if default quantity is fetched
+            currentQuantity = 1; // Reset quantity to default (1 in this case)
+            updateQuantityDisplay();
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching item details:', error);
+        }
+    });
+}
+
+// Get item ID from URL and load item details
+var itemId = getUrlParameter('id'); // Get the item ID from URL
+if (itemId) {
+    loadItemDetails(itemId);
+} else {
+    console.error('No item ID found in URL');
+} -->
+
+
