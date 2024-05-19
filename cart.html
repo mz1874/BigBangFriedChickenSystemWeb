@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <header>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  top-nav">
@@ -50,29 +49,11 @@
                 </div>
                 <br>
                 <div class="cart-items" id="cart-items">
-                    <!-- Cart items will be dynamically added here -->
-                </div>
+                    <div class="container">
 
-                <div class="promo">
-                    <h3>Promo Codes</h3>
-                    <div class="promo-code">
-                        <input type="text" placeholder="Enter your promo codes">
                     </div>
                 </div>
-
                 <div class="cart-total">
-                    <div class="total-row">
-                        <span>Subtotal (incl.SST)</span>
-                        <span class="subtotal" id="subtotal">RM 0.00</span>
-                    </div>
-                    <div class="total-row">
-                        <span>Service Tax (6%)</span>
-                        <span class="service-tax" id="service-tax">RM 0.00</span>
-                    </div>
-                    <div class="total-row">
-                        <span>Rounding Adjustment</span>
-                        <span class="rounding-adj" id="rounding-adj">RM 0.00</span>
-                    </div>
                     <div class="total-row total">
                         <span>TOTAL</span>
                         <span class="total-amount" id="total-price">RM 0.00</span>
@@ -90,8 +71,8 @@
                 <input type="text" placeholder="error@gmail.com">
                 <p class="paid">Paid by:</p>
                 <div class="payment-buttons">
-                    <button class="e-wallet"><a href="main.html">Cancel order</a></button>
-                    <button class="cash"><a href="order-completed.html">Pay by Cash</a></button>
+<!--                    <button class="e-wallet"><a href="main.html">Cancel order</a></button>-->
+                    <button class="cash" id="payment">Pay by Cash</button>
                 </div>
             </div>
         </div>
@@ -113,10 +94,11 @@
         </div>
     </footer>
 
+    <script src="js/jquery-3.7.1.js"></script>
     <script src="js/cart.js"></script>
     <script src="./js/axios.js"></script>
     <script src="./js/AjaxHelper.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="js/bootstrap.js"></script>
 </body>
 
 </html>
