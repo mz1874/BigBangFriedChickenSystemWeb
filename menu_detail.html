@@ -8,6 +8,17 @@
     <link href="css/menu.css" rel="stylesheet">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        #item-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+        }
+
+        #subtract-btn {
+            margin-left: 70px;
+        }
+    </style>
     <title>Menu Detail</title>
 </head>
 
@@ -40,10 +51,11 @@
                     <div class="card">
                         <div class="card-body">
                             <form id="add-to-cart-form">
+                                &nbsp;
                                 <h5 class="card-title" id="cart-item">Item Name</h5>
                                 <p class="card-text" style="color: #818181" id="info">Item description goes here.</p>
-                                <p class="card-text" id="price">RM 0.00</p>
-
+                                <br>
+                                <h4 class="card-text" id="price"> RM 0.00</h4>&nbsp;&nbsp;&nbsp;
                                 <div class="d-flex">
                                     <button class="btn btn-primary" type="button" aria-label="Subtract"
                                         id="subtract-btn" style="background-color:#7F3720">-</button>
@@ -54,9 +66,9 @@
                                     <button class="btn btn-primary" type="button" id="add-btn"
                                         style="background-color:#8E3A2B">+</button>
                                 </div>
-
                                 <a href="cart.html" class="btn text-white d-grid gap-4 col-12 mx-auto" type="submit"
                                     id="add-to-cart-button">Add to Cart</a>
+                                &nbsp;
                             </form>
                         </div>
                     </div>
@@ -69,14 +81,6 @@
                 </div>
 
                 <hr class="featurette-divider mt-4">
-
-                <h4 class="featurette-heading fw-normal lh-1">Special Instructions</h4>
-                <p class="card-text" style="color: #818181">Please let us know if you are allergic to anything or if we
-                    need to avoid anything</p>
-
-                <div>
-                    <textarea class="form-control" placeholder="Eg. no mayo" id="specialInstructions"></textarea>
-                </div>
             </div>
         </div>
     </div>
@@ -113,16 +117,16 @@
             var quantityInput = $('#quantity');
             var subtractButton = $('#subtract-btn');
             var addButton = $('#add-btn');
-    
+
             // Initialize quantity
             var currentQuantity = 1;
             quantityInput.val(currentQuantity);
-    
+
             // Function to update quantity display
             function updateQuantityDisplay() {
                 quantityInput.val(currentQuantity);
             }
-    
+
             // Event listener for subtract button
             subtractButton.on('click', function () {
                 if (currentQuantity > 1) {
@@ -130,13 +134,13 @@
                     updateQuantityDisplay();
                 }
             });
-    
+
             // Event listener for add button
             addButton.on('click', function () {
                 currentQuantity++;
                 updateQuantityDisplay();
             });
-    
+
             // Function to handle form submission (Add to Cart)
             $('#add-to-cart-form').on('submit', function (event) {
                 event.preventDefault();
@@ -144,14 +148,14 @@
                 console.log('Item added to cart with quantity:', currentQuantity);
             });
 
-                        // Function to get URL parameter
+            // Function to get URL parameter
             function getUrlParameter(name) {
                 name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
                 var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
                 var results = regex.exec(location.search);
                 return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
             }
-    
+
             function fetchFoodDetails() {
 
                 var foodId = localStorage.getItem("currentFoodId"); // Get foodId from localStorage
@@ -159,7 +163,7 @@
                 $.ajax({
                     url: 'http://bugcreator.org.cn:5000/food/query',
                     type: 'GET',
-                    data: { foodId: foodId }, 
+                    data: { foodId: foodId },
                     success: function (response) {
                         if (response.status_code === 200 && response.message) {
                             var foodDetails = response.message;
@@ -178,87 +182,12 @@
                     }
                 });
             }
-     
-        fetchFoodDetails();
-    });
+
+            fetchFoodDetails();
+        });
     </script>
     <script src="./js/customer.js"></script>
 
 </body>
+
 </html>
-
-        
-    
-            // Function to get URL parameter
-            // function getUrlParameter(name) {
-            //     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            //     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            //     var results = regex.exec(location.search);
-            //     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-            // }
-    
-            // function fetchFoodDetails(foodId) {
-            //     $.ajax({
-            //         url: 'http://bugcreator.org.cn:5000/food/query',
-            //         type: 'GET',
-            //         data: { foodId: localStorage.getItem("currentFoodId")},
-            //         success: function (response) {
-            //             if (response.code === 200) {
-            //                 var item = response.message;
-            //                 $('#cart-item').text(item.foodName);
-            //                 $('#item-img').attr('src', item.src);
-            //                 $('#info').text(item.info);
-            //                 $('#price').text('Price: $' + item.price);
-            //             } else {
-            //                 alert('Error fetching food details: ' + response.message);
-            //             }
-            //         },
-            //         error: function (xhr, status, error) {
-            //             alert('Error fetching food details: ' + xhr.responseText);
-            //         }       
-            //     });
-            // }
-    
-            // var foodId = getUrlParameter('foodId');
-            // if (foodId) {
-            //     fetchFoodDetails(foodId);
-            // } else {
-            //     console.error('No foodId parameter found in URL');
-            // }
-
-
-
-
-// // Example AJAX function to fetch item details
-// function loadItemDetails(itemId) {
-//     $.ajax({
-//         url: 'http://bugcreator.org.cn:5000/foodCategory/getFoodsByCategoryId?categoryId=' + itemId,
-//         type: 'GET',
-//         success: function (response) {
-//             var item = response.data[0]; // Assuming response structure gives you item details
-
-//             // Update HTML elements with fetched data
-//             $('#cart-item').text(item.name);
-//             $('#info').text(item.info);
-//             $('#price').text('RM ' + item.price.toFixed(2));
-//             $('#item-image').attr('src', item.img);
-
-//             // Optionally update the quantity input if default quantity is fetched
-//             currentQuantity = 1; // Reset quantity to default (1 in this case)
-//             updateQuantityDisplay();
-//         },
-//         error: function (xhr, status, error) {
-//             console.error('Error fetching item details:', error);
-//         }
-//     });
-// }
-
-// // Get item ID from URL and load item details
-// var itemId = getUrlParameter('id'); // Get the item ID from URL
-// if (itemId) {
-//     loadItemDetails(itemId);
-// } else {
-//     console.error('No item ID found in URL');
-// } 
-
-
