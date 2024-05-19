@@ -166,6 +166,15 @@ $(document).ready(function () {
         });
     }
 
+    $('#Add').click(function() {
+        $('#foodAdd').modal('show');
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/foodCategory/list",null).then(success=>{
+
+        }).catch(error=>{
+
+        })
+    });
+
     function deleteFoodById(foodId){
         AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/delete", {"foodId":foodId}).then(success=>{
             selectAllfood();
