@@ -184,6 +184,32 @@ $(document).ready(function () {
     }
 
 
+    // 监听文件选择框的change事件
+    $('#imageFile').on('change', function() {
+        const file = $(this)[0].files[0]; // 获取选择的文件
+        const formData = new FormData(); // 创建一个FormData对象
+        formData.append('imageFile', file); // 将文件添加到FormData对象中
+
+        // 发送文件上传请求
+        $.ajax({
+            url: 'http://your-api-url/upload', // 替换为您的文件上传接口URL
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                // 处理上传成功的响应
+                console.log('File uploaded successfully:', response);
+            },
+            error: function(xhr, status, error) {
+                // 处理上传失败的情况
+                console.error('Error uploading file:', error);
+            }
+        });
+    });
+
+
+
     getFoodCategory();
     selectAllfood();
 
