@@ -13,7 +13,7 @@ $(document).ready(function () {
     }
 
     function selectAllfood(page = 1) { // 默认页码为1
-        AjaxHelper.sendGet(`http://localhost:5000/food/page?page=${page}`, null).then(success => {
+        AjaxHelper.sendGet(`http://localhost:5000/food/page?page=${page}`).then(success => {
             console.log(success);
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = ''; // 清空现有的表格内容
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 <td>
                     <button type="button" class="btn btn-link">Detail</button>
                     &nbsp
-                    <button type="button" class="btn btn-danger">DELETE</button>
+                    <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
                     &nbsp
                     <button type="button" class="btn btn-success">Update</button>
                 </td>
@@ -40,6 +40,96 @@ $(document).ready(function () {
             console.error(error);
         });
     }
+
+    $('#Reset').click(function() {
+        $('#searchForm')[0].reset(); // 重置表单
+    });
+
+    $("#Search").on("click",function (){
+        const selectedValue = $('#foodType').val();
+        let foodName = $('#foodName').val();
+        if (foodName==='' && !isNaN(selectedValue)){
+            AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodCategoryId=${selectedValue}`).then(success => {
+                console.log(success);
+                const tableBody = document.getElementById('tableBody');
+                tableBody.innerHTML = ''; // 清空现有的表格内容
+                success.message.items.forEach(food => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                <th scope="row">${food.foodId}</th>
+                <td>${food.foodName}</td>
+                <td>${food.price}</td>
+                <td>
+                    <button type="button" class="btn btn-link">Detail</button>
+                    &nbsp
+                     <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
+                    &nbsp
+                    <button type="button" class="btn btn-success">Update</button>
+                </td>
+            `;
+                    tableBody.appendChild(row);
+                });
+
+                updatePagination(success.message); // 假设已有该函数实现分页更新
+            }).catch(error => {
+                console.error(error);
+            });
+        }else if (isNaN(selectedValue) && foodName !==''){
+            AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodName=${foodName}`).then(success => {
+                console.log(success);
+                const tableBody = document.getElementById('tableBody');
+                tableBody.innerHTML = ''; // 清空现有的表格内容
+                success.message.items.forEach(food => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                <th scope="row">${food.foodId}</th>
+                <td>${food.foodName}</td>
+                <td>${food.price}</td>
+                <td>
+                    <button type="button" class="btn btn-link">Detail</button>
+                    &nbsp
+                    <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
+                    &nbsp
+                    <button type="button" class="btn btn-success">Update</button>
+                </td>
+            `;
+                    tableBody.appendChild(row);
+                });
+
+                updatePagination(success.message); // 假设已有该函数实现分页更新
+            }).catch(error => {
+                console.error(error);
+            });
+        }else {
+            AjaxHelper.sendGet(`http://localhost:5000/food/page?page=1&foodName=${foodName}&foodCategoryId=${selectedValue}`).then(success => {
+                console.log(success);
+                const tableBody = document.getElementById('tableBody');
+                tableBody.innerHTML = ''; // 清空现有的表格内容
+                success.message.items.forEach(food => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                <th scope="row">${food.foodId}</th>
+                <td>${food.foodName}</td>
+                <td>${food.price}</td>
+                <td>
+                    <button type="button" class="btn btn-link">Detail</button>
+                    &nbsp
+                   <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
+                    &nbsp
+                    <button type="button" class="btn btn-success">Update</button>
+                </td>
+            `;
+                    tableBody.appendChild(row);
+                });
+
+                updatePagination(success.message); // 假设已有该函数实现分页更新
+            }).catch(error => {
+                console.error(error);
+            });
+        }
+
+
+    })
 
     // 定义更新分页导航的函数
     function updatePagination(message) {
@@ -76,6 +166,22 @@ $(document).ready(function () {
         });
     }
 
+    function deleteFoodById(foodId){
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/delete", {"foodId":foodId}).then(success=>{
+            selectAllfood();
+        }).catch(error=>{
+
+        })
+    }
+
+
     getFoodCategory();
     selectAllfood();
+
+    $('#tableBody').on('click', '.btn-delete', function() {
+        const foodId = $(this).data('food-id');
+        if (confirm(`Are you sure you want to delete food with ID ${foodId}?`)) {
+            deleteFoodById(foodId);
+        }
+    });
 });
