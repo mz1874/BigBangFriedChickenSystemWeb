@@ -6,7 +6,7 @@ function getCategoryFromUrl() {
     return categoryName;
 }
 
-$(document).ready(function() {
+
     // Function to fetch menu items for a category
     $(document).ready(function() {
         function fetchMenuItems(categoryId) {
@@ -29,11 +29,11 @@ $(document).ready(function() {
                                                 <text>RM ${item.price.toFixed(2)}</text>
                                             </div>
                                             <div>
-                                                <a href="menu_detail.html?id=${item.id}">
+                                                <button id="showInfo" value="${item.id}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7F3720" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
                                                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
                                                     </svg>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -47,6 +47,7 @@ $(document).ready(function() {
                 }
             });
         }
+
     
         // Function to fetch category ID using the category name
         function fetchCategoryId(categoryName) {
@@ -71,8 +72,16 @@ $(document).ready(function() {
         // Get category name from URL and fetch corresponding category ID
         var categoryName = getCategoryFromUrl();
         fetchCategoryId(categoryName);
+
+
+        // Update the event handler to use event delegation
+        $(document).on("click", "#showInfo", function (){
+            localStorage.setItem("currentFoodId", $("#showInfo").val())
+            window.location.href = "./menu_detail.html";
+        });
+
     });
-});
+
 
 
 
