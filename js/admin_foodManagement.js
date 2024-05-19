@@ -243,6 +243,7 @@ $(document).ready(function () {
 
         var categoryId = 0;
         const foodId = $(this).data('food-id');
+        localStorage.setItem("currentUpdateId", foodId);
         AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success=>{
             var obj = success.message;
             console.log(obj)
@@ -321,5 +322,24 @@ $(document).ready(function () {
 
     $("#buttonToAddFood_update").on("click", function (){
 
+        const formData = {
+            foodId:localStorage.getItem("currentUpdateId"),
+            foodName: $('#food_Name_update').val(),
+            src: "http://bugcreator.org.cn" + currentFoodImageSrc,
+            category: $('#foodCategoryId_update').val(),
+            price: $('#price_update').val(),
+            info: $('#info_update').val()
+        };
+        if (currentFoodImageSrc===""){
+            alert("You must upload a picture")
+            return
+        }
+        AjaxHelper.sendPost("http://localhost:5000/food/update", formData).then(success=>{
+            $("#successToast_update").toast("show");
+            selectAllfood();
+        }).catch(error=>{
+
+        })
+        console.log(formData)
     })
 });
