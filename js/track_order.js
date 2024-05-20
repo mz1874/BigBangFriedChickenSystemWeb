@@ -1,5 +1,9 @@
 $(document).ready(function () {
     var currentUserId = localStorage.getItem("userId");
+    if(currentUserId===""){
+        alert("You have login first!")
+        return;
+    }
     AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/order/selectOrderByUserId?userId=${currentUserId}`)
         .then(success => {
             console.log(success);
