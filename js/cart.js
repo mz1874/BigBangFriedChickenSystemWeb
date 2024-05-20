@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     function getCurrentCart(){
         // 发送 AJAX 请求获取购物车数据
-        AjaxHelper.sendGet(`http://localhost:5000/shoppingCart/select?currentUserId=${currentUserId}`).then(success => {
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/shoppingCart/select?currentUserId=${currentUserId}`).then(success => {
             // 清空现有的内容
             $(".container .row").empty();
             let totalPrice = 0; // 初始化总价为0
@@ -56,7 +56,7 @@ $(document).ready(function() {
             // 添加删除按钮的点击事件
             $(".delete-item").on("click", function() {
                 const foodId = $(this).data('food-id');
-                AjaxHelper.sendPost("http://localhost:5000/shoppingCart/delete", {"currentUser":currentUserId, "foodId":foodId}).then(success=>{
+                AjaxHelper.sendPost("http://bugcreator.org.cn:5000/shoppingCart/delete", {"currentUser":currentUserId, "foodId":foodId}).then(success=>{
                     alert("删除成功")
                     getCurrentCart();
                 }).catch(error=>{
@@ -72,7 +72,7 @@ $(document).ready(function() {
 
 
     $("#payment").on("click",function (){
-        AjaxHelper.sendPost("http://localhost:5000/order/order",{"userId":currentUserId, "food_ids":foodIds}).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/order/order",{"userId":currentUserId, "food_ids":foodIds}).then(success=>{
 
             window.location.href = '.\\order-completed.html';
         }).catch(error=>{

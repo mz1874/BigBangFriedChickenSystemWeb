@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var currentUserId = localStorage.getItem("userId");
-    AjaxHelper.sendGet(`http://localhost:5000/order/selectOrderByUserId?userId=${currentUserId}`)
+    AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/order/selectOrderByUserId?userId=${currentUserId}`)
         .then(success => {
             console.log(success);
             if (success && success.message && success.message.length > 0) {
