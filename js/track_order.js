@@ -1,7 +1,8 @@
 $(document).ready(function () {
     var currentUserId = localStorage.getItem("userId");
-    if(currentUserId===""){
+    if(currentUserId==="" || currentUserId==null){
         alert("You have login first!")
+        window.location.href = '.\\logIn.html';
         return;
     }
     AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/order/selectOrderByUserId?userId=${currentUserId}`)

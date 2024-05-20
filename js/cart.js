@@ -1,7 +1,8 @@
 $(document).ready(function() {
     var currentUserId = localStorage.getItem("userId");
-    if (!currentUserId) {
-        alert("Invalid request! You must login first.");
+    if(currentUserId==="" || currentUserId==null){
+        alert("You have login first!")
+        window.location.href = '.\\logIn.html';
         return;
     }
 
