@@ -5,6 +5,8 @@ $(document).ready(function() {
         return;
     }
 
+    var foodIds=[]
+
     function getCurrentCart(){
         // 发送 AJAX 请求获取购物车数据
         AjaxHelper.sendGet(`http://localhost:5000/shoppingCart/select?currentUserId=${currentUserId}`).then(success => {
@@ -14,6 +16,7 @@ $(document).ready(function() {
 
             // 处理获取到的每个购物车项
             success.message.forEach(e => {
+                foodIds.push(e.food_id)
                 // 创建购物车项的 HTML 结构
                 var itemHTML = `
                 <div class="card-body col-md-12">
@@ -69,6 +72,11 @@ $(document).ready(function() {
 
 
     $("#payment").on("click",function (){
-        AjaxHelper.sendPost("")
+        AjaxHelper.sendPost("http://localhost:5000/order/order",{"userId":currentUserId, "food_ids":foodIds}).then(success=>{
+
+            window.location.href = '.\\order-completed.html';
+        }).catch(error=>{
+
+        })
     })
 });
