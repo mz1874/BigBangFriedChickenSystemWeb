@@ -201,6 +201,28 @@ main {
     padding-top: 10px;
 }
 
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.rating input {
+    display: none;
+}
+.rating label {
+    font-size: 2em;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.rating input:checked ~ label,
+.rating input:hover ~ label,
+.rating label:hover ~ label {
+    color: #f0a500;
+}
+
 .payment {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #ECECEC;
