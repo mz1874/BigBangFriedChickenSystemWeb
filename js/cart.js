@@ -6,6 +6,21 @@ $(document).ready(function() {
         return;
     }
 
+            var userName = localStorage.getItem('username');
+            var userPhone = localStorage.getItem('num');
+            var userEmail = localStorage.getItem('email');
+
+            // Check if the values are available in local storage
+            if (userName) {
+                $('#name').val(userName);
+            }
+            if (userPhone) {
+                $('#tel').val(userPhone);
+            }
+            if (userEmail) {
+                $('#email').val(userEmail);
+            }
+
     var foodIds=[]
 
     function getCurrentCart(){
