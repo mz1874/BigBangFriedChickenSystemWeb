@@ -9,7 +9,6 @@ $(document).ready(function () {
     function showOrderHistory(){
         AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/order/selectOrderByUserId?userId=${currentUserId}`)
             .then(success => {
-                console.log(success);
                 if (success && success.message && success.message.length > 0) {
                     success.message.forEach(order => {
                         var orderNumber = `#${order.id.toString().padStart(8, '0')}`; // 根据订单ID生成订单号
@@ -22,7 +21,7 @@ $(document).ready(function () {
                                 <li><strong>Order Number:</strong> ${orderNumber}</li>
                                 <li><strong>Ordered On:</strong> ${orderedOn}</li>
                                 <li><strong>Price:</strong> <span id="price">${price}</span></li>
-                                <li><button  style="margin-left: 160px" class="btn btn-info orderDetails" data-order-id="${order.id}">Details</button></li>
+                                <li><button style="margin-left: 160px" class="btn btn-info orderDetails" data-toggle="modal" data-target="#myModal" data-order-id="${order.id}">Details</button></li>
                             </ul>
                         </div>
                     `;
@@ -46,8 +45,34 @@ $(document).ready(function () {
         var dataTosend = {
             orderId:order
         }
+        $(".foods").empty();
         AjaxHelper.sendGet("http://localhost:5000/order/selectFoodByOrderId", dataTosend).then(success=>{
             console.log(success)
+            success.message.forEach(e=>{
+                console.log(e)
+                var itemHTML = `
+                <div class="card-body col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="${e.img}" width="130px" height="130px">
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="card-title">${e.foodName}</h5>
+                            <div class="total-row">
+                                <span>Unit price</span>
+                                <span class="subtotal">RM ${e.price.toFixed(2)}</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Quantity</span>
+                                <span class="subtotal">${e.quantity}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+                // 将购物车项添加到 .row 容器中
+                $(".foods").append(itemHTML);
+            })
         }).catch(error=>{
 
         })
