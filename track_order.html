@@ -35,30 +35,37 @@
 </header>
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Order items</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You're Ordered!</p>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="container foods">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h2>-Track Order-</h2>
     <div id="order-container" class="order-info">
 
     </div>
-<!--    <div class="order-details">-->
-<!--        <h2>-Order Details-</h2>-->
-<!--        <ul>-->
-<!--            <li>2pcs Chicken Wings Set</li>-->
-<!--            <li>Regular Fries</li>-->
-<!--            <li>Regular Zero Sugar Coke (ICE)</li>-->
-<!--            <li>Fantastic Drumstick Set</li>-->
-<!--            <li>Regular Fries</li>-->
-<!--            <li>Regular Lemon Tea (ICT)</li>-->
-<!--        </ul>-->
-<!--        <p><strong>Total:</strong> RM64.00</p>-->
-<!--        <p><strong>Order Status:</strong> Processing</p>-->
-<!--    </div>-->
-<!--    <div class="tracking-history">-->
-<!--        <h2>-Tracking History-</h2>-->
-<!--        <ul>-->
-<!--            <li>Apr 25<br>8:45 pm :Order placed</li>-->
-<!--            <li>8:50 pm :Order received and being prepared</li>-->
-<!--        </ul>-->
-<!--    </div>-->
+
     <footer class="container-fluid footer" style="margin-top: 500px">
         <div class="subscribe">
             <h3>Subscribe to BBFC Email</h3>

@@ -21,30 +21,22 @@ $(document).ready(function () {
         $("#name").val("");
         $("#tel").val("");
         $("#email").val("");
-        $("#category").val("");
-        $("#visitType").val("");
-        $("#timeVisit").val("");
-        $("#dateVisit").val("");
-        $("#subject").val("");
+        $("input[name='rating']").prop("checked", false); // 取消选中评分
         $("#message").val("");
     }
+
     $('#submit').on('click', function (e) {
         e.preventDefault(); // 阻止表单默认提交行为
         // 获取表单字段的值
         var name = $("#name").val();
         var tel = $("#tel").val();
         var email = $("#email").val();
-        var category = $("#category").val();
-        var visitType = $("#visitType").val();
-        var timeVisit = $("#timeVisit").val();
-        var dateVisit = $("#dateVisit").val(); // 修正了变量名为dateVisit
-        var subject = $("#subject").val();
+        let rating = $("input[name='rating']:checked").val();
         var message = $("#message").val();
 
         // 检查字段是否为空
-        if (name === '' || tel === '' || email === '' || category === '' ||
-            visitType === '' || timeVisit === '' || dateVisit === '' ||
-            subject === '' || message === '') {
+        if (name === '' || tel === '' || email === '' ||
+            rating === '' || message === '') {
             $('#myModal').modal('show');
             return; // 停止执行函数
         }
@@ -54,15 +46,11 @@ $(document).ready(function () {
             name: name,
             tel: tel,
             email: email,
-            category: category,
-            visitType: visitType,
-            timeVisit: timeVisit,
-            dataVisit: dateVisit,
-            subject: subject,
+            rating: rating,
             message: message
         };
 
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/feedback/add", dataToSend)
+        AjaxHelper.sendPost("http://localhost:5000/feedback/add", dataToSend)
             .then(success => {
                 $('#successToast').toast('show'); // 显示成功提示框
                 clean();
