@@ -90,10 +90,9 @@ $(document).ready(function () {
         }).catch(error=>{
             console.error('Error fetching orders:', error);
         });
-
-
-
     }
+
+
     selectAllOrders(1);
     $('body').on("click", "#operation", function() {
         var orderId = $(this).data("orderid");
@@ -132,4 +131,63 @@ $(document).ready(function () {
 
         })
     });
+
+    $("#search").on("click",function (){
+        var orderId = $('#id').val();
+        var startDay = $("#startDate").val();
+        var endDay = $("#endDate").val();
+        var dataTosend = {
+            orderId : orderId,
+            startTime:startDay,
+            endTime:endDay
+        }
+        AjaxHelper.sendGet("http://localhost:5000/order/page", dataTosend).then(success=>{
+            updatePagination(success.message)
+            let tbody = $('.table-hover tbody');
+            tbody.empty(); // 清空现有内容，以免重复添加
+            success.message.items.forEach(order => {
+                // 状态文本映射
+                let statusText = '';
+                switch(order.status) {
+                    case 1:
+                        statusText = 'Ordered';
+                        break;
+                    case 2:
+                        statusText = 'Payment successful!';
+                        break;
+                    case 3:
+                        statusText = 'Delivering';
+                        break;
+                    case 4:
+                        statusText = 'Delivered';
+                        break;
+                    default:
+                        statusText = 'Unknow';
+                }
+
+                let newRow = `
+                    <tr>
+                        <td>${order.id || '-'}</td>
+                        <td>${order.orderTime || '-'}</td>
+                        <td>${order.username || '-'}</td>
+                        <td>${statusText}</td> 
+                        <td>${order.total || '-'}</td>
+                        <td> <button 
+                                type="button" 
+                                id="operation"
+                                class="btn btn-success" 
+                                data-toggle="modal" 
+                                data-target="#myModal"
+                                data-orderid="${order.id}"
+                            >Detail</button></td>
+                    </tr>
+                `;
+                tbody.append(newRow);
+            });
+        }).catch(error=>{
+            console.error('Error fetching orders:', error);
+        });
+
+    })
+
 })
