@@ -133,7 +133,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="startDate" placeholder="Start Date">
+                        <input type="date" class="form-control" id="startDate" placeholder="Start Date">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>
                         </div>
@@ -144,7 +144,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="endDate" placeholder="End Date">
+                        <input type="date" class="form-control" id="endDate" placeholder="End Date">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>
                         </div>
@@ -166,21 +166,39 @@
                         <th>Order no.</th>
                         <th>Order date</th>
                         <th>Bill-to name</th>
+                        <th>Status</th>
                         <th>Total</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>G23087</td>
-                        <td>5/9/2022</td>
-                        <td>Ms PY</td>
-                        <td>RM 59</td>
-                        <td><a href="admin_orderHistorydetails.html">View details</a></td>
-                    </tr>
 
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Order items</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You're Ordered!</p>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <div class="container foods">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -188,6 +206,9 @@
 <script src="./js/jquery-3.7.1.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script src="js/admin.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/AjaxHelper.js"></script>
+<script src="js/admin_orderHistory.js"></script>
 </body>
 
 </html>
