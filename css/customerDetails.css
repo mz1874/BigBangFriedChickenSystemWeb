@@ -1,0 +1,41 @@
+/* Card Styles */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-title {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .card-text {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Button Styles */
+  .btn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #333;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    color: #fff;
+  }

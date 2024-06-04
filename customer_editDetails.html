@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+
 </head>
 <!--ss-->
 <header>
@@ -34,51 +36,55 @@
         </div>
     </div>
 </header>
+<body>
+    <section class="edit-details login">
+        <h1>Update Your Details Here</h1>
+        <p>Let us stay updated with you</p>
+        <form id="edit-details">
+          <label for="name">User Name*</label>
+          <input type="text" id="name" required>
+    
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName">
+    
+          <label for="mobileNumber">Mobile Number*</label>
+          <input type="tel" id="mobileNumber" required>
+    
+          <label for="email">Email*</label>
+          <input type="email" id="email" required>
+    
+          <label for="password">Password*</label>
+          <input type="password" id="password" required>
+    
+          <label for="confirmPassword">Confirmed Password*</label>
+          <input type="password" id="confirmPassword" required>
+    
+          <label for="dob">Date of Birth (DD-MM-YYYY)</label>
+          <input type="text" id="dob" placeholder="DD-MM-YYYY">
+    
+          <button type="submit" id="submit">Edit</button>
+        </form>
+      </section>
 
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <footer>
+        <div class="subscribe">
+            <h3>Subscribe to BBFC Email</h3>
+            <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
 
+            <br>
 
-<div class="animation">
-    <img src="images/background.jpg" alt="Welcome"/>
-</div>
-
-<div class="container align-content-center">
-    <h2>Discover Menu</h2>
-    <p class="row">Be dazzle by our award-winning specialities such as the world famous beef and lamb ribs, original
-        Onion Loaf and
-        Kickin' Shrimp, Filet Medallions, Mojo Chicken, Steakhouse Burger, juicy steaks, followed by fresh salads
-        and so
-        much more.</p>
-    <br>
-    <a href="menu_combo.html" id="product" class="btn btn-primary">View Menu</a>
-</div>
-
-
-<footer class="container-fluid footer">
-    <div class="subscribe">
-        <h3>Subscribe to BBFC Email</h3>
-        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
-        <br>
-        <label>
             <input type="email" placeholder="Email Address">
-        </label>
-        <button>Subscribe</button>
-    </div>
+            <button>Subscribe</button>
+        </div>
 
-    <br>
+        <br>
 
-    <div class="smlogo">
-        <img src="images/fb.png" alt="logo"/>
-        <img src="images/twitter.png" alt="logo"/>
-        <img src="images/insta.png" alt="logo"/>
-    </div>
-</footer>
-
-
+        <div class="smlogo">
+            <img src="images/fb.png" alt="logo" />
+            <img src="images/twitter.png" alt="logo" />
+            <img src="images/insta.png" alt="logo" />
+        </div>
+    </footer>
 </body>
-<script src="js/jquery-3.7.1.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="./js/customer.js"></script>
-
-
+    
 </html>
