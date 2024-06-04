@@ -149,15 +149,6 @@
             });
 
             // Function to get URL parameter
-<<<<<<< HEAD
-            function getUrlParameter(name) {
-                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-                var results = regex.exec(location.search);
-                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-            }
-
-=======
             // function getUrlParameter(name) {
             //     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             //     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -165,7 +156,6 @@
             //     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
             // }
     
->>>>>>> 095531c3ec37a2657ba92537a1326f72a88c6471
             function fetchFoodDetails() {
 
                 var foodId = localStorage.getItem("currentFoodId"); // Get foodId from localStorage
@@ -192,28 +182,19 @@
                     }
                 });
             }
-<<<<<<< HEAD
-
-            fetchFoodDetails();
-        });
-=======
      
         fetchFoodDetails();
 
     });
->>>>>>> 095531c3ec37a2657ba92537a1326f72a88c6471
     </script>
     <script src="./js/customer.js"></script>
 
 </body>
-<<<<<<< HEAD
-=======
 </html>
 
         
 
  
 
->>>>>>> 095531c3ec37a2657ba92537a1326f72a88c6471
 
 </html>
