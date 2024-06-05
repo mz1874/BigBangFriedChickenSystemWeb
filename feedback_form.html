@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/feedback_form.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <header>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  top-nav">
@@ -27,6 +28,7 @@
         </nav>
         <a class="p-2" id="login-link" href="logIn.html">Log In</a>
         <div id="user-dropdown" class="dropdown-content" style="display:none;">
+            <a id = "details" href="customerDetails.html">Information</a>
             <a id="sign-out" href="#">Sign Out</a>
         </div>
     </div>
@@ -75,53 +77,28 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <h3>Info</h3>
-                        <div class="input-width-short">
-                            <div class="input-group">
-                                <label for="category" class="font-small">Categories</label>
-                                <select id="category" name="category">
-                                    <option value="" disabled selected>-Choose type of feedback-</option>
-                                    <option value="accuracy">Accuracy of Order</option>
-                                    <option value="speed">Speed of Service</option>
-                                    <option value="cleanliness">Cleanliness</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="visitType" class="font-small">Type of visit</label>
-                                <select id="visitType" name="visitType">
-                                    <option value="" disabled selected>-Choose type of visit-</option>
-                                    <option value="dineIn">Dine In</option>
-                                    <option value="pickUp">Pick Up</option>
-                                    <option value="driveThru">Drive Thru</option>
-                                </select>
-                                <label for="timeVisit" class="font-small">Time of visit</label>
-                                <select id="timeVisit" name="timeVisit">
-                                    <option value="" disabled selected>-Choose time of visit-</option>
-                                    <option value="breakfast">Breakfast</option>
-                                    <option value="lunch">Lunch</option>
-                                    <option value="dinner">Dinner</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label for="dateVisit" class="font-small">Date of visit</label>
-                                <input type="text" id="dateVisit" name="dataVisit" placeholder="dd/mm/yy">
-                            </div>
+                        <h3>How you satisfied our service?</h3>
+                        <div class="rating">
+                            <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                            <input type="radio" id="star4" name="rating" value="4"><label for="star4">★★</label>
+                            <input type="radio" id="star3" name="rating" value="3"><label for="star3">★★★</label>
+                            <input type="radio" id="star2" name="rating" value="2"><label for="star2">★★★★</label>
+                            <input type="radio" id="star1" name="rating" value="1"><label for="star1">★★★★★</label>
                         </div>
                     </div>
                     <div class="form-group input-width-long">
-                        <label>Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="Message subject">
                         <label class="font-small">Message</label>
                         <textarea id="message" name="message" placeholder="Leave your message here..."></textarea>
                     </div>
+
                     <div class="button-right">
                         <div class="form-group">
                             <button type="reset" id="reset" class="btn btn-danger"><b>RESET</b></button>
                             <button type="button" id="submit" class="btn btn-primary"><b>Submit</b></button>
                         </div>
                     </div>
-
                 </form>
             </div>
 

@@ -50,7 +50,7 @@ $(document).ready(function() {
                 contentType: 'application/json',
                 data: JSON.stringify(requestData),
                 success: function(response) {
-                    alert('User added successfully');
+                    alert('Register successfully, kindly proceed to the log in page');
                     $('#register')[0].reset(); // Clear the form fields
                 },
                 error: function(xhr, status, error) {

@@ -28,46 +28,50 @@
         </nav>
         <a class="p-2" id="login-link" href="logIn.html">Log In</a>
         <div id="user-dropdown" class="dropdown-content" style="display:none;">
+            <a id = "details" href="customerDetails.html">Information</a>
             <a id="sign-out" href="#">Sign Out</a>
         </div>
     </div>
 </header>
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-    <div class="order-info">
-        <h2>-Track Order-</h2>
-        <ul>
-            <li><strong>Order Number:</strong> #2024042501</li>
-            <li><strong>Ordered On:</strong> Apr 25, 2024, 8:45 pm</li>
-            <li><strong>Pickup From:</strong> BigBang SS15</li>
-        </ul>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Order items</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You're Ordered!</p>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="container foods">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
-    <div class="order-details">
-        <h2>-Order Details-</h2>
-        <ul>
-            <li>2pcs Chicken Wings Set</li>
-            <li>Regular Fries</li>
-            <li>Regular Zero Sugar Coke (ICE)</li>
-            <li>Fantastic Drumstick Set</li>
-            <li>Regular Fries</li>
-            <li>Regular Lemon Tea (ICT)</li>
-        </ul>
-        <p><strong>Total:</strong> RM64.00</p>
-        <p><strong>Order Status:</strong> Processing</p>
+</div>
+
+<h2>-Track Order-</h2>
+    <div id="order-container" class="order-info">
+
     </div>
-    <div class="tracking-history">
-        <h2>-Tracking History-</h2>
-        <ul>
-            <li>Apr 25<br>8:45 pm :Order placed</li>
-            <li>8:50 pm :Order received and being prepared</li>
-        </ul>
-    </div>
-    <footer class="container-fluid footer">
+
+    <footer class="container-fluid footer" style="margin-top: 500px">
         <div class="subscribe">
             <h3>Subscribe to BBFC Email</h3>
             <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
             <br>
-            <input type="email" placeholder="Email Address">
+            <input type="email" placeholder="Email Address"/>
             <button>Subscribe</button>
         </div>
 
@@ -83,6 +87,7 @@
 <script src="js/jquery-3.7.1.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="./js/customer.js"></script>
-
-
+<script src="./js/axios.js"></script>
+<script src="./js/AjaxHelper.js"></script>
+<script src="js/track_order.js"></script>
 </html>

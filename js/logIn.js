@@ -18,12 +18,16 @@ $(document).ready(function() {
           var userId = response.data.id;
           var roles = response.data.role; // Extract role information
           var userName =response.data.userName;
-          
+          var phonenumber = response.data.tel;
+          var email = response.data.email;
+
+
           localStorage.setItem('userId', userId);
-          localStorage.setItem('roles', JSON.stringify(roles)); // Store roles in localStorage
-          localStorage.setItem('username', userName)
+          localStorage.setItem('roles', JSON.stringify(roles));// Store roles in localStorage
+          localStorage.setItem('username', userName);
+          localStorage.setItem('num',phonenumber);
+          localStorage.setItem('email',email);
           
-          alert('User ID: ' + userId + '\nRoles: ' + roles.join(', ')+ userName);
 
           // Redirect or perform other actions as needed based on roles
           // For example, you could redirect admin users to an admin dashboard
