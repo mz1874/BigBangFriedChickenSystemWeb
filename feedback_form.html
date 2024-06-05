@@ -28,122 +28,126 @@
         </nav>
         <a class="p-2" id="login-link" href="logIn.html">Log In</a>
         <div id="user-dropdown" class="dropdown-content" style="display:none;">
-            <a id = "details" href="customerDetails.html">Information</a>
+            <a id="details" href="customerDetails.html">Information</a>
             <a id="sign-out" href="#">Sign Out</a>
         </div>
     </div>
 </header>
+
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-<div class="feedback-container container-fluid">
-    <h1>Contact Our Teams!</h1>
-    <div class="row">
-        <div class="feedback-form col-md-12">
-            <div class="row">
-                <div class="col-4">
-                    <h2>Feedback Form</h2>
-                    <p class="yellow">Please provide as much information that is relevant to the issues as possible.</p>
-                </div>
-                <div class="col-4">
-                </div>
-                <div class="col-4">
-                    <div class="toast toast-success" id="successToast" role="alert" aria-live="assertive"
-                         aria-atomic="true" data-delay="2000">
-                        <div class="toast-header">
-                            <strong class="mr-auto">Success</strong>
-                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="toast-body">
-                            Operation completed successfully!
-                        </div>
+    <div class="feedback-container container-fluid">
+        <h1>Contact Our Teams!</h1>
+        <div class="row">
+            <div class="feedback-form col-md-12">
+                <div class="row">
+                    <div class="col-4">
+                        <h2>Feedback Form</h2>
+                        <p class="yellow">Please provide as much information that is relevant to the issues as possible.
+                        </p>
                     </div>
-                </div>
-                <form id="feedbackFrom" style="margin-left: 10px">
-                    <div class="form-group">
-                        <h3>General Information</h3>
-                        <div class="input-width-short">
-                            <div class="input-group">
-                                <label for="name" class="font-small">Name</label>
-                                <input type="text" id="name" name="name" placeholder="John Doe">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-4">
+                        <div class="toast toast-success" id="successToast" role="alert" aria-live="assertive"
+                            aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <strong class="mr-auto">Success</strong>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div class="input-group">
-                                <label for="tel" class="font-small">Phone Number(+60)</label>
-                                <input type="tel" id="tel" name="tel" placeholder="601234567">
-                            </div>
-                            <div class="input-group">
-                                <label for="email" class="font-small">Email</label>
-                                <input type="email" id="email" name="email" placeholder="error@gmail.com">
+                            <div class="toast-body">
+                                Operation completed successfully!
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <h3>How you satisfied our service?</h3>
-                        <div class="rating">
-                            <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-                            <input type="radio" id="star4" name="rating" value="4"><label for="star4">★★</label>
-                            <input type="radio" id="star3" name="rating" value="3"><label for="star3">★★★</label>
-                            <input type="radio" id="star2" name="rating" value="2"><label for="star2">★★★★</label>
-                            <input type="radio" id="star1" name="rating" value="1"><label for="star1">★★★★★</label>
-                        </div>
-                    </div>
-                    <div class="form-group input-width-long">
-                        <label class="font-small">Message</label>
-                        <textarea id="message" name="message" placeholder="Leave your message here..."></textarea>
-                    </div>
-
-                    <div class="button-right">
+                    <form id="feedbackFrom" style="margin-left: 10px">
                         <div class="form-group">
-                            <button type="reset" id="reset" class="btn btn-danger"><b>RESET</b></button>
-                            <button type="button" id="submit" class="btn btn-primary"><b>Submit</b></button>
+                            <h3>General Information</h3>
+                            <div class="input-width-short">
+                                <div class="input-group">
+                                    <label for="name" class="font-small">Name</label>
+                                    <input type="text" id="name" name="name" placeholder="John Doe">
+                                </div>
+                                <div class="input-group">
+                                    <label for="tel" class="font-small">Phone Number(+60)</label>
+                                    <input type="tel" id="tel" name="tel" placeholder="601234567">
+                                </div>
+                                <div class="input-group">
+                                    <label for="email" class="font-small">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="error@gmail.com">
+                                </div>
+                            </div>
                         </div>
+
+                        <!--custoemr rating-->
+                        <div class="form-group">
+                            <h3>How you satisfied our service?</h3>
+                            <div class="rating">
+                                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★★</label>
+                                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★★★</label>
+                                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★★★★</label>
+                                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★★★★★</label>
+                            </div>
+                        </div>
+                        <div class="form-group input-width-long">
+                            <label class="font-small">Message</label>
+                            <textarea id="message" name="message" placeholder="Leave your message here..."></textarea>
+                        </div>
+
+                        <div class="button-right">
+                            <div class="form-group">
+                                <button type="reset" id="reset" class="btn btn-danger"><b>RESET</b></button>
+                                <button type="button" id="submit" class="btn btn-primary"><b>Submit</b></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- 模态框结构 -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Error!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-
-
-    <!-- 模态框结构 -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Error!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Please fill out all fields.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div class="modal-body">
+                        Please fill out all fields.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<footer class="container-fluid">
-    <div class="subscribe">
-        <h3>Subscribe to BBFC Email</h3>
-        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+    <footer class="container-fluid">
+        <div class="subscribe">
+            <h3>Subscribe to BBFC Email</h3>
+            <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+            <br>
+
+            <input type="email" placeholder="Email Address">
+            <button>Subscribe</button>
+        </div>
+
         <br>
 
-        <input type="email" placeholder="Email Address">
-        <button>Subscribe</button>
-    </div>
-
-    <br>
-
-    <div class="smlogo">
-        <img src="images/fb.png" alt="logo"/>
-        <img src="images/twitter.png" alt="logo"/>
-        <img src="images/insta.png" alt="logo"/>
-    </div>
-</footer>
+        <div class="smlogo">
+            <img src="images/fb.png" alt="logo" />
+            <img src="images/twitter.png" alt="logo" />
+            <img src="images/insta.png" alt="logo" />
+        </div>
+    </footer>
 </body>
 <script src="./js/jquery-3.7.1.js"></script>
 <script src="./js/bootstrap.js"></script>
