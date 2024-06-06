@@ -1,20 +1,20 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // 处理分页链接的点击事件
-    $('#pagination').on('click', '.page-link', function(event) {
+    $('#pagination').on('click', '.page-link', function (event) {
         event.preventDefault(); // 阻止默认行为
         var page = $(this).text(); // 获取点击的页码
-        loadPageData(page); // 加载对应页码的数据
+        loadPageData(page, null); // 加载对应页码的数据
     });
 
     // 处理 Next 按钮点击事件
-    $('#pagination').on('click', '.page-next', function(event) {
+    $('#pagination').on('click', '.page-next', function (event) {
         event.preventDefault(); // 阻止默认行为
         var currentPage = parseInt($('#pagination .active a').text()); // 获取当前页码
         var nextPage = currentPage + 1; // 计算下一页页码
-        loadPageData(nextPage); // 加载下一页数据
+        loadPageData(nextPage, null); // 加载下一页数据
     });
 
-    $('#feedbackTable').on('click', '.btn-success', function() {
+    $('#feedbackTable').on('click', '.btn-success', function () {
         var feedbackId = $(this).data('feedback-id');
         loadFeedbackDetails(feedbackId); // 调用函数加载 Feedback 数据
     });
@@ -24,7 +24,7 @@ $(document).ready(function() {
         $.ajax({
             url: "http://localhost:5000/feedback/" + feedbackId,
             type: "GET",
-            success: function(response) {
+            success: function (response) {
                 console.log(response)
                 if (response.status_code === 200) {
                     var feedback = response.message;
@@ -40,15 +40,36 @@ $(document).ready(function() {
                     console.log("Failed to load feedback details.");
                 }
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.log("Error loading feedback details:", error);
             }
         });
     }
 
+
+    $("#Search").on("click", function () {
+        var searchTxt = $("#clientName").val()
+        alert(searchTxt)
+        if (searchTxt.trim() === ""){
+            loadPageData(1,null);
+        }else {
+            loadPageData(1, searchTxt);
+        }
+    })
+
+
+    $("#Reset").on("click", function () {
+        $('#searchForm')[0].reset();
+    })
+
     // 定义加载指定页码数据的函数
-    function loadPageData(page) {
-        var requestData = { "page": page, "count": 20 };
+    function loadPageData(page,name) {
+        var requestData = {"page": page, "count": 20};
+
+        if (name !=null){
+            requestData = {"page": page, "count": 20,
+            "name":name};
+        }
         AjaxHelper.sendGet("http://localhost:5000/feedback/page", requestData)
             .then(success => {
                 // 清空现有数据
@@ -69,6 +90,9 @@ $(document).ready(function() {
                 console.log(error);
             });
     }
+
+
+
 
     // 定义更新分页导航的函数
     function updatePagination(message) {
