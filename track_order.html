@@ -36,58 +36,59 @@
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Order items</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You're Ordered!</p>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <div class="container foods">
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Order items</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>You're Ordered!</p>
-            </div>
-            <div class="cart-items" id="cart-items">
-                <div class="container foods">
-
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+
+    <h2>-Track Order-</h2>
+        <div id="order-container" class="order-info">
+
+        </div>
+
+        <footer class="container-fluid footer" style="margin-top: 500px">
+            <div class="subscribe">
+                <h3>Subscribe to BBFC Email</h3>
+                <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+                <br>
+                <input type="email" placeholder="Email Address"/>
+                <button>Subscribe</button>
             </div>
-        </div>
-    </div>
-</div>
 
-<h2>-Track Order-</h2>
-    <div id="order-container" class="order-info">
-
-    </div>
-
-    <footer class="container-fluid footer" style="margin-top: 500px">
-        <div class="subscribe">
-            <h3>Subscribe to BBFC Email</h3>
-            <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
             <br>
-            <input type="email" placeholder="Email Address"/>
-            <button>Subscribe</button>
-        </div>
 
-        <br>
-
-        <div class="smlogo">
-            <img src="images/fb.png" alt="logo" />
-            <img src="images/twitter.png" alt="logo" />
-            <img src="images/insta.png" alt="logo" />
-        </div>
-    </footer>
+            <div class="smlogo">
+                <img src="images/fb.png" alt="logo" />
+                <img src="images/twitter.png" alt="logo" />
+                <img src="images/insta.png" alt="logo" />
+            </div>
+        </footer>
 </body>
+
 <script src="js/jquery-3.7.1.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="./js/customer.js"></script>
 <script src="./js/axios.js"></script>
 <script src="./js/AjaxHelper.js"></script>
 <script src="js/track_order.js"></script>
+
 </html>
