@@ -22,23 +22,19 @@ $(document).ready(function() {
     // 加载 Feedback 详情数据
     function loadFeedbackDetails(feedbackId) {
         $.ajax({
-            url: "http://bugcreator.org.cn:5000/feedback/" + feedbackId,
+            url: "http://localhost:5000/feedback/" + feedbackId,
             type: "GET",
             success: function(response) {
                 console.log(response)
                 if (response.status_code === 200) {
                     var feedback = response.message;
                     // 更新页面显示
-                    $('#modalFeedbackCategory').text(feedback.category);
-                    $('#modalFeedbackDateVisit').text(feedback.dateVisit);
                     $('#modalFeedbackEmail').text(feedback.email);
                     $('#modalFeedbackId').text(feedback.id);
                     $('#modalFeedbackMessage').text(feedback.message);
                     $('#modalFeedbackName').text(feedback.name);
-                    $('#modalFeedbackSubject').text(feedback.subject);
                     $('#modalFeedbackTel').text(feedback.tel);
-                    $('#modalFeedbackTimeVisit').text(feedback.timeVisit);
-                    $('#modalFeedbackVisitType').text(feedback.visitType);
+                    $('#modalFeedbackSubject').text(feedback.rating);
                     $('#feedbackModal').modal('show');
                 } else {
                     console.log("Failed to load feedback details.");
@@ -53,7 +49,7 @@ $(document).ready(function() {
     // 定义加载指定页码数据的函数
     function loadPageData(page) {
         var requestData = { "page": page, "count": 20 };
-        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/feedback/page", requestData)
+        AjaxHelper.sendGet("http://localhost:5000/feedback/page", requestData)
             .then(success => {
                 // 清空现有数据
                 $('#feedbackTable tbody').empty();
@@ -61,7 +57,6 @@ $(document).ready(function() {
                 success.message.items.forEach(item => {
                     var newRow = $('<tr>');
                     newRow.append('<td><span>' + item.id + '</span></td>');
-                    newRow.append('<td><span>' + item.category + '</span></td>');
                     newRow.append('<td><span>' + item.name + '</span></td>');
                     newRow.append('<td><span>' + item.message + '</span></td>');
                     newRow.append('<td><button type="button" class="btn btn-success" data-feedback-id="' + item.id + '">Detail</button></td>'); // 添加 data-feedback-id 属性
