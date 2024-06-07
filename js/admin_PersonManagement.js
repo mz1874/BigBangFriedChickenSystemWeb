@@ -115,9 +115,9 @@ $(document).ready(function () {
 
 
     /*删除食物*/
-    function deleteFoodById(foodId) {
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/delete", {"foodId": foodId}).then(success => {
-            selectAllfood();
+    function deleteUserById(userId) {
+        AjaxHelper.sendPost("http://localhost:5000/deleteUser", {"user_id": userId}).then(success => {
+            selectAllPerson();
         }).catch(error => {
 
         })
@@ -156,9 +156,9 @@ $(document).ready(function () {
 
 
     $('#tableBody').on('click', '.btn-delete', function () {
-        const foodId = $(this).data('food-id');
-        if (confirm(`Are you sure you want to delete food with ID ${foodId}?`)) {
-            deleteFoodById(foodId);
+        const userId = $(this).data('user-id');
+        if (confirm(`Are you sure you want to delete food with ID ${userId}?`)) {
+            deleteUserById(userId);
         }
     });
 
@@ -224,19 +224,23 @@ $(document).ready(function () {
     });
 
     $("#buttonToAddFood").on("click", function () {
-        const formData = {
-            foodName: $('#food_Name').val(),
-            src: "http://bugcreator.org.cn" + currentFoodImageSrc,
-            foodCategoryId: $('#foodCategoryId').val(),
-            price: $('#price').val(),
-            info: $('#info').val()
+        var name = $("#name").val();
+        var lastname = $("#lastName").val();
+        var mobileNumber = $("#mobileNumber").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+        var requestData = {
+            username: name + lastname,
+            password: password,
+            role: 3, // Assuming '3' is for client, you can modify as needed
+            address: "beijing", // Example address, you can modify as needed
+            telephone:mobileNumber,
+            email:email
         };
-        if (formData.src === "") {
-            alert("You have to update picture first !")
-            return
-        }
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/add", formData).then(success => {
-            selectAllfood();
+
+        AjaxHelper.sendPost("http://localhost:5000/register", requestData).then(success => {
+            selectAllPerson();
         }).catch(error => {
 
         })

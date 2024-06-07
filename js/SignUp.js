@@ -45,7 +45,7 @@ $(document).ready(function() {
             };
 
             $.ajax({
-                url: 'http://bugcreator.org.cn:5000/register',
+                url: 'http://localhost:5000/register',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(requestData),
@@ -54,7 +54,7 @@ $(document).ready(function() {
                     $('#register')[0].reset(); // Clear the form fields
                 },
                 error: function(xhr, status, error) {
-                    alert('An error occurred: ' + xhr.responseText);
+                    console.log(error)
                 }
             });
             

@@ -68,7 +68,7 @@
                                                     </svg>
                                                     Menu View
                                                 </a>
-                                            </li>                                            
+                                            </li>
                                             <li>
                                                 <a href="admin_foodManagement.html"
                                                    class="nav-link link-body-emphasis">
@@ -188,7 +188,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="feedbackModalLabel">Food Add</h5>
+                    <h5 class="modal-title" id="feedbackModalLabel">User Add</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -196,27 +196,33 @@
                 <div class="modal-body">
                     <form id="foodForm">
                         <div class="form-group">
-                            <label for="foodName">Food Name:</label>
-                            <input type="text" class="form-control" id="food_Name" name="foodName" placeholder="Enter food name">
+                            <label for="name">User Name</label>
+                            <input type="text" id="name" required>
                         </div>
-                        <div class="form-group">
-                            <label for="imageFile">Image Source:</label>
-                            <input type="file" class="form-control-file" id="imageFile" name="imageFile">
-                        </div>
-                        <div class="form-group">
-                            <label for="foodCategoryId">Food Category:</label>
-                            <select class="form-control" id="foodCategoryId" name="foodCategoryId">
 
-                            </select>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobileNumber">Mobile Number</label>
+                            <input type="tel" id="mobileNumber" required>
                         </div>
                         <div class="form-group">
-                            <label for="price">Price:</label>
-                            <input type="number" class="form-control" id="price" name="price" placeholder="Enter price">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password*</label>
+                            <input type="password" id="password" required>
                         </div>
                         <div class="form-group">
-                            <label for="info">Info:</label>
-                            <textarea class="form-control" id="info" name="info" rows="3" placeholder="Enter additional information"></textarea>
+                            <label for="dob">Date of Birth (DD-MM-YYYY)</label>
+                            <input type="text" id="dob" placeholder="DD-MM-YYYY">
                         </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -240,29 +246,29 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="foodFormShow">
-                        <div class="form-group">
-                            <label for="foodName">Person Name:</label>
-                            <input type="text" class="form-control" id="personName" disabled name="personName" placeholder="Enter person name">
-                        </div>
-                        <div class="form-group">
-                            <img src="" id="CurrentImage" style="width: 254px;  height: 254px">
-                        </div>
-                        <div class="form-group">
-                            <label for="foodCategoryId">Food Category:</label>
-                            <select disabled class="form-control" id="foodCategoryIdShow" name="foodCategoryId">
+<!--                    <form id="foodFormShow">-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="foodName">Person Name:</label>-->
+<!--                            <input type="text" class="form-control" id="personName" disabled name="personName" placeholder="Enter person name">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <img src="" id="CurrentImage" style="width: 254px;  height: 254px">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="foodCategoryId">Food Category:</label>-->
+<!--                            <select disabled class="form-control" id="foodCategoryIdShow" name="foodCategoryId">-->
 
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Price:</label>
-                            <input type="number" disabled class="form-control" id="price_Show" name="price" placeholder="Enter price">
-                        </div>
-                        <div class="form-group">
-                            <label for="info">Info:</label>
-                            <textarea  disabled class="form-control" id="info_Show" name="info" rows="3" placeholder="Enter additional information"></textarea>
-                        </div>
-                    </form>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="price">Price:</label>-->
+<!--                            <input type="number" disabled class="form-control" id="price_Show" name="price" placeholder="Enter price">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="info">Info:</label>-->
+<!--                            <textarea  disabled class="form-control" id="info_Show" name="info" rows="3" placeholder="Enter additional information"></textarea>-->
+<!--                        </div>-->
+<!--                    </form>-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="buttonToAddFood_Show" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -295,31 +301,31 @@
                 </div>
                 <div class="modal-body">
                     <form id="foodForm_update">
-                        <div class="form-group">
-                            <label for="foodName">Food Name:</label>
-                            <input type="text" class="form-control" id="food_Name_update" name="foodName" placeholder="Enter food name">
-                        </div>
-                        <div class="form-group">
-                            <img src="" id="CurrentImageUpdate" style="width: 254px;  height: 254px">
-                        </div>
-                        <div class="form-group">
-                            <label for="imageFile">Image Source:</label>
-                            <input type="file" class="form-control-file" id="imageFile_update" name="imageFile">
-                        </div>
-                        <div class="form-group">
-                            <label for="foodCategoryId">Food Category:</label>
-                            <select class="form-control" id="foodCategoryId_update" name="foodCategoryId">
+<!--                        <div class="form-group">-->
+<!--                            <label for="foodName">Food Name:</label>-->
+<!--                            <input type="text" class="form-control" id="food_Name_update" name="foodName" placeholder="Enter food name">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <img src="" id="CurrentImageUpdate" style="width: 254px;  height: 254px">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="imageFile">Image Source:</label>-->
+<!--                            <input type="file" class="form-control-file" id="imageFile_update" name="imageFile">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="foodCategoryId">Food Category:</label>-->
+<!--                            <select class="form-control" id="foodCategoryId_update" name="foodCategoryId">-->
 
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Price:</label>
-                            <input type="number" class="form-control" id="price_update" name="price" placeholder="Enter price">
-                        </div>
-                        <div class="form-group">
-                            <label for="info">Info:</label>
-                            <textarea class="form-control" id="info_update" name="info" rows="3" placeholder="Enter additional information"></textarea>
-                        </div>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="price">Price:</label>-->
+<!--                            <input type="number" class="form-control" id="price_update" name="price" placeholder="Enter price">-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="info">Info:</label>-->
+<!--                            <textarea class="form-control" id="info_update" name="info" rows="3" placeholder="Enter additional information"></textarea>-->
+<!--                        </div>-->
                     </form>
                 </div>
                 <div class="modal-footer">

@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     $.ajax({
       type: 'POST',
-      url: 'http://bugcreator.org.cn:5000/login',
+      url: 'http://localhost:5000/login',
       contentType: 'application/json',
       data: JSON.stringify({ username: username, password: password }),
       success: function(response) {
