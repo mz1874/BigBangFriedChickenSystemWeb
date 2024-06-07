@@ -2,136 +2,60 @@ $(document).ready(function () {
 
     var currentFoodImageSrc = "";
 
-    function getFoodCategory() {
-        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/foodCategory/list", null)
-            .then(success => {
-                success.message.items.forEach(e => {
-                    var foodTypeSelect = $('#foodType');
-                    var option = $('<option></option>').attr('value', e.id).text(e.categoryName);
-                    foodTypeSelect.append(option);
-                })
-            }).catch(error => {
+    function selectAllPerson(page = 1) { // 默认页码为1
+        AjaxHelper.sendGet(`http://localhost:5000/user/page?page=${page}`).then(success => {
 
-        })
-    }
-
-    function selectAllfood(page = 1) { // 默认页码为1
-        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=${page}`).then(success => {
-            console.log(success);
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = ''; // 清空现有的表格内容
-
-            success.message.items.forEach(food => {
+            success.message.items.forEach(user => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                <th scope="row">${food.foodId}</th>
-                <td>${food.foodName}</td>
-                <td>${food.price}</td>
-                <td>
-                    <button type="button"  id="delete_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
-                    &nbsp
-                    <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
-                    &nbsp
-                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
-                </td>
-            `;
+            <th scope="row">${user.id}</th>
+            <td>${user.userName}</td>
+            <td>${user.address}</td>
+            <td>
+                <button type="button" id="detail_button" class="btn btn-link btn-detail" data-user-id="${user.id}">Detail</button>
+                <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-user-id="${user.id}">DELETE</button>
+                <button type="button" class="btn btn-success btn-update" data-user-id="${user.id}">Update</button>
+            </td>
+        `;
                 tableBody.appendChild(row);
             });
-
             updatePagination(success.message); // 假设已有该函数实现分页更新
         }).catch(error => {
             console.error(error);
         });
+
     }
+
 
     $('#Reset').click(function () {
         $('#searchForm')[0].reset(); // 重置表单
     });
 
     $("#Search").on("click", function () {
-        const selectedValue = $('#foodType').val();
-        let foodName = $('#foodName').val();
-        if (foodName === '' && !isNaN(selectedValue)) {
-            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=1&foodCategoryId=${selectedValue}`).then(success => {
-                console.log(success);
-                const tableBody = document.getElementById('tableBody');
-                tableBody.innerHTML = ''; // 清空现有的表格内容
-                success.message.items.forEach(food => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                <th scope="row">${food.foodId}</th>
-                <td>${food.foodName}</td>
-                <td>${food.price}</td>
-                <td>
-                    <button type="button" id="delete_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
-                    &nbsp
-                     <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
-                    &nbsp
-                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
-                </td>
-            `;
-                    tableBody.appendChild(row);
-                });
-
-                updatePagination(success.message); // 假设已有该函数实现分页更新
-            }).catch(error => {
-                console.error(error);
+        let currentPersonName = $('#currentPersonName').val();
+        AjaxHelper.sendGet(`http://localhost:5000/user/page?page=1&username=${currentPersonName}`).then(success => {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = ''; // 清空现有的表格内容
+            success.message.items.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <th scope="row">${user.id}</th>
+            <td>${user.userName}</td>
+            <td>${user.address}</td>
+            <td>
+                <button type="button" id="detail_button" class="btn btn-link btn-detail" data-user-id="${user.id}">Detail</button>
+                <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-user-id="${user.id}">DELETE</button>
+                <button type="button" class="btn btn-success btn-update" data-user-id="${user.id}">Update</button>
+            </td>
+        `;
+                tableBody.appendChild(row);
             });
-        } else if (isNaN(selectedValue) && foodName !== '') {
-            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=1&foodName=${foodName}`).then(success => {
-                console.log(success);
-                const tableBody = document.getElementById('tableBody');
-                tableBody.innerHTML = ''; // 清空现有的表格内容
-                success.message.items.forEach(food => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                <th scope="row">${food.foodId}</th>
-                <td>${food.foodName}</td>
-                <td>${food.price}</td>
-                <td>
-                    <button type="button" id="delete_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
-                    &nbsp
-                    <button type="button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
-                    &nbsp
-                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
-                </td>
-            `;
-                    tableBody.appendChild(row);
-                });
-
-                updatePagination(success.message); // 假设已有该函数实现分页更新
-            }).catch(error => {
-                console.error(error);
-            });
-        } else {
-            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/page?page=1&foodName=${foodName}&foodCategoryId=${selectedValue}`).then(success => {
-                console.log(success);
-                const tableBody = document.getElementById('tableBody');
-                tableBody.innerHTML = ''; // 清空现有的表格内容
-                success.message.items.forEach(food => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                <th scope="row">${food.foodId}</th>
-                <td>${food.foodName}</td>
-                <td>${food.price}</td>
-                <td>
-                    <button type="button" id="detailedInfo_button" class="btn btn-link btn-detail" data-food-id="${food.foodId}">Detail</button>
-                    &nbsp
-                   <button type="button" id="delete_button" class="btn btn-danger btn-delete" data-food-id="${food.foodId}">DELETE</button>
-                    &nbsp
-                    <button type="button" class="btn btn-success btn-update" data-food-id="${food.foodId}">Update</button>
-                </td>
-            `;
-                    tableBody.appendChild(row);
-                });
-
-                updatePagination(success.message); // 假设已有该函数实现分页更新
-            }).catch(error => {
-                console.error(error);
-            });
-        }
-
-
+            updatePagination(success.message); // 假设已有该函数实现分页更新
+        }).catch(error => {
+            console.error(error);
+        });
     })
 
     // 定义更新分页导航的函数
@@ -164,10 +88,11 @@ $(document).ready(function () {
             e.preventDefault();
             var page = $(this).data('page');
             if (page) {
-                selectAllfood(page);
+                selectAllPerson(page);
             }
         });
     }
+
 
     /*新增食物*/
     $('#Add').click(function () {
@@ -221,7 +146,7 @@ $(document).ready(function () {
         formData.append('foodImage', file); // 将文件添加到FormData对象中
         AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/upload", formData).then(success => {
             currentFoodImageSrc = success.file_path;
-            $("#CurrentImageUpdate").attr('src', "http://bugcreator.org.cn"+currentFoodImageSrc);
+            $("#CurrentImageUpdate").attr('src', "http://bugcreator.org.cn" + currentFoodImageSrc);
             $('#successToast2').toast('show');
         }).catch(error => {
             console.log(error)
@@ -229,8 +154,6 @@ $(document).ready(function () {
     });
 
 
-    getFoodCategory();
-    selectAllfood();
 
     $('#tableBody').on('click', '.btn-delete', function () {
         const foodId = $(this).data('food-id');
@@ -243,16 +166,16 @@ $(document).ready(function () {
         var categoryId = 0;
         const foodId = $(this).data('food-id');
         localStorage.setItem("currentUpdateId", foodId);
-        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success=>{
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success => {
             var obj = success.message;
             console.log(obj)
             $("#food_Name_update").val(obj.foodName);
             $("#price_update").val(obj.price);
             $("#info_update").val(obj.info);
-            categoryId= obj.foodCategoryId
+            categoryId = obj.foodCategoryId
             $('#CurrentImageUpdate').attr('src', obj.src);
             $('#foodUpdate').modal('show');
-        }).catch(error=>{
+        }).catch(error => {
 
         })
         //查询显示食物种类
@@ -279,23 +202,23 @@ $(document).ready(function () {
 
     $('#tableBody').on('click', '.btn-detail', function () {
         const foodId = $(this).data('food-id');
-        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success=>{
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success => {
             var obj = success.message;
             console.log(obj)
             $("#food_NameShow").val(obj.foodName);
             $("#price_Show").val(obj.price);
             $("#info_Show").val(obj.info);
-            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/foodCategory?category_id=${obj.foodCategoryId}`).then(success=>{
+            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/foodCategory?category_id=${obj.foodCategoryId}`).then(success => {
                 const option = $('<option></option>')
                     .attr('value', success.message.id)
                     .text(success.message.categoryName);
                 $("#foodCategoryIdShow").append(option)
-            }).catch(error=>{
+            }).catch(error => {
 
             })
             $('#CurrentImage').attr('src', obj.src);
             $('#foodShow').modal('show');
-        }).catch(error=>{
+        }).catch(error => {
 
         })
     });
@@ -319,25 +242,28 @@ $(document).ready(function () {
         })
     })
 
-    $("#buttonToAddFood_update").on("click", function (){
+    $("#buttonToAddFood_update").on("click", function () {
 
         const formData = {
-            foodId:localStorage.getItem("currentUpdateId"),
+            foodId: localStorage.getItem("currentUpdateId"),
             foodName: $('#food_Name_update').val(),
             src: "http://bugcreator.org.cn" + currentFoodImageSrc,
             category: $('#foodCategoryId_update').val(),
             price: $('#price_update').val(),
             info: $('#info_update').val()
         };
-        if (currentFoodImageSrc===""){
+        if (currentFoodImageSrc === "") {
             alert("You must upload a picture")
             return
         }
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/update", formData).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/update", formData).then(success => {
             selectAllfood();
-        }).catch(error=>{
+        }).catch(error => {
 
         })
         console.log(formData)
     })
+
+    selectAllPerson();
+
 });
