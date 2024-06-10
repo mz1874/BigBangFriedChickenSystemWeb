@@ -114,6 +114,7 @@ $(document).ready(function () {
     });
 
 
+
     /*删除食物*/
     function deleteUserById(userId) {
         AjaxHelper.sendPost("http://localhost:5000/deleteUser", {"user_id": userId}).then(success => {
@@ -122,6 +123,7 @@ $(document).ready(function () {
 
         })
     }
+
 
     /*文件上传*/
     // 监听文件选择框的change事件
@@ -152,7 +154,6 @@ $(document).ready(function () {
             console.log(error)
         })
     });
-
 
 
     $('#tableBody').on('click', '.btn-delete', function () {
