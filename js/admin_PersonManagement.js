@@ -202,22 +202,16 @@ $(document).ready(function () {
 
 
     $('#tableBody').on('click', '.btn-detail', function () {
-        const foodId = $(this).data('food-id');
-        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success => {
+        const user = $(this).data('user-id');
+        const dataTosend = {
+            "userId":user
+        }
+        AjaxHelper.sendGet(`http://localhost:5000/user/selectUserById`, dataTosend).then(success => {
             var obj = success.message;
-            console.log(obj)
-            $("#food_NameShow").val(obj.foodName);
-            $("#price_Show").val(obj.price);
-            $("#info_Show").val(obj.info);
-            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/foodCategory?category_id=${obj.foodCategoryId}`).then(success => {
-                const option = $('<option></option>')
-                    .attr('value', success.message.id)
-                    .text(success.message.categoryName);
-                $("#foodCategoryIdShow").append(option)
-            }).catch(error => {
-
-            })
-            $('#CurrentImage').attr('src', obj.src);
+            $("#name_detail").val(obj.userName);
+            $("#mobileNumber_detail").val(obj.tel);
+            $("#email_detail").val(obj.email);
+            $("#address_detail").val(obj.address);
             $('#foodShow').modal('show');
         }).catch(error => {
 
