@@ -117,10 +117,11 @@ $(document).ready(function () {
 
     /*删除食物*/
     function deleteUserById(userId) {
-        AjaxHelper.sendPost("http://localhost:5000/deleteUser", {"user_id": userId}).then(success => {
+        AjaxHelper.sendPost("http://localhost:5000/deleteUser", {"user_id": userId}).then(success => 
+        {
             selectAllPerson();
-        }).catch(error => {
-
+        })
+        .catch(error => {
         })
     }
 
@@ -156,13 +157,16 @@ $(document).ready(function () {
     });
 
 
-    $('#tableBody').on('click', '.btn-delete', function () {
+    $('#tableBody').on('click', '.btn-delete', function () 
+    {
         const userId = $(this).data('user-id');
-        if (confirm(`Are you sure you want to delete food with ID ${userId}?`)) {
+        if (confirm(`Are you sure you want to delete food with ID ${userId}?`)) 
+        {
             deleteUserById(userId);
         }
     });
 
+    
     $('#tableBody').on('click', '.btn-update', function () {
         var categoryId = 0;
         const foodId = $(this).data('food-id');
