@@ -164,37 +164,18 @@ $(document).ready(function () {
     });
 
     $('#tableBody').on('click', '.btn-update', function () {
-        var categoryId = 0;
-        const foodId = $(this).data('food-id');
-        localStorage.setItem("currentUpdateId", foodId);
-        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success => {
+        const user = $(this).data('user-id');
+        const dataTosend = {
+            "userId":user
+        }
+        AjaxHelper.sendGet(`http://localhost:5000/user/selectUserById`, dataTosend).then(success => {
             var obj = success.message;
-            console.log(obj)
-            $("#food_Name_update").val(obj.foodName);
-            $("#price_update").val(obj.price);
-            $("#info_update").val(obj.info);
-            categoryId = obj.foodCategoryId
-            $('#CurrentImageUpdate').attr('src', obj.src);
+            $("#name_update").val(obj.userName);
+            $("#mobileNumber_update").val(obj.tel);
+            $("#address_update").val(obj.email);
+            $("#email_update").val(obj.address);
+            $("#dob_update").val(obj.dob_update);
             $('#foodUpdate').modal('show');
-        }).catch(error => {
-
-        })
-        //查询显示食物种类
-        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/foodCategory/list", null).then(success => {
-            const foodCategories = success.message.items;
-            const foodCategorySelect = $('#foodCategoryId_update');
-            foodCategorySelect.empty();
-            // 遍历每个食物类别并创建 <option> 元素
-            foodCategories.forEach(category => {
-                const option = $('<option></option>')
-                    .attr('value', category.id)
-                    .text(category.categoryName);
-                // 如果 category id 等于 1，则选中该选项
-                if (category.id === categoryId) {
-                    option.attr('selected', 'selected');
-                }
-                foodCategorySelect.append(option);
-            });
         }).catch(error => {
 
         })
@@ -202,22 +183,16 @@ $(document).ready(function () {
 
 
     $('#tableBody').on('click', '.btn-detail', function () {
-        const foodId = $(this).data('food-id');
-        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/food/query?foodId=${foodId}`).then(success => {
+        const user = $(this).data('user-id');
+        const dataTosend = {
+            "userId":user
+        }
+        AjaxHelper.sendGet(`http://localhost:5000/user/selectUserById`, dataTosend).then(success => {
             var obj = success.message;
-            console.log(obj)
-            $("#food_NameShow").val(obj.foodName);
-            $("#price_Show").val(obj.price);
-            $("#info_Show").val(obj.info);
-            AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/foodCategory?category_id=${obj.foodCategoryId}`).then(success => {
-                const option = $('<option></option>')
-                    .attr('value', success.message.id)
-                    .text(success.message.categoryName);
-                $("#foodCategoryIdShow").append(option)
-            }).catch(error => {
-
-            })
-            $('#CurrentImage').attr('src', obj.src);
+            $("#name_detail").val(obj.userName);
+            $("#mobileNumber_detail").val(obj.tel);
+            $("#email_detail").val(obj.email);
+            $("#address_detail").val(obj.address);
             $('#foodShow').modal('show');
         }).catch(error => {
 
