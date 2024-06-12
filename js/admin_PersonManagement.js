@@ -7,6 +7,7 @@ $(document).ready(function () {
 
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = ''; // 清空现有的表格内容
+            console.log(success)
             success.message.items.forEach(user => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -169,6 +170,7 @@ $(document).ready(function () {
     
     $('#tableBody').on('click', '.btn-update', function () {
         const user = $(this).data('user-id');
+        localStorage.setItem("OPID",user);
         const dataTosend = {
             "userId":user
         }
@@ -178,7 +180,7 @@ $(document).ready(function () {
             $("#mobileNumber_update").val(obj.tel);
             $("#address_update").val(obj.email);
             $("#email_update").val(obj.address);
-            $("#dob_update").val(obj.dob_update);
+            $("#dob_update").val(obj.birthDay);
             $('#foodUpdate').modal('show');
         }).catch(error => {
 
@@ -227,21 +229,19 @@ $(document).ready(function () {
     })
 
     $("#buttonToAddFood_update").on("click", function () {
+        const user = localStorage.getItem("OPID");
 
         const formData = {
-            foodId: localStorage.getItem("currentUpdateId"),
-            foodName: $('#food_Name_update').val(),
-            src: "http://bugcreator.org.cn" + currentFoodImageSrc,
-            category: $('#foodCategoryId_update').val(),
-            price: $('#price_update').val(),
-            info: $('#info_update').val()
+            user_id: user,
+            tel: $('#mobileNumber_update').val(),
+            username: $('#food_Name_update').val(),
+            address: $('#address_update').val(),
+            email: $('#email_update').val(),
+            birthDay: $('#dob_update').val(),
         };
-        if (currentFoodImageSrc === "") {
-            alert("You must upload a picture")
-            return
-        }
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/food/update", formData).then(success => {
-            selectAllfood();
+        localStorage.removeItem("OPID")
+        AjaxHelper.sendPost("http://localhost:5000/updateUser", formData).then(success => {
+            selectAllPerson();
         }).catch(error => {
 
         })
