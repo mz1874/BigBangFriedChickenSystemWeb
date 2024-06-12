@@ -5,6 +5,7 @@ $(document).ready(function() {
         var nameInput = $('#name').val();
         var lastNameInput = $('#lastName').val();
         var mobileNumberInput = $('#mobileNumber').val();
+        var address = $('#address').val();
         var emailInput = $('#email').val();
         var passwordInput = $('#password').val();
         var confirmPasswordInput = $('#confirmPassword').val();
@@ -12,8 +13,6 @@ $(document).ready(function() {
         var latestNewsCheckbox = $('#latestNews').is(':checked');
         var termsConditionsCheckbox = $('#termsConditions').is(':checked');
         var sex = 1;
-        var role ="3";
-        var address = "beijing";
 
         let isValid = true;
 
@@ -33,15 +32,22 @@ $(document).ready(function() {
             isValid = false;
         }
 
-        if (isValid) {
+        // 获取选择的角色
+        var roleInput = $('input[name="role"]:checked').val();
+        if (!roleInput) {
+            alert('Please select a role');
+            isValid = false;
+        }
 
+        if (isValid) {
             var requestData = {
                 username: nameInput,
                 password: passwordInput,
-                role: role, // Assuming '3' is for client, you can modify as needed
+                role: roleInput, // 角色
                 address: address, // Example address, you can modify as needed
-                telephone:mobileNumberInput,
-                email:emailInput
+                telephone: mobileNumberInput,
+                email: emailInput,
+                birthDay:dobInput
             };
 
             $.ajax({
@@ -54,11 +60,9 @@ $(document).ready(function() {
                     $('#register')[0].reset(); // Clear the form fields
                 },
                 error: function(xhr, status, error) {
-                    console.log(error)
+                    console.log(error);
                 }
             });
-            
         }
     });
 });
-

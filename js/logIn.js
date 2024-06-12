@@ -14,7 +14,7 @@ $(document).ready(function() {
         if (response.status_code === 200) {
           // Login successful
           alert(response.message);
-          
+
           var userId = response.data.id;
           var roles = response.data.role; // Extract role information
           var userName =response.data.userName;
@@ -27,13 +27,17 @@ $(document).ready(function() {
           localStorage.setItem('username', userName);
           localStorage.setItem('num',phonenumber);
           localStorage.setItem('email',email);
-          
+
 
           // Redirect or perform other actions as needed based on roles
           // For example, you could redirect admin users to an admin dashboard
           if (roles.includes('admin')) {
             window.location.href = '.\\admin_main.html';
-          } else {
+          } else if (roles.includes('driver')) {
+            window.location.href = '.\\driver_main.html';
+          }else if(roles.includes("cashier")){
+            window.location.href = '.\\cashier_main.html';
+          }else {
             window.location.href = '.\\menu_beverages.html';
           }
 

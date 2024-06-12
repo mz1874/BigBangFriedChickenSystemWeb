@@ -42,6 +42,9 @@
       <label for="lastName">Last Name</label>
       <input type="text" id="lastName">
 
+      <label for="lastName">Address</label>
+      <input type="text" id="address">
+
       <label for="mobileNumber">Mobile Number*</label>
       <input type="tel" id="mobileNumber" required>
 
@@ -58,9 +61,19 @@
       <input type="text" id="dob" placeholder="DD-MM-YYYY">
 
       <div>
+        <label>Role: &nbsp;</label>
+        <input type="radio" id="driver" name="role" value="2" required>
+        <label for="driver">Driver</label>
+        &nbsp;
+        <input type="radio" id="client" name="role" value="3" required>
+        <label for="client">Client</label>
+      </div>
+
+      <div>
         <input type="checkbox" id="latestNews">
         <label for="latestNews">I want the latest news and promotions!</label>
       </div>
+
 
       <div>
         <input type="checkbox" id="termsConditions" required>
