@@ -46,7 +46,7 @@ $(document).ready(function () {
             orderId:order
         }
         $(".foods").empty();
-        AjaxHelper.sendGet("http://localhost:5000/order/selectFoodByOrderId", dataTosend).then(success=>{
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/order/selectFoodByOrderId", dataTosend).then(success=>{
             console.log(success)
             success.message.forEach(e=>{
                 console.log(e)

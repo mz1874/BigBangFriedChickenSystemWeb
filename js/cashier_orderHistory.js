@@ -45,7 +45,7 @@ $(document).ready(function () {
             "status":1
         }
 
-        AjaxHelper.sendGet("http://localhost:5000/order/page", dataTosend).then(success=>{
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/order/page", dataTosend).then(success=>{
             updatePagination(success.message)
             let tbody = $('.table-hover tbody');
             tbody.empty(); // 清空现有内容，以免重复添加
@@ -99,7 +99,7 @@ $(document).ready(function () {
 
     $('body').on("click", "#operation", function() {
         var orderId = $(this).data("orderid");
-        AjaxHelper.sendPost("http://localhost:5000/order/updateStatus", {"orderId":orderId, "status":2}).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/order/updateStatus", {"orderId":orderId, "status":2}).then(success=>{
             alert("update order statue successful!")
             selectAllOrders(1);
         }).catch(error=>{
@@ -116,7 +116,7 @@ $(document).ready(function () {
             startTime:startDay,
             endTime:endDay
         }
-        AjaxHelper.sendGet("http://localhost:5000/order/page", dataTosend).then(success=>{
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/order/page", dataTosend).then(success=>{
             updatePagination(success.message)
             let tbody = $('.table-hover tbody');
             tbody.empty(); // 清空现有内容，以免重复添加

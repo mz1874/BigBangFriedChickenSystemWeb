@@ -50,7 +50,7 @@ $(document).ready(function () {
             message: message
         };
 
-        AjaxHelper.sendPost("http://localhost:5000/feedback/add", dataToSend)
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/feedback/add", dataToSend)
             .then(success => {
                 $('#successToast').toast('show'); // 显示成功提示框
                 clean();

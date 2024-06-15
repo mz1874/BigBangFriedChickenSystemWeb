@@ -51,7 +51,7 @@ $(document).ready(function() {
             };
 
             $.ajax({
-                url: 'http://localhost:5000/register',
+                url: 'http://bugcreator.org.cn:5000/register',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(requestData),

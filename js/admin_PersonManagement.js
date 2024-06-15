@@ -3,7 +3,7 @@ $(document).ready(function () {
     var currentFoodImageSrc = "";
 
     function selectAllPerson(page = 1) { // 默认页码为1
-        AjaxHelper.sendGet(`http://localhost:5000/user/page?page=${page}`).then(success => {
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/user/page?page=${page}`).then(success => {
 
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = ''; // 清空现有的表格内容
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     $("#Search").on("click", function () {
         let currentPersonName = $('#currentPersonName').val();
-        AjaxHelper.sendGet(`http://localhost:5000/user/page?page=1&username=${currentPersonName}`).then(success => {
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/user/page?page=1&username=${currentPersonName}`).then(success => {
             const tableBody = document.getElementById('tableBody');
             tableBody.innerHTML = ''; // 清空现有的表格内容
             success.message.items.forEach(user => {
@@ -118,7 +118,7 @@ $(document).ready(function () {
 
     /*删除食物*/
     function deleteUserById(userId) {
-        AjaxHelper.sendPost("http://localhost:5000/deleteUser", {"user_id": userId}).then(success => 
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/deleteUser", {"user_id": userId}).then(success => 
         {
             selectAllPerson();
         })
@@ -174,7 +174,7 @@ $(document).ready(function () {
         const dataTosend = {
             "userId":user
         }
-        AjaxHelper.sendGet(`http://localhost:5000/user/selectUserById`, dataTosend).then(success => {
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/user/selectUserById`, dataTosend).then(success => {
             var obj = success.message;
             $("#name_update").val(obj.userName);
             $("#mobileNumber_update").val(obj.tel);
@@ -193,7 +193,7 @@ $(document).ready(function () {
         const dataTosend = {
             "userId":user
         }
-        AjaxHelper.sendGet(`http://localhost:5000/user/selectUserById`, dataTosend).then(success => {
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/user/selectUserById`, dataTosend).then(success => {
             var obj = success.message;
             $("#name_detail").val(obj.userName);
             $("#mobileNumber_detail").val(obj.tel);
@@ -221,7 +221,7 @@ $(document).ready(function () {
             email:email
         };
 
-        AjaxHelper.sendPost("http://localhost:5000/register", requestData).then(success => {
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/register", requestData).then(success => {
             selectAllPerson();
         }).catch(error => {
 
@@ -240,7 +240,7 @@ $(document).ready(function () {
             birthDay: $('#dob_update').val(),
         };
         localStorage.removeItem("OPID")
-        AjaxHelper.sendPost("http://localhost:5000/updateUser", formData).then(success => {
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/updateUser", formData).then(success => {
             selectAllPerson();
         }).catch(error => {
 

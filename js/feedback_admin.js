@@ -22,7 +22,7 @@ $(document).ready(function () {
     // 加载 Feedback 详情数据
     function loadFeedbackDetails(feedbackId) {
         $.ajax({
-            url: "http://localhost:5000/feedback/" + feedbackId,
+            url: "http://bugcreator.org.cn:5000/feedback/" + feedbackId,
             type: "GET",
             success: function (response) {
                 console.log(response)
@@ -70,7 +70,7 @@ $(document).ready(function () {
             requestData = {"page": page, "count": 20,
             "name":name};
         }
-        AjaxHelper.sendGet("http://localhost:5000/feedback/page", requestData)
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/feedback/page", requestData)
             .then(success => {
                 // 清空现有数据
                 $('#feedbackTable tbody').empty();
