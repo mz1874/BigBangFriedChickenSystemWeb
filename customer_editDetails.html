@@ -31,60 +31,64 @@
         </nav>
         <a class="p-2" id="login-link" href="logIn.html">Log In</a>
         <div id="user-dropdown" class="dropdown-content" style="display:none;">
-            <a id = "details" href="customerDetails.html">Information</a>
+            <a id="details" href="customerDetails.html">Information</a>
             <a id="sign-out" href="#">Sign Out</a>
         </div>
     </div>
 </header>
 <body>
-    <section class="edit-details login">
-        <h1>Update Your Details Here</h1>
-        <p>Let us stay updated with you</p>
-        <form id="edit-details">
-          <label for="name">User Name*</label>
-          <input type="text" id="name" required>
-    
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName">
-    
-          <label for="mobileNumber">Mobile Number*</label>
-          <input type="tel" id="mobileNumber" required>
-    
-          <label for="email">Email*</label>
-          <input type="email" id="email" required>
-    
-          <label for="password">Password*</label>
-          <input type="password" id="password" required>
-    
-          <label for="confirmPassword">Confirmed Password*</label>
-          <input type="password" id="confirmPassword" required>
-    
-          <label for="dob">Date of Birth (DD-MM-YYYY)</label>
-          <input type="text" id="dob" placeholder="DD-MM-YYYY">
-    
-          <button type="submit" id="submit">Edit</button>
-        </form>
-      </section>
+<section class="edit-details login">
+    <h1>Update Your Details Here</h1>
+    <p>Let us stay updated with you</p>
+    <form id="edit-details">
+        <label for="name">User Name*</label>
+        <input type="text" disabled id="name" required>
 
-    <footer>
-        <div class="subscribe">
-            <h3>Subscribe to BBFC Email</h3>
-            <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+        <label for="mobileNumber">Mobile Number*</label>
+        <input type="tel" id="mobileNumber" required>
 
-            <br>
+        <label for="email">Email*</label>
+        <input type="email" id="email" required>
 
-            <input type="email" placeholder="Email Address">
-            <button>Subscribe</button>
-        </div>
+        <label for="address">Address*</label>
+        <input type="text" id="address" required>
+
+        <label for="password">Password*</label>
+        <input type="password" id="password" required>
+
+        <label for="confirmPassword">Confirmed Password*</label>
+        <input type="password" id="confirmPassword" required>
+
+        <label for="dob">Date of Birth (DD-MM-YYYY)</label>
+        <input type="text" id="dob" placeholder="DD-MM-YYYY">
+
+        <button type="submit" id="submit">Edit</button>
+    </form>
+</section>
+
+<footer>
+    <div class="subscribe">
+        <h3>Subscribe to BBFC Email</h3>
+        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
 
         <br>
 
-        <div class="smlogo">
-            <img src="images/fb.png" alt="logo" />
-            <img src="images/twitter.png" alt="logo" />
-            <img src="images/insta.png" alt="logo" />
-        </div>
-    </footer>
+        <input type="email" placeholder="Email Address">
+        <button>Subscribe</button>
+    </div>
+
+    <br>
+
+    <div class="smlogo">
+        <img src="images/fb.png" alt="logo"/>
+        <img src="images/twitter.png" alt="logo"/>
+        <img src="images/insta.png" alt="logo"/>
+    </div>
+</footer>
 </body>
-    
+<script src="./js/jquery-3.7.1.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/axios.js"></script>
+<script src="./js/AjaxHelper.js"></script>
+<script src="./js/customer-edit-details.js"></script>
 </html>
