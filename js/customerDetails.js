@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         let dataToSend = {"userId": userId};
 
-        AjaxHelper.sendGet("http://localhost:5000/user/selectUserById", dataToSend)
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/user/selectUserById", dataToSend)
             .then(success => {
                 var data = success.message
                 console.log(data)

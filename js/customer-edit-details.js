@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         let dataToSend = {"userId": userId};
 
-        AjaxHelper.sendGet("http://localhost:5000/user/selectUserById", dataToSend)
+        AjaxHelper.sendGet("http://bugcreator.org.cn:5000/user/selectUserById", dataToSend)
             .then(success => {
                 var data = success.message
                 console.log(data)
@@ -40,7 +40,7 @@ $(document).ready(function () {
             "tel": $("#mobileNumber").val()
         };
 
-        AjaxHelper.sendPost("http://localhost:5000/updateUser",formData).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/updateUser",formData).then(success=>{
             alert("User information has been updated!")
             window.location.href = '.\\customerDetails.html';
         }).catch(error=>{
