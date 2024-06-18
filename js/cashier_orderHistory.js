@@ -6,6 +6,7 @@ $(document).ready(function () {
         selectAllOrders(page)
     });
 
+
     // 处理 Next 按钮点击事件
     $('#pagination').on('click', '.page-next', function(event) {
         event.preventDefault(); // 阻止默认行为
@@ -13,6 +14,7 @@ $(document).ready(function () {
         var nextPage = currentPage + 1; // 计算下一页页码
         selectAllOrders(nextPage); // 加载下一页数据
     });
+
 
     function updatePagination(message) {
         var pagination = $('#pagination');
@@ -37,6 +39,7 @@ $(document).ready(function () {
             pagination.append('<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>');
         }
     }
+
 
     function selectAllOrders(page){
         var dataTosend = {
@@ -69,7 +72,8 @@ $(document).ready(function () {
                         statusText = 'Unknow';
                 }
 
-                let newRow = `
+                let newRow = 
+                `
                     <tr>
                         <td>${order.id || '-'}</td>
                         <td>${order.orderTime || '-'}</td>
@@ -106,6 +110,7 @@ $(document).ready(function () {
 
         })
     });
+    
 
     $("#search").on("click",function (){
         var orderId = $('#id').val();
@@ -140,7 +145,8 @@ $(document).ready(function () {
                         statusText = 'Unknow';
                 }
 
-                let newRow = `
+                let newRow = 
+                `
                     <tr>
                         <td>${order.id || '-'}</td>
                         <td>${order.orderTime || '-'}</td>
