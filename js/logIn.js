@@ -34,7 +34,7 @@ $(document).ready(function() {
           if (roles.includes('admin')) {
             window.location.href = '.\\admin_main.html';
           } else if (roles.includes('driver')) {
-            window.location.href = '.\\driver_main.html';
+            window.location.href = '.\\driver_orderHistory.html';
           }else if(roles.includes("cashier")){
             window.location.href = '.\\cashier_main.html';
           }else {
