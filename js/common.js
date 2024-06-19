@@ -8,7 +8,6 @@ $(document).ready(function () {
         $("#cart-item").text(obj.foodName);
         $("#price").text(obj.price);
         $("#info").text(obj.info);
-
         $('#picture').attr('src', obj.src);
     }).catch(error => {
 

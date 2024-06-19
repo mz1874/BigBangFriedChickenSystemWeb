@@ -42,6 +42,19 @@
                                                     Order Status </a>
                                             </li>
                                             <li>
+                                                <a href="admin_PersonManagement.html" class="nav-link link-body-emphasis">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                         class="bi bi-pencil" viewBox="0 0 16 16">
+                                                        <path
+                                                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                                                    </svg>
+                                                    <svg class="bi pe-none me-2" width="16" height="16">
+                                                        <use xlink:href="#speedometer2" />
+                                                    </svg>
+                                                    Person management
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a href="admin_MenuUpdate_Promotion.html"
                                                    class="nav-link link-body-emphasis">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -115,13 +128,14 @@
         <div class="col-md-8">
             <header class="d-flex flex-row-reverse justify-content-between align-items-center py-3">
                 <div>
-                    <a href="admin_main.html">
-                        <button class="btn btn-primary"> Pick Up</button>
-                    </a>
-                    <button class="btn btn-primary active"> Delivery</button>
+                    <a href="admin_main.html"><button class="btn btn-primary "> Pick Up</button></a>
+                    <button class="btn btn-primary active "> Delivery</button>
                 </div>
-                <div><h2>Hi Mag</h2></div>
+                <div class="mt-4">
+                    <h2>Hi <span class ="user-name"></span> </h2>
+                </div>
             </header>
+            
             <div class="row">
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-flex flex-grow-1" role="search">
                     <input type="search" class="form-control w-100" placeholder="Search..." aria-label="Search">
@@ -129,11 +143,10 @@
                 </form>
             </div>
 
-
             <hr>
+
             <div class="card order-card">
-                <div class="card-body"><h6 class="card-title">G10001 - <a href="admin_customerDetails.html">Ms Wong
-                    PY </a></h6>
+                <div class="card-body"><h6 class="card-title">G10001 - <a href="admin_customerDetails.html">Ms Wong PY </a></h6>
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <div class="d-flex align-items-center">
                             <img src="https://via.placeholder.com/50" alt="Chicken Image" class="mr-2">
@@ -161,7 +174,6 @@
                             <button class="btn btn-danger">Pick Up</button>
                         </div>
                     </div>
-                    </a>
                 </div>
 
             </div>
@@ -170,5 +182,6 @@
 </div>
 <script src="./js/jquery-3.7.1.js"></script>
 <script src="./js/bootstrap.js"></script>
+<script src = "js/admin.js"></script>
 </body>
 </html> 

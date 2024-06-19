@@ -7,13 +7,11 @@
     background-color: hsl(0, 0%, 98%); /* Change the background color as per your preference */
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active, .nav-pills .show.nav-link {
     background-color: orange ;  /* Change the background color of the active link to orange */
     color: black ; /* Change the text color of the active link */
     border-bottom: 2px solid #8E3A2B; /* Add a bottom border when the link is active */
     font-weight: bold;
-
-
 }
 
 .fs-4{

@@ -7,15 +7,19 @@
     background-color: hsl(0, 0%, 98%); /* Change the background color as per your preference */
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    background-color: orange ;  /* Change the background color of the active link to orange */
-    color: black ; /* Change the text color of the active link */
-    border-bottom: 2px solid #8E3A2B; /* Add a bottom border when the link is active */
+.nav-pills .nav-link.active, .nav-pills .show.nav-link {
+    background-color: orange;
+    color: black;
+    border-bottom: 2px solid #8E3A2B;
     font-weight: bold;
-
-
 }
 
+.nav-link.active {
+    background-color: orange;
+    color: black;
+    border-bottom: 2px solid #8E3A2B;
+    font-weight: bold;
+}
 
 .fs-4{
     color: black;
@@ -24,10 +28,11 @@
 .nav-link{
     color: black;
 }
-.nav-link:hover, .btn-primary:hover {
+.nav-link:hover{
     background-color:#FFDAB9;
     color: white;
 }
+
 body {
     margin: 0;
     padding: 0;

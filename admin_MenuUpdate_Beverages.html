@@ -42,6 +42,19 @@
                                                         Order Status </a>
                                                 </li>
                                                 <li>
+                                                    <a href="admin_PersonManagement.html" class="nav-link link-body-emphasis">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                             class="bi bi-pencil" viewBox="0 0 16 16">
+                                                            <path
+                                                                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                                                        </svg>
+                                                        <svg class="bi pe-none me-2" width="16" height="16">
+                                                            <use xlink:href="#speedometer2" />
+                                                        </svg>
+                                                        Person management
+                                                    </a>
+                                                </li>
+                                                <li>
                                                     <a href="admin_MenuUpdate_Promotion.html" class="nav-link active">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                                             class="bi bi-pencil" viewBox="0 0 16 16">
@@ -110,42 +123,48 @@
             </div>
 
             <div class="col-md-8">
-                <div class="album py-4 bg-body-tertiary">
-                    <div class="container">
+                <div class="mt-4">
+                    <h2>Hi <span class ="user-name"></span> </h2>
+                </div>
+                <div>
+                    <div class="album py-4 bg-body-tertiary">
+                        <div class="container">
 
-                        <!-- menu bar -->
-                        <ul class="nav-tabs" id = "categoriesTabs">
-                            <!-- <li class="nav">
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Promotion.html"><span id = "categoriesType">Promotion</span></a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Combo.html"><span id = "categoriesType">Combo</span></a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_FriedChicken.html"><span id = "categoriesType"><span id = "categoriesType">Fried Chicken</span></a>
-                                <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Sides.html"><span id = "categoriesType">Sides</span></a>
-                                <a class="nav-item nav-link link-body-emphasis active" href="admin_MenuUpdate_Beverages.html"><span id = "categoriesType">Beverages</span></a>
-                            </li> -->
-                        </ul>
+                            <!-- menu bar -->
+                            <ul class="nav-tabs" id = "categoriesTabs">
+                                <!-- <li class="nav">
+                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Promotion.html"><span id = "categoriesType">Promotion</span></a>
+                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Combo.html"><span id = "categoriesType">Combo</span></a>
+                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_FriedChicken.html"><span id = "categoriesType"><span id = "categoriesType">Fried Chicken</span></a>
+                                    <a class="nav-item nav-link link-body-emphasis" href="admin_MenuUpdate_Sides.html"><span id = "categoriesType">Sides</span></a>
+                                    <a class="nav-item nav-link link-body-emphasis active" href="admin_MenuUpdate_Beverages.html"><span id = "categoriesType">Beverages</span></a>
+                                </li> -->
+                            </ul>
 
-                                                        
-                        <!-- <div class="d-flex flex-row-reverse justify-content-between align-items-center py-3">
-                            <a href="admin_editCategories.html"><button class="btn-primary btn-editcat">Edit Categories</button></a>
-                        </div> -->
+                                                            
+                            <!-- <div class="d-flex flex-row-reverse justify-content-between align-items-center py-3">
+                                <a href="admin_editCategories.html"><button class="btn-primary btn-editcat">Edit Categories</button></a>
+                            </div> -->
 
-                        <!-- Beverages -->
-                        <h1 class="mt-4" style="color: #7F3720;" id="categoryName"></h1>
+                            <!-- Beverages -->
+                            <h1 class="mt-4" style="color: #7F3720;" id="categoryName"></h1>
 
-                        <div class="row row-cols-md-3" id="menuItem">
-                            
+                            <div class="row row-cols-md-3" id="menuItem">
+                                
+                            </div>
+                            <!-- End of Beverages -->
+
+                            <!-- <div class="d-flex justify-content-end mt-4 fixed-bottom add-button">
+                                <a href="admin_addNewMenu.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#7F3720" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                                </svg>
+                                </a>
+                            </div> -->
                         </div>
-                        <!-- End of Beverages -->
-
-                        <!-- <div class="d-flex justify-content-end mt-4 fixed-bottom add-button">
-                            <a href="admin_addNewMenu.html">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#7F3720" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                              </svg>
-                            </a>
-                        </div> -->
                     </div>
                 </div>
+
             </div> 
             
         </div>
@@ -156,6 +175,7 @@
     <script src="./js/AjaxHelper.js"></script>
     <script src="./js/admin_menuCategories.js"></script>
     <script src="./js/adminMenu.js"></script>
+    <script src="./js/admin.js"></script>
 
 </body>
 </html>
