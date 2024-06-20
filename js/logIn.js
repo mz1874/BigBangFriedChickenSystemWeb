@@ -32,7 +32,7 @@ $(document).ready(function() {
           // Redirect or perform other actions as needed based on roles
           // For example, you could redirect admin users to an admin dashboard
           if (roles.includes('admin')) {
-            window.location.href = '.\\admin_main.html';
+            window.location.href = '.\\admin_addNewMenu.html';
           } else if (roles.includes('driver')) {
             window.location.href = '.\\driver_orderHistory.html';
           }else if(roles.includes("cashier")){
