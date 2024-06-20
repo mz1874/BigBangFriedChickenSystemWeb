@@ -88,7 +88,7 @@ $(document).ready(function() {
 
 
     $("#payment").on("click",function (){
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/order/order",{"userId":currentUserId, "food_ids":foodIds}).then(success=>{
+        AjaxHelper.sendPost("http://localhost:5000/order/order",{"userId":currentUserId, "food_ids":foodIds}).then(success=>{
 
             window.location.href = '.\\order-completed.html';
         }).catch(error=>{

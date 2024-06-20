@@ -9,11 +9,29 @@ $(document).ready(function () {
     function showOrderHistory(){
         AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/order/selectOrderByUserId?userId=${currentUserId}`)
             .then(success => {
+                console.log(success)
                 if (success && success.message && success.message.length > 0) {
                     success.message.forEach(order => {
                         var orderNumber = `#${order.id.toString().padStart(8, '0')}`; // 根据订单ID生成订单号
                         var orderedOn = new Date(order.orderTime).toLocaleString(); // 将订单时间格式化为本地时间字符串
                         var price = `$${order.total.toFixed(2)}`; // 格式化价格
+                        var statusText = "";
+                        switch(order.status) {
+                            case 1:
+                                statusText = 'Ordered';
+                                break;
+                            case 2:
+                                statusText = 'Payment successful!';
+                                break;
+                            case 3:
+                                statusText = 'Delivering';
+                                break;
+                            case 4:
+                                statusText = 'Delivered';
+                                break;
+                            default:
+                                statusText = 'Unknow';
+                        }
 
                         var orderInfo = `
                         <div class="order-info">
@@ -21,6 +39,7 @@ $(document).ready(function () {
                                 <li><strong>Order Number:</strong> ${orderNumber}</li>
                                 <li><strong>Ordered On:</strong> ${orderedOn}</li>
                                 <li><strong>Price:</strong> <span id="price">${price}</span></li>
+                                <li><strong>Status:</strong> <span id="status">${statusText}</span></li>
                                 <li><button style="margin-left: 160px" class="btn btn-info orderDetails" data-toggle="modal" data-target="#myModal" data-order-id="${order.id}">Details</button></li>
                             </ul>
                         </div>
