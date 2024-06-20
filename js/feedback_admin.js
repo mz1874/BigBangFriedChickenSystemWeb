@@ -49,7 +49,6 @@ $(document).ready(function () {
 
     $("#Search").on("click", function () {
         var searchTxt = $("#clientName").val()
-        alert(searchTxt)
         if (searchTxt.trim() === ""){
             loadPageData(1,null);
         }else {

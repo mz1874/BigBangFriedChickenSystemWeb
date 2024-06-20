@@ -73,7 +73,7 @@ $(document).ready(function() {
             $(".delete-item").on("click", function() {
                 const foodId = $(this).data('food-id');
                 AjaxHelper.sendPost("http://bugcreator.org.cn:5000/shoppingCart/delete", {"currentUser":currentUserId, "foodId":foodId}).then(success=>{
-                    alert("删除成功")
+                    alert("Delete successful !")
                     getCurrentCart();
                 }).catch(error=>{
 
