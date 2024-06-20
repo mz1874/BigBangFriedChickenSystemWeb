@@ -22,7 +22,7 @@ $(document).ready(function () {
     })
 
     $("#subtract-btn").on("click", function () {
-        if (quantity!=0){
+        if (quantity!=1){
             quantity-=1;
         }
         $("#quantity").val(quantity)
@@ -31,7 +31,7 @@ $(document).ready(function () {
     $("#add-to-cart-button").on("click", function (e){
         e.preventDefault()
         AjaxHelper.sendPost("http://bugcreator.org.cn:5000/shoppingCart/add", {"foodId":foodId, "quality":quantity, "currentUserId":localStorage.getItem("userId")}).then(success=>{
-            alert("添加成功")
+            alert("Add shopping cart successful !")
         }).catch(error=>{
 
         })
