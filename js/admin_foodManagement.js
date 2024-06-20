@@ -340,4 +340,11 @@ $(document).ready(function () {
         })
         console.log(formData)
     })
+
+
+    $("#logout").on("click",function (){
+        localStorage.clear()
+        alert("Logout successful !")
+        window.location.href = '.\\login.html';
+    })
 });

@@ -65,5 +65,11 @@ $(document).ready(function() {
         var categoryName = getCategoryFromUrl();
         fetchCategoryId(categoryName);
     });
+
+    $("#logout").on("click",function (){
+        localStorage.clear()
+        alert("Logout successful !")
+        window.location.href = '.\\login.html';
+    })
 });
 

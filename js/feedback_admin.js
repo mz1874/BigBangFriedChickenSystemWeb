@@ -119,6 +119,11 @@ $(document).ready(function () {
         }
     }
 
+    $("#logout").on("click",function (){
+        localStorage.clear()
+        alert("Logout successful !")
+        window.location.href = '.\\login.html';
+    })
     // 初始加载第一页数据
     loadPageData(1);
 });
