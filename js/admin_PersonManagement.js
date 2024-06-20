@@ -199,6 +199,7 @@ $(document).ready(function () {
             $("#mobileNumber_detail").val(obj.tel);
             $("#email_detail").val(obj.email);
             $("#address_detail").val(obj.address);
+            $("#dob_detail").val(obj.birthDay);
             $('#foodShow').modal('show');
         }).catch(error => {
 
