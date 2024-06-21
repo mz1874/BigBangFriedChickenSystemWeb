@@ -43,12 +43,10 @@ $(document).ready(function() {
 
         } else {
           // Login failed
-          alert(response.message);
         }
       },
       error: function(xhr, status, error) {
         // Handle error
-        alert('An error occurred: ' + error);
       }
     });
   });
