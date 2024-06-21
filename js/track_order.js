@@ -7,7 +7,7 @@ $(document).ready(function () {
     }
 
     function showOrderHistory(){
-        AjaxHelper.sendGet(`http://localhost:5000/order/selectOrderByUserId?userId=${currentUserId}`)
+        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/order/selectOrderByUserId?userId=${currentUserId}`)
             .then(success => {
                 if (success && success.message && success.message.length > 0) {
                     success.message.forEach(order => {

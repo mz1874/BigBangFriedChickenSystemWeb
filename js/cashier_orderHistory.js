@@ -103,7 +103,7 @@ $(document).ready(function () {
 
     $('body').on("click", "#operation", function() {
         var orderId = $(this).data("orderid");
-        AjaxHelper.sendPost("http://localhost:5000/order/updateStatus", {"orderId":orderId, "status":2}).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/order/updateStatus", {"orderId":orderId, "status":2}).then(success=>{
             alert("update order statue successful!")
             selectAllOrders(1);
         }).catch(error=>{

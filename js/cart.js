@@ -99,7 +99,7 @@ $(document).ready(function() {
            alert("You did not select pick up or delivery")
             return
         }
-        AjaxHelper.sendPost("http://localhost:5000/order/order",{"userId":currentUserId, "food_ids":foodIds, pick_up:selectedType == 1 ? true : false}).then(success=>{
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/order/order",{"userId":currentUserId, "food_ids":foodIds, pick_up:selectedType == 1 ? true : false}).then(success=>{
             window.location.href = '.\\order-completed.html';
         }).catch(error=>{
 
