@@ -7,9 +7,8 @@ $(document).ready(function () {
     }
 
     function showOrderHistory(){
-        AjaxHelper.sendGet(`http://bugcreator.org.cn:5000/order/selectOrderByUserId?userId=${currentUserId}`)
+        AjaxHelper.sendGet(`http://localhost:5000/order/selectOrderByUserId?userId=${currentUserId}`)
             .then(success => {
-                console.log(success)
                 if (success && success.message && success.message.length > 0) {
                     success.message.forEach(order => {
                         var orderNumber = `#${order.id.toString().padStart(8, '0')}`; // 根据订单ID生成订单号
@@ -40,6 +39,7 @@ $(document).ready(function () {
                                 <li><strong>Ordered On:</strong> ${orderedOn}</li>
                                 <li><strong>Price:</strong> <span id="price">${price}</span></li>
                                 <li><strong>Status:</strong> <span id="status">${statusText}</span></li>
+                                <li><strong>Pick Up or Delivery:</strong> <span id="status">${order.isPickUp ? "Pick Up" : "Delivery" }</span></li>
                                 <li><button style="margin-left: 160px" class="btn btn-info orderDetails" data-toggle="modal" data-target="#myModal" data-order-id="${order.id}">Details</button></li>
                             </ul>
                         </div>
