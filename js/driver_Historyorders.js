@@ -88,7 +88,7 @@ $(document).ready(function () {
                                 data-toggle="modal" 
                                 data-target="#myModal"
                                 data-orderid="${order.id}"
-                            >Deliveried</button></td>
+                            >Delivered</button></td>
                     </tr>
                 `;
                 tbody.append(newRow);
