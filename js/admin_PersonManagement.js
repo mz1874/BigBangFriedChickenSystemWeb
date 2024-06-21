@@ -161,7 +161,7 @@ $(document).ready(function () {
     $('#tableBody').on('click', '.btn-delete', function () 
     {
         const userId = $(this).data('user-id');
-        if (confirm(`Are you sure you want to delete food with ID ${userId}?`)) 
+        if (confirm(`Are you sure you want to delete the Person with ID ${userId}?`))
         {
             deleteUserById(userId);
         }
