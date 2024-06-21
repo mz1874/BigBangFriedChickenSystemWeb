@@ -7,6 +7,13 @@ function getCategoryFromUrl() {
 }
 
 $(document).ready(function() {
+
+    var currentUserId = localStorage.getItem("userId");
+    if(currentUserId==="" || currentUserId==null){
+        alert("You have login first!")
+        window.location.href = '.\\logIn.html';
+        return;
+    }
     // Function to fetch menu items for a category
     $(document).ready(function() {
         function fetchMenuItems(categoryId) {
