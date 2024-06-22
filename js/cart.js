@@ -73,7 +73,7 @@ $(document).ready(function() {
             $(".delete-item").on("click", function() {
                 const foodId = $(this).data('food-id');
                 AjaxHelper.sendPost("http://bugcreator.org.cn:5000/shoppingCart/delete", {"currentUser":currentUserId, "foodId":foodId}).then(success=>{
-                    alert("删除成功")
+                    alert("Delete successful !")
                     getCurrentCart();
                 }).catch(error=>{
 
@@ -88,8 +88,18 @@ $(document).ready(function() {
 
 
     $("#payment").on("click",function (){
-        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/order/order",{"userId":currentUserId, "food_ids":foodIds}).then(success=>{
+        var selectedType = $("input[name='type']:checked").val();
 
+        // 检查是否有选中的值
+        if (selectedType !== undefined) {
+            // 输出选中的值
+            console.log("Selected type: " + selectedType);
+            // 您可以在这里处理选中的值，例如发送到服务器或在页面上显示
+        } else {
+           alert("You did not select pick up or delivery")
+            return
+        }
+        AjaxHelper.sendPost("http://bugcreator.org.cn:5000/order/order",{"userId":currentUserId, "food_ids":foodIds, pick_up:selectedType == 1 ? true : false}).then(success=>{
             window.location.href = '.\\order-completed.html';
         }).catch(error=>{
 

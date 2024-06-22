@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+    var currentUserId = localStorage.getItem("userId");
+    if(currentUserId==="" || currentUserId==null){
+        alert("You have login first!")
+        window.location.href = '.\\logIn.html';
+        return;
+    }
+
     $('#pagination').on('click', '.page-link', function(event) {
         event.preventDefault(); // 阻止默认行为
         var page = $(this).text(); // 获取点击的页码
@@ -189,5 +196,9 @@ $(document).ready(function () {
         });
 
     })
-
+    $("#logout").on("click",function (){
+        localStorage.clear()
+        alert("Logout successful !")
+        window.location.href = '.\\login.html';
+    })
 })

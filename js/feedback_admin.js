@@ -1,4 +1,11 @@
 $(document).ready(function () {
+
+    var currentUserId = localStorage.getItem("userId");
+    if(currentUserId==="" || currentUserId==null){
+        alert("You have login first!")
+        window.location.href = '.\\logIn.html';
+        return;
+    }
     // 处理分页链接的点击事件
     $('#pagination').on('click', '.page-link', function (event) {
         event.preventDefault(); // 阻止默认行为
@@ -49,7 +56,6 @@ $(document).ready(function () {
 
     $("#Search").on("click", function () {
         var searchTxt = $("#clientName").val()
-        alert(searchTxt)
         if (searchTxt.trim() === ""){
             loadPageData(1,null);
         }else {
@@ -120,6 +126,11 @@ $(document).ready(function () {
         }
     }
 
+    $("#logout").on("click",function (){
+        localStorage.clear()
+        alert("Logout successful !")
+        window.location.href = '.\\login.html';
+    })
     // 初始加载第一页数据
     loadPageData(1);
 });

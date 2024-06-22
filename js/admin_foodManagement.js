@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    var currentUserId = localStorage.getItem("userId");
+    if(currentUserId==="" || currentUserId==null){
+        alert("You have login first!")
+        window.location.href = '.\\logIn.html';
+        return;
+    }
 
     var currentFoodImageSrc = "";
 
@@ -339,5 +345,12 @@ $(document).ready(function () {
 
         })
         console.log(formData)
+    })
+
+
+    $("#logout").on("click",function (){
+        localStorage.clear()
+        alert("Logout successful !")
+        window.location.href = '.\\login.html';
     })
 });

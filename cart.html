@@ -18,11 +18,13 @@
             <a class="p-2" href="menu_combo.html">Menu</a>
             <a class="p-2" href="story.html">Story</a>
             <a class="p-2" href="feedback_form.html">Contact Us</a>
-            <a class="p-2 cart-link" href="cart.html"><svg xmlns="http://www.w3.org/2000/svg"
-                    class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+            <a class="p-2 cart-link" href="cart.html">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="bi bi-cart-check-fill" viewBox="0 0 16 16">
                     <path
-                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
-                </svg></a>
+                            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                </svg>
+            </a>
             <a class="p-2" href="track_order.html">Track Order</a>
         </nav>
         <a class="p-2" id="login-link" href="logIn.html">Log In</a>
@@ -32,73 +34,73 @@
     </div>
 </header>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-    <main>
-        <div class="cart-container">
-            <div class="cart">
-                <h2>My Cart</h2>
-                <br>
-                <p>Self Collect At: <span class="location">BigBang SS15</span></p>
-                <p>Date and Time: <span class="date-time" id="current-date-time"></span></p>
-                <hr>
-
-                <div class="add-item">
-                    <h3>You're Ordered</h3>
-                    <div class="add-item">
-                        <button><a href="menu_combo.html">+ Add Item</a></button>
-                    </div>
-                </div>
-                <br>
-                <div class="cart-items" id="cart-items">
-                    <div class="container">
-
-                    </div>
-                </div>
-                <div class="cart-total">
-                    <div class="total-row total">
-                        <span>TOTAL</span>
-                        <span class="total-amount" id="total-price">RM 0.00</span>
-                    </div>
-                </div>
-            </div>
-
-                <div class="payment" style="">
-                <h2>Order confirmation</h2>
-<!--                <p>Name:</p>-->
-<!--                <input type="text" id="name" placeholder="John Doe">-->
-<!--                <p>Phone Number:</p>-->
-<!--                <input type="text" id="tel" placeholder="012345678">-->
-<!--                <p>Address:</p>-->
-<!--                <input type="text" id="address" placeholder="error@gmail.com">-->
-                <div class="payment-buttons">
-                    <button class="cash" style="margin-left: 100px" id="payment">Order Now</button>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <footer>
-        <div class="subscribe">
-            <h3>Subscribe to BBFC Email</h3>
-            <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+<main>
+    <div class="cart-container">
+        <div class="cart">
+            <h2>My Cart</h2>
             <br>
-            <input type="email" placeholder="Email Address">
-            <button>Subscribe</button>
-        </div>
-        <br>
-        <div class="smlogo">
-            <img src="images/fb.png" alt="logo">
-            <img src="images/twitter.png" alt="logo">
-            <img src="images/insta.png" alt="logo">
-        </div>
-    </footer>
+            <p>Self Collect At: <span class="location">BigBang SS15</span></p>
+            <p>Date and Time: <span class="date-time" id="current-date-time"></span></p>
+            <hr>
 
-    <script src="js/jquery-3.7.1.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="./js/axios.js"></script>
-    <script src="./js/AjaxHelper.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src ="js/customer.js"></script>
+            <div class="add-item">
+                <h3>You're Ordered</h3>
+                <div class="add-item">
+                    <button><a href="menu_combo.html">+ Add Item</a></button>
+                </div>
+            </div>
+            <br>
+            <div class="cart-items" id="cart-items">
+                <div class="container">
+
+                </div>
+            </div>
+            <div class="cart-total">
+                <div class="total-row total">
+                    <span>TOTAL</span>
+                    <span class="total-amount" id="total-price">RM 0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment" style="">
+            <h2>Order confirmation</h2>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <label for="type1" style="margin-right: 5px;">Pickup</label>
+                <input type="radio" id="type1" name="type" value="1" required>
+                <label for="type2" style="margin-right: 5px;">Delivery</label>
+                <input type="radio" id="type2" name="type" value="0" required>
+            </div>
+            <div class="payment-buttons">
+                <button class="cash" style="margin-left: 100px" id="payment">Order Now</button>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="subscribe">
+        <h3>Subscribe to BBFC Email</h3>
+        <p>Get amazing deals and updates from our product, sent straight to your inbox!</p>
+        <br>
+        <input type="email" placeholder="Email Address">
+        <button>Subscribe</button>
+    </div>
+    <br>
+    <div class="smlogo">
+        <img src="images/fb.png" alt="logo">
+        <img src="images/twitter.png" alt="logo">
+        <img src="images/insta.png" alt="logo">
+    </div>
+</footer>
+
+<script src="js/jquery-3.7.1.js"></script>
+<script src="js/cart.js"></script>
+<script src="./js/axios.js"></script>
+<script src="./js/AjaxHelper.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/customer.js"></script>
 </body>
 
 </html>

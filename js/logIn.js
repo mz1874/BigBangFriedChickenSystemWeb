@@ -32,7 +32,11 @@ $(document).ready(function() {
           // Redirect or perform other actions as needed based on roles
           // For example, you could redirect admin users to an admin dashboard
           if (roles.includes('admin')) {
+<<<<<<< HEAD
             window.location.href = '.\\admin_addNewMenu.html';
+=======
+            window.location.href = '.\\admin_PersonManagement.html';
+>>>>>>> d4259d7f86848561e1c8b9cf861e4372f36da7ee
           } else if (roles.includes('driver')) {
             window.location.href = '.\\driver_orderHistory.html';
           }else if(roles.includes("cashier")){
@@ -43,12 +47,10 @@ $(document).ready(function() {
 
         } else {
           // Login failed
-          alert(response.message);
         }
       },
       error: function(xhr, status, error) {
         // Handle error
-        alert('An error occurred: ' + error);
       }
     });
   });

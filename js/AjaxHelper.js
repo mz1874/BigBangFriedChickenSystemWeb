@@ -1,4 +1,5 @@
 const AjaxHelper = {
+
     sendPost: function(url, json) {
         return axios.post(url, json)
             .then(response => response.data)

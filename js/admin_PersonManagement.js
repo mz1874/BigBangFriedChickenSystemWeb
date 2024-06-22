@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    var currentUserId = localStorage.getItem("userId");
+    if(currentUserId==="" || currentUserId==null){
+        alert("You have login first!")
+        window.location.href = '.\\logIn.html';
+        return;
+    }
+
 
     var currentFoodImageSrc = "";
 
@@ -161,7 +168,7 @@ $(document).ready(function () {
     $('#tableBody').on('click', '.btn-delete', function () 
     {
         const userId = $(this).data('user-id');
-        if (confirm(`Are you sure you want to delete food with ID ${userId}?`)) 
+        if (confirm(`Are you sure you want to delete the Person with ID ${userId}?`))
         {
             deleteUserById(userId);
         }
@@ -199,6 +206,7 @@ $(document).ready(function () {
             $("#mobileNumber_detail").val(obj.tel);
             $("#email_detail").val(obj.email);
             $("#address_detail").val(obj.address);
+            $("#dob_detail").val(obj.birthDay);
             $('#foodShow').modal('show');
         }).catch(error => {
 
@@ -250,4 +258,9 @@ $(document).ready(function () {
 
     selectAllPerson();
 
+    $("#logout").on("click",function (){
+        localStorage.clear()
+        alert("Logout successful !")
+        window.location.href = '.\\login.html';
+    })
 });
